@@ -102,3 +102,9 @@ The global top bar is infrastructure: breadcrumb, search, updates, notifications
 Create Brand and Upload Assets now sit between the Vault's metrics and Brand Family. Manage Vault remains in the header because it governs the Vault; creation actions belong in the working flow because they move the brand system forward.
 
 The resulting hierarchy is clearer: **Vault identity → Vault state → creation → brand structure.** This closes Milestone 1 without beginning Milestone 2.
+
+## LV.SHELL.001 — Shell prerequisite closure
+
+The desktop shell no longer allows the top-bar surface to overlap the sidebar logo and header area. The main column now begins with a real offset at the right edge of the fixed 240px sidebar, preserving a clearer boundary between global navigation and workspace content.
+
+The top bar still visually scrolls with the page in founder testing. That behaviour remains an explicit technical-debt item rather than a solved claim: **the top bar shell offset is corrected, but persistent top-bar behaviour still requires a future focused investigation against the actual browser scroll container.** It is intentionally deferred so Milestone 2 can proceed, and no Milestone 2 product implementation has started.

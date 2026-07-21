@@ -191,3 +191,18 @@ Respond to founder review by reducing the overview to its essential information 
 - Positioned Create Brand and Upload Assets as the secondary and primary creation actions respectively.
 - The Overview now reads Vault identity → Vault state → creation → brand structure.
 - Milestone 2 remains unstarted.
+
+## LV.SHELL.001 — Desktop shell offset prerequisite
+
+**Status:** Recorded with known technical debt<br />
+**Date:** 21 July 2026<br />
+
+- Corrected the desktop shell overlap so the top bar and main column begin at the right edge of the fixed 240px sidebar.
+- Replaced the main column's internal desktop padding with a real desktop offset, leaving the sidebar logo and header area visually unobstructed.
+- Retained the viewport-height shell, independently scrollable main content region, and existing mobile drawer behaviour.
+- The top-bar persistence issue remains open and is intentionally deferred so Milestone 2 can proceed.
+- No Milestone 2 product implementation has started.
+
+### Known technical debt
+
+> The top bar shell offset is corrected, but persistent top-bar behaviour still requires a future focused investigation against the actual browser scroll container.
