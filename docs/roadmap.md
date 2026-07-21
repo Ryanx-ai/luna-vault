@@ -50,7 +50,21 @@ Each milestone is intentionally narrow enough to produce one reviewable product 
 
 **Definition of done:** A user can explore and manipulate a representative local brand family, clearly distinguish inheritance from overrides, and navigate between brands without backend infrastructure. Completed with hierarchy and grid views, dynamic Brand details, relationship and ownership context, six identity-rule states, Vault isolation, and a deterministic session-only Create Brand flow.
 
+## LV.IA.001 — Workspace architecture refinement
+
+**Status:** Complete
+
+**Objective:** Clarify the product hierarchy and give every top-level surface one deliberate role before Asset Library work begins.
+
+**Included scope:** Compact active-Vault switcher, simplified Overview, Brand-scoped mock upload entry, revised primary navigation, Packages placeholder, contextual purpose copy, and product-model documentation.
+
+**Explicit non-goals:** Milestone 3 product implementation, real uploads, cross-Vault operations, hierarchy expansion, persistence, storage, authentication, and top-bar redesign.
+
+**Definition of done:** The application consistently communicates Vault → Brand Family → Brand → Assets; all routes and responsive shell behaviours validate; and the refinement is committed without beginning Milestone 3.
+
 ## Milestone 3 — Asset Library
+
+**Status:** Not started
 
 **Objective:** Build the primary asset-management experience.
 

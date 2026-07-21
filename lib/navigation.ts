@@ -5,7 +5,7 @@ import {
   Boxes,
   FolderOpen,
   Gauge,
-  Image,
+  Package,
   Settings,
   type LucideIcon,
 } from "lucide-react";
@@ -18,9 +18,9 @@ export type NavigationItem = {
 
 export const primaryNavigation: NavigationItem[] = [
   { label: "Overview", href: "/overview", icon: Gauge },
-  { label: "Assets", href: "/assets", icon: Image },
   { label: "Brands", href: "/brands", icon: Boxes },
   { label: "Collections", href: "/collections", icon: FolderOpen },
+  { label: "Packages", href: "/packages", icon: Package },
   { label: "Guide", href: "/guide", icon: BookOpen },
   { label: "Activity", href: "/activity", icon: Activity },
 ];

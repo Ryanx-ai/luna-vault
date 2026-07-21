@@ -128,3 +128,33 @@ Inheritance is a defining difference between Luna Vault and ordinary storage. A 
 - no top-bar redesign inside a product milestone
 
 Milestone 3 should focus on discovering and understanding assets inside this established Brand structure, without weakening the architecture into a generic file browser.
+
+## LV.IA.001 — The workspace follows the Brand system
+
+This refinement made the product hierarchy explicit: **Vault → Brand Family → Brand → Assets.** The sidebar now selects the environment instead of displaying every Vault as permanent navigation, and Overview is once again a quiet statement of Vault identity, state, and Brand structure.
+
+The most important product correction is that assets no longer read as a peer of Brands. An asset only becomes useful when its Brand gives it context, purpose, approval, and history. Upload therefore begins from Brand detail, while the preserved direct Assets route explains that relationship instead of implying a generic file library.
+
+Each surrounding surface now has one job:
+
+- Collections prepares controlled external handover.
+- Packages supports development delivery.
+- Guide is living brand documentation.
+- Activity is the history of meaningful Brand change.
+- Archive preserves shelved identities and their context.
+- Settings governs the active Vault.
+
+Kuro will be the first internal MVP test environment. It should teach us whether a third Brand level is genuinely needed and whether cross-Vault duplication, transfer, sharing, or references solve real work. Those behaviours remain intentionally uncommitted until that use produces evidence.
+
+Future asset automation should protect designer intent: approved source assets remain unchanged, while resized files, alternate formats, favicons, and social avatars become traceable approved outputs.
+
+### What should intentionally not be built in this refinement
+
+- no Milestone 3 Asset Library
+- no real upload or storage flow
+- no cross-Vault operations
+- no speculative hierarchy beyond three visible levels
+- no persistence, authentication, permissions, or Supabase
+- no top-bar redesign
+
+The unresolved persistent top-bar behaviour remains technical debt and was not claimed as solved. This pass establishes where things belong; the next milestone can now design asset discovery within that architecture.

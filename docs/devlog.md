@@ -261,3 +261,48 @@ Answer **“How is my Brand structured?”** by turning Brand Family into a navi
 ### Recommended next milestone
 
 **Milestone 3 — Asset Library**
+
+## LV.IA.001 — Workspace information architecture refinement
+
+**Status:** Complete<br />
+**Date:** 22 July 2026<br />
+**Branch:** `main`<br />
+**Commit:** `feat: refine Luna Vault workspace architecture`
+
+### Objective
+
+Make the hierarchy **Vault → Brand Family → Brand → Assets** explicit across navigation, Overview, Brand detail, purpose pages, and product records before beginning Asset Library work.
+
+### Completed scope
+
+- replaced the permanent Vault list with an accessible compact active-Vault switcher
+- preserved deterministic Luna, Kuro, Pangea, and Tethr selection plus a clearly deferred Create new Vault affordance
+- removed Create Brand and Upload Assets from Overview
+- removed Assets from primary navigation while preserving `/assets`
+- added Packages to primary navigation and introduced `/packages`
+- added a Brand-scoped mock Upload Assets entry point that names the active Brand
+- clarified Collections, Packages, Guide, Activity, Archive, Settings, and direct Assets route responsibilities
+- documented Kuro as the first internal MVP test case
+- documented the provisional three-level Brand hierarchy and intentionally uncommitted cross-Vault behaviour
+- documented future approved outputs as derivatives of an unchanged approved source asset
+
+### Validation
+
+- TypeScript passed.
+- The production build passed.
+- Desktop and mobile shell behaviour, Vault switching, keyboard dismissal, outside-click dismissal, mobile drawer access, Brand creation, Brand-scoped upload feedback, and route safety passed.
+- All application routes, including `/packages` and the preserved `/assets` route, returned successfully.
+- The browser console contained no errors.
+
+### Known issues and deferred work
+
+- The top bar shell offset is corrected, but persistent top-bar behaviour still requires a future focused investigation against the actual browser scroll container.
+- The existing interactive lint limitation remains unresolved.
+- Create new Vault and Upload Assets are presentation-only affordances.
+- Cross-Vault duplication, transfer, sharing, and references remain intentionally uncommitted pending Kuro use.
+- Real uploads, asset workflows, persistence, storage, authentication, permissions, and Supabase remain deferred.
+- Milestone 3 has not started.
+
+### Recommended next milestone
+
+**Milestone 3 — Asset Library**, scoped inside the active Brand architecture rather than as a generic Vault-level file browser.

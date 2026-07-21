@@ -3,22 +3,21 @@
 ## Conceptual hierarchy
 
 ```text
-Workspace
-└── Brand
-    ├── Sub-brand
-    ├── Brand Guide
-    ├── Collections
-    ├── Assets
-    │   └── Versions
-    ├── Members
-    └── Activity
+Vault
+└── Brand Family
+    └── Brand
+        └── Assets
 ```
 
 ## Core objects
 
-### Workspace
+### Vault
 
-The organisation, agency, studio, or client account. It is the administrative boundary for brands, members, and workspace-level settings.
+The active environment for a connected brand system. It is the administrative and navigational boundary for its Brand Family, collaborators, and Vault-level settings.
+
+### Brand Family
+
+The structural view of every related Brand in a Vault. The supported product model should expose no more than three visible identity levels: Parent Brand, Sub-brand, and Nested Sub-brand. Whether the third level is required will be validated through real use rather than assumed.
 
 ### Brand
 
@@ -31,6 +30,8 @@ A product, campaign, event, regional identity, internal initiative, or related i
 ### Asset
 
 A documented brand object, not merely a file. It carries identity, purpose, status, ownership, relationships, guidance, and a version history.
+
+Assets always belong to a Brand. Future utilities may derive approved outputs such as alternate formats, resized files, favicons, or social avatars, but those outputs must remain traceable to an unchanged approved source asset.
 
 ### Asset Version
 
@@ -46,7 +47,7 @@ Living documentation connected directly to stored assets. Its guidance evolves w
 
 ### Member
 
-A user with controlled access to a workspace or brand. Membership determines the workspaces, brands, and actions available to that user.
+A user with controlled access to a Vault or Brand. Membership determines the Vaults, Brands, and actions available to that user.
 
 ### Share Link
 
@@ -67,3 +68,7 @@ For designers, studios, agencies, and brand owners structuring and managing the 
 For clients, employees, marketers, developers, vendors, and partners finding and using approved assets. Consumer workflows prioritise certainty, clear guidance, focused discovery, and safe download or sharing.
 
 These modes describe user intent rather than separate products. A single person may move between them depending on the task.
+
+## Cross-Vault behaviour
+
+Luna Vault has not committed to whether Brands can be duplicated, transferred, shared, or referenced across Vaults. Kuro is the first internal MVP test environment; its use will inform which of those behaviours solves a real operational need without weakening the Vault boundary.

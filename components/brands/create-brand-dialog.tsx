@@ -51,7 +51,15 @@ export function CreateBrandDialog({ open, onClose, vaultId, availableParents }: 
     <div className="fixed inset-0 z-[70] flex items-center justify-center p-4" role="presentation">
       <button className="absolute inset-0 bg-black/75" onClick={resetAndClose} aria-label="Close Create Brand" />
       <div role="dialog" aria-modal="true" aria-labelledby="create-brand-title" className="relative z-10 max-h-[calc(100dvh-32px)] w-full max-w-xl overflow-y-auto border bg-panel shadow-2xl">
-        <div className="flex items-center justify-between border-b px-5 py-4"><div><p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-muted">Brand Architecture</p><h2 id="create-brand-title" className="mt-1 text-base font-medium">Create Brand</h2></div><button onClick={resetAndClose} aria-label="Close dialog" className="text-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50"><X className="size-4" /></button></div>
+        <div className="flex items-center justify-between border-b px-5 py-4">
+          <div>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-muted">Brand Architecture</p>
+            <h2 id="create-brand-title" className="mt-1 text-base font-medium">Create Brand</h2>
+          </div>
+          <button onClick={resetAndClose} aria-label="Close dialog" className="text-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50">
+            <X className="size-4" />
+          </button>
+        </div>
 
         {createdBrand ? (
           <div className="p-6 text-center"><span className="mx-auto flex size-10 items-center justify-center rounded-full border border-emerald-400/20 bg-emerald-400/[0.06] text-emerald-300"><Check className="size-4" /></span><h3 className="mt-4 text-base font-medium">{createdBrand.name} created for this session</h3><p className="mx-auto mt-2 max-w-sm text-xs leading-5 text-muted">The draft Brand and its starting identity rules are available until the page is refreshed. Persistent creation remains deferred.</p><div className="mt-5 flex justify-center gap-2"><Button variant="outline" onClick={resetAndClose}>Done</Button><Button asChild><Link href={`/brands/${createdBrand.slug}`} onClick={resetAndClose}>Open Brand</Link></Button></div></div>

@@ -25,6 +25,7 @@ The `app/` directory contains the root layout, global CSS, a root redirect to `/
 - `/activity`
 - `/archive`
 - `/settings`
+- `/packages`
 
 The overview is a working local-data experience. The remaining product pages are static placeholders composed with the shared page scaffold.
 
@@ -47,9 +48,11 @@ Button variants use Class Variance Authority; class names are composed with `cls
 
 ### Navigation
 
-`lib/navigation.ts` is the source of truth for Workspace and utility navigation items. It associates each route with a label and Lucide icon. The sidebar renders a separate Vaults section above Workspace navigation and exposes the seeded Luna, Kuro, Pangea, and Tethr vaults. Selecting a vault updates shell context deterministically without changing routes or persisting state.
+`lib/navigation.ts` is the source of truth for primary and utility navigation items. It associates each route with a label and Lucide icon. Primary navigation is ordered Overview, Brands, Collections, Packages, Guide, and Activity; Archive and Settings remain utility destinations. Assets is intentionally absent from primary navigation because assets belong to Brands, while the direct `/assets` route remains available as a contextual placeholder.
 
-The sticky top bar separates global shell concerns from page content:
+The sidebar exposes one compact active-Vault switcher near its top. Its accessible menu lists the seeded Luna, Kuro, Pangea, and Tethr Vaults, communicates the selected state, and preserves a deferred Create new Vault affordance. Selection updates shell context deterministically without changing routes or persisting state.
+
+The top bar separates global shell concerns from page content. Its persistent-scroll behaviour remains known technical debt:
 
 - the left region identifies the selected vault and current route
 - the centre provides the future-facing Search Vault entry point
@@ -69,7 +72,7 @@ Milestone 1 introduces a small deterministic local-data boundary for the workspa
 - `lib/fixtures/luna-workspace.ts` contains the seeded vaults, notifications, profile, Luna workspace, and brand family. Dates and values are fixed; no data is generated at runtime.
 - `lib/data/workspace.ts` is the local access boundary consumed by the root shell and overview route.
 
-`app/overview/page.tsx` obtains its data through that access function and passes it to the overview presentation. Its visible hierarchy is intentionally limited to the vault header, compact metrics, creation actions, and Brand Family. Activity and recently updated assets live in Updates, while actionable requests live in Notifications. Brands routes are working local-data experiences; the remaining product routes are static placeholders. There is still no database, authentication, cloud storage, or persistent mutation.
+`app/overview/page.tsx` obtains its data through that access function and passes it to the overview presentation. Its visible hierarchy is intentionally limited to the Vault header, compact metrics, and Brand Family. Brand creation belongs to Brands and asset upload belongs to Brand detail, so neither appears on Overview. Activity and recently updated assets live in Updates, while actionable requests live in Notifications. Brands routes are working local-data experiences; the remaining product routes are static placeholders. There is still no database, authentication, cloud storage, or persistent mutation.
 
 ### Brand Architecture
 
@@ -83,6 +86,8 @@ Milestone 2 adds a focused Brand domain boundary:
 `/brands` renders the structural Brands index. `/brands/[brandSlug]` renders seeded and session-created Brand details through the shared provider. Unknown slugs show a polished in-product not-found state. Switching away from a Vault while viewing one of its Brand routes returns the user to the Brands index so Brand data does not leak across Vaults.
 
 Reusable Brand components live in `components/brands/` and cover hierarchy, cards, lifecycle and inheritance badges, the inheritance matrix, Brand detail composition, and the Create Brand dialog. Overview Brand Family items and the Brands index share the same detail routes.
+
+Brand detail exposes a Brand-scoped Upload Assets entry point. It currently provides explicit mock feedback only: no file selection, storage, persistence, or asset workflow has begun.
 
 ## Planned architecture
 

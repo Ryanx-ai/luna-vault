@@ -1,3 +1,13 @@
 import { PageScaffold } from "@/components/layout/page-scaffold";
 export const metadata = { title: "Guide" };
-export default function GuidePage() { return <PageScaffold eyebrow="Documentation" title="Brand guide" description="Living guidance that explains how the identity should be used." emptyTitle="Your guide is waiting to be written" emptyDescription="Usage, voice, colour, typography, and practical brand rules will be documented here." />; }
+export default function GuidePage() {
+  return (
+    <PageScaffold
+      eyebrow="Living documentation"
+      title="Guide"
+      description="A living Brand document connected directly to approved assets and identity rules."
+      emptyTitle="The Guide is waiting to be structured"
+      emptyDescription="Future authorised editors will shape a polished, partially templated reference without duplicating Brand assets."
+    />
+  );
+}
