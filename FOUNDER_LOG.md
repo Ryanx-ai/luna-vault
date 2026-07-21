@@ -172,3 +172,35 @@ Create Brand should take seconds. A name is sufficient; parent placement, descri
 The Guide owns language and explanation: story, mission, vision, voice, usage guidance, do/don't guidance, examples, and additional documentation. It does not own another copy of the logo, palette, type system, or graphic assets.
 
 No Milestone 3 workflow was started. The next founder review should confirm that the Brand workspace feels like the operating centre of the system before any asset library is built.
+
+## Milestone 2 — Final Founder Reflection
+
+### What changed
+
+Milestone 2 turned Luna Vault from a workspace with Brand cards into a living Brand-system model.
+
+### What became clear
+
+A Brand is not a dashboard, folder, or collection of files.
+
+A Brand owns its Identity System. Guide, Collections, Packages, exports, and future utilities should consume that Identity rather than duplicate it. Every Vault automatically owns a Parent Brand; users do not manually create root Brands, and the MVP hierarchy stops at three levels. Brand name is the only required creation field, while Assets remain conceptually scoped to Brands. Kuro will be the founder's first internal MVP test case.
+
+### Product principle established
+
+**A Brand should only be defined once. Everything else references it.**
+
+### What should intentionally wait
+
+- real uploads
+- Supabase
+- persistence
+- automatic resizing
+- cross-Vault asset transfer
+- Guide editing
+- Packages
+- Collections
+- Milestone 3 implementation
+
+### Next founder action
+
+Test Milestone 2 tomorrow before making additional product changes.

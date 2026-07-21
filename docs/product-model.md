@@ -6,8 +6,15 @@
 Vault
 └── Brand Family
     └── Brand
-        └── Assets
+        ├── Identity System
+        │   ├── Logo
+        │   ├── Colour
+        │   ├── Typography
+        │   └── Graphic Assets
+        └── Guide
 ```
+
+**A Brand should only be defined once. Everything else references it.** Assets remain conceptually scoped to the Brand that owns and explains them.
 
 ## Core objects
 
@@ -80,3 +87,5 @@ These modes describe user intent rather than separate products. A single person 
 ## Cross-Vault behaviour
 
 Luna Vault has not committed to whether Brands can be duplicated, transferred, shared, or referenced across Vaults. Kuro is the first internal MVP test environment; its use will inform which of those behaviours solves a real operational need without weakening the Vault boundary.
+
+Milestone 3 has not started. The current model remains local and presentation-only.

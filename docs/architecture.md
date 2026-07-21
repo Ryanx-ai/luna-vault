@@ -89,9 +89,13 @@ Reusable Brand components live in `components/brands/` and cover the three-level
 
 Brand detail is a workspace rather than a dashboard. Its primary local navigation is Identity, Graphic Assets, and Guide. Logo, Colour, Typography, and Graphic Assets are owned once by the Brand; Guide presents authored documentation and references those identity decisions instead of duplicating them.
 
+The architectural rule is: **A Brand should only be defined once. Everything else references it.** Assets remain Brand-scoped, while Guide consumes Brand-owned identity and stores authored documentation only.
+
 Each seeded Vault automatically owns one Parent Brand. Session-created Brands must select an eligible parent and the UI excludes parents that would create a hierarchy deeper than Parent Brand → Sub-brand → Nested Sub-brand. Users do not manually create root Brands.
 
 Brand detail exposes a Brand-scoped Upload Assets entry point. It currently provides explicit mock feedback only: no file selection, storage, persistence, or asset workflow has begun.
+
+Kuro is the founder's first internal MVP test case. Milestone 3 has not started.
 
 ## Planned architecture
 

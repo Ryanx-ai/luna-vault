@@ -42,13 +42,13 @@ Each milestone is intentionally narrow enough to produce one reviewable product 
 
 **Status:** Complete
 
-**Objective:** Model brands, sub-brands, and inheritance.
+**Objective:** Establish navigable Brand Families and make each Brand the single source of truth for its Identity System.
 
 **Included scope:** Brands index, brand detail, create-brand interface, sub-brand hierarchy, inherited versus overridden indicators, ownership, metadata, brand switching, and local mock state.
 
 **Explicit non-goals:** Persistent creation, asset-library implementation, guide editing, permissions, and real collaboration.
 
-**Definition of done:** A user can explore and manipulate a representative local brand family, clearly distinguish inheritance from overrides, and navigate between brands without backend infrastructure. Completed with hierarchy and grid views, dynamic Brand details, relationship and ownership context, six identity-rule states, Vault isolation, and a deterministic session-only Create Brand flow.
+**Definition of done:** A user can navigate a representative three-level Brand Family, create a session-local Brand with only its name required, and understand Logo, Colour, Typography, and Graphic Assets as one Brand-owned Identity System. Completed with automatic Parent Brands, Identity/Graphic Assets/Guide workspace navigation, visible identity states, Vault isolation, and deterministic local state.
 
 ## LV.IA.001 — Workspace architecture refinement
 

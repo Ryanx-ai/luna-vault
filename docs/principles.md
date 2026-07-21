@@ -4,6 +4,12 @@
 
 Brands are living systems made up of assets, rules, relationships, history, and ownership. Luna Vault organises brands by meaning, not merely by file location.
 
+## Define the Brand once
+
+**A Brand should only be defined once. Everything else references it.**
+
+The Brand is the single source of truth for Logo, Colour, Typography, and Graphic Assets. Guide consumes that Identity System and owns authored documentation only. Collections, Packages, exports, and future utilities must reference Brand-owned identity rather than duplicate it.
+
 ## Every asset has context
 
 An asset should clearly communicate:

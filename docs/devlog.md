@@ -312,7 +312,8 @@ Make the hierarchy **Vault → Brand Family → Brand → Assets** explicit acro
 **Status:** Complete<br />
 **Date:** 22 July 2026<br />
 **Branch:** `main`<br />
-**Commit:** `refactor: establish brand as the single source of truth`
+**Directive:** `LV.MS.002-D`<br />
+**Commit:** `54bb4218573f339bfa18f6fb3017ddc976ecac3d` — `refactor: establish brand as the single source of truth`
 
 ### Objective
 
@@ -343,6 +344,18 @@ Close Milestone 2 by establishing each Brand as the authoritative home for Ident
 - Production build passed.
 - Desktop and mobile Brand workflows passed.
 - Brand creation, automatic Parent Brands, workspace tabs, expandable Identity sections, routes, responsive layout, horizontal overflow, and browser console passed.
+
+### Known technical debt
+
+- Persistent top-bar behaviour remains unresolved and was not changed.
+- There is no configured non-interactive ESLint workflow.
+- Brand and Vault state is local and resets on refresh.
+
+### Deferred work and closure
+
+- Real uploads, Supabase, persistence, automatic resizing, cross-Vault asset transfer, Guide editing, Packages functionality, and Collections functionality remain deferred.
+- The development server is stopped.
+- Milestone 3 has not started.
 
 ### Recommended next milestone
 

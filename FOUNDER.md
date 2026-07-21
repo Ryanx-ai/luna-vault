@@ -45,6 +45,16 @@ Design continues through organisation, documentation, consistency, future update
 
 Luna Vault isn't replacing the creative process. It's protecting it.
 
+## The Brand owns the truth
+
+Luna Vault is built around one durable product principle:
+
+**A Brand should only be defined once. Everything else references it.**
+
+Each Vault automatically owns a Parent Brand. That Brand and its descendants own their Identity Systems: Logo, Colour, Typography, and Graphic Assets. Guide, Collections, Packages, exports, and future utilities consume that source rather than maintaining duplicate identity information.
+
+For the MVP, Brand hierarchy stops at Parent Brand, Sub-brand, and Nested Sub-brand. Assets remain scoped to the Brand they belong to, and Guide owns authored documentation rather than identity values.
+
 ## Vision
 
 We believe every brand should have a living workspace instead of a static folder—one place where teams can:
