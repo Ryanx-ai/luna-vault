@@ -1,68 +1,55 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { Clock3, GitBranch, Grid2X2, List, Settings2, Users, X } from "lucide-react";
+import { BrandMark, BrandStatusBadge, inheritanceSummary } from "@/components/brands/brand-primitives";
+import { useBrands } from "@/components/providers/brand-provider";
 import { useVault } from "@/components/providers/vault-provider";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { EmptyState } from "@/components/ui/empty-state";
-import type { BrandSummary, WorkspaceOverview as WorkspaceOverviewData } from "@/lib/types/workspace";
+import type { Brand } from "@/lib/types/brand";
+import type { WorkspaceOverview as WorkspaceOverviewData } from "@/lib/types/workspace";
 import { cn } from "@/lib/utils";
 
-const displayDate = new Intl.DateTimeFormat("en-SG", { day: "numeric", month: "short" });
 const displayDateTime = new Intl.DateTimeFormat("en-SG", { day: "numeric", month: "short", hour: "numeric", minute: "2-digit" });
 
-function BrandIdentity({ brand, size = "small" }: { brand: BrandSummary; size?: "small" | "large" }) {
-  return (
-    <div className={cn("relative shrink-0 border bg-elevated", size === "large" ? "size-11" : "size-8")}>
-      <Image src={brand.mark} alt="" fill sizes={size === "large" ? "44px" : "32px"} className="object-contain" />
-    </div>
-  );
-}
-
-function Relationship({ brand }: { brand: BrandSummary }) {
-  return brand.type === "parent" ? (
-    <Badge>Parent</Badge>
+function Relationship({ brand }: { brand: Brand }) {
+  return brand.type === "Parent Brand" ? (
+    <span className="text-[9px] uppercase tracking-[0.1em] text-muted">Parent Brand</span>
   ) : (
-    <span className="flex items-center gap-1 text-[10px] text-muted"><GitBranch className="size-3" />Inherits from Luna</span>
+    <span className="flex items-center gap-1 text-[10px] text-muted"><GitBranch className="size-3" />Sub-brand</span>
   );
 }
 
-function BrandList({ brands }: { brands: BrandSummary[] }) {
+function BrandList({ brands }: { brands: Brand[] }) {
   return (
     <div className="divide-y">
       {brands.map((brand) => (
-        <Link key={brand.id} href={`/brands/${brand.slug}`} className="grid gap-3 px-4 py-3.5 transition-colors hover:bg-elevated/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent/50 sm:grid-cols-[minmax(0,1fr)_110px_110px] sm:items-center sm:px-5">
+        <Link key={brand.id} href={`/brands/${brand.slug}`} className="grid gap-3 px-4 py-3.5 transition-colors hover:bg-elevated/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent/50 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center sm:px-5">
           <div className="flex min-w-0 items-center gap-3">
-            <BrandIdentity brand={brand} />
+            <BrandMark brand={brand} className="size-8" />
             <div className="min-w-0">
               <div className="flex flex-wrap items-center gap-2"><p className="truncate text-sm font-medium text-subtle">{brand.name}</p><Relationship brand={brand} /></div>
-              <p className="mt-1 truncate text-[11px] text-muted">{brand.assetCount} assets · {brand.collectionCount} {brand.collectionCount === 1 ? "collection" : "collections"} · {brand.owner.name}</p>
+              <p className="mt-1 truncate text-[10px] text-muted">{inheritanceSummary(brand)}</p>
             </div>
           </div>
-          <p className="text-xs text-muted"><span className="text-subtle">{brand.approvedAssetCount}</span> / {brand.assetCount} approved</p>
-          <p className="text-[11px] text-muted sm:text-right">Updated {displayDate.format(new Date(brand.updatedAt))}</p>
+          <BrandStatusBadge status={brand.status} />
         </Link>
       ))}
     </div>
   );
 }
 
-function BrandGrid({ brands }: { brands: BrandSummary[] }) {
+function BrandGrid({ brands }: { brands: Brand[] }) {
   return (
     <div className="grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-3">
       {brands.map((brand) => (
         <Link key={brand.id} href={`/brands/${brand.slug}`} className="min-w-0 bg-panel p-4 transition-colors hover:bg-elevated/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent/50">
-          <div className="flex items-start justify-between gap-3"><BrandIdentity brand={brand} size="large" /><Relationship brand={brand} /></div>
+          <div className="flex items-start justify-between gap-3"><BrandMark brand={brand} className="size-11" /><BrandStatusBadge status={brand.status} /></div>
           <h3 className="mt-4 truncate text-sm font-medium text-subtle">{brand.name}</h3>
-          <p className="mt-1 text-[11px] text-muted">{brand.owner.name}</p>
-          <div className="mt-4 grid grid-cols-2 gap-3 border-t pt-3 text-[11px] text-muted">
-            <p><span className="block text-sm font-medium text-subtle">{brand.assetCount}</span>Assets</p>
-            <p><span className="block text-sm font-medium text-subtle">{brand.approvedAssetCount}</span>Approved</p>
-          </div>
-          <p className="mt-3 text-[10px] text-muted">Updated {displayDate.format(new Date(brand.updatedAt))}</p>
+          <div className="mt-1"><Relationship brand={brand} /></div>
+          <p className="mt-4 border-t pt-3 text-[10px] text-muted">{inheritanceSummary(brand)}</p>
         </Link>
       ))}
     </div>
@@ -71,14 +58,16 @@ function BrandGrid({ brands }: { brands: BrandSummary[] }) {
 
 export function WorkspaceOverview({ data }: { data: WorkspaceOverviewData }) {
   const { selectedVault } = useVault();
+  const { brands } = useBrands();
   const [view, setView] = useState<"list" | "grid">("list");
   const [manageOpen, setManageOpen] = useState(false);
   const isLuna = selectedVault.id === "vault_luna";
+  const familyBrands = brands.filter((brand) => brand.vaultId === selectedVault.id);
   const metrics = isLuna ? data.metrics : [
     { label: "Total assets", value: selectedVault.assetCount, supportingText: "No assets added" },
     { label: "Approved", value: 0, supportingText: "Nothing approved" },
     { label: "In review", value: 0, supportingText: "Nothing awaiting review" },
-    { label: "Brands", value: selectedVault.brandCount, supportingText: "No brands structured" },
+    { label: "Brands", value: familyBrands.length, supportingText: "Automatic Parent Brand" },
     { label: "Collections", value: 0, supportingText: "No collections" },
   ];
 
@@ -125,9 +114,7 @@ export function WorkspaceOverview({ data }: { data: WorkspaceOverviewData }) {
             <button onClick={() => setView("grid")} aria-label="Grid view" aria-pressed={view === "grid"} className={cn("flex size-7 items-center justify-center rounded-sm text-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50", view === "grid" && "bg-elevated text-foreground")}><Grid2X2 className="size-3.5" /></button>
           </div>
         </div>
-        {isLuna ? (view === "list" ? <BrandList brands={data.brands} /> : <BrandGrid brands={data.brands} />) : (
-          <EmptyState title={`${selectedVault.name} is ready to structure`} description="Create the first brand when this Vault moves beyond its early-stage setup." />
-        )}
+        {view === "list" ? <BrandList brands={familyBrands} /> : <BrandGrid brands={familyBrands} />}
       </section>
 
       <div className="mt-4 flex justify-end"><Link href="/brands" className="text-[11px] text-muted hover:text-foreground">Open Brands</Link></div>

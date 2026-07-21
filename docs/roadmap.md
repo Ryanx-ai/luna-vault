@@ -62,6 +62,18 @@ Each milestone is intentionally narrow enough to produce one reviewable product 
 
 **Definition of done:** The application consistently communicates Vault → Brand Family → Brand → Assets; all routes and responsive shell behaviours validate; and the refinement is committed without beginning Milestone 3.
 
+## LV.MS.002-D — Brand System Refinement
+
+**Status:** Complete
+
+**Objective:** Establish the Brand as the single source of truth and close Milestone 2 with a workspace model rather than a Brand dashboard.
+
+**Included scope:** Name-first Brand creation, automatic Parent Brands, three-level hierarchy preparation, simplified Brand Family presentation, Identity/Graphic Assets/Guide workspace navigation, four expandable Identity System sections, and presentation-only future structures.
+
+**Explicit non-goals:** Milestone 3, real uploads, storage, persistence, Guide editing, asset galleries, automatic outputs, shell changes, and top-bar technical-debt work.
+
+**Definition of done:** Each Vault owns one root Brand; identity data has one Brand-owned home; consumers reference that source; creation remains fast and local; responsive and production validation pass.
+
 ## Milestone 3 — Asset Library
 
 **Status:** Not started

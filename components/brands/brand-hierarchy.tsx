@@ -1,30 +1,33 @@
 import Link from "next/link";
 import { ArrowRight, GitBranch } from "lucide-react";
-import { BrandCard, BrandMark, BrandStatusBadge, inheritanceSummary } from "@/components/brands/brand-primitives";
+import { BrandMark, BrandStatusBadge, inheritanceSummary } from "@/components/brands/brand-primitives";
 import type { Brand } from "@/lib/types/brand";
+import { cn } from "@/lib/utils";
 
 export function BrandHierarchy({ brands }: { brands: Brand[] }) {
   const parent = brands.find((brand) => !brand.parentBrandId);
   if (!parent) return null;
-  const children = brands.filter((brand) => brand.parentBrandId === parent.id);
 
   return (
     <div aria-label={`${parent.name} Brand Family`}>
-      <Link href={`/brands/${parent.slug}`} className="group grid gap-4 border bg-panel/50 p-5 transition-colors hover:bg-elevated/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 md:grid-cols-[minmax(0,1fr)_auto] md:items-center">
-        <div className="flex min-w-0 items-start gap-4">
-          <BrandMark brand={parent} className="size-12" />
-          <div className="min-w-0"><div className="flex flex-wrap items-center gap-2"><h2 className="text-base font-medium">{parent.name}</h2><span className="text-[10px] uppercase tracking-[0.12em] text-muted">Parent Brand</span><BrandStatusBadge status={parent.status} /></div><p className="mt-1 text-xs leading-5 text-muted">{parent.description}</p><p className="mt-2 text-[10px] text-muted">Owned by {parent.owner.name} · {parent.assetCount} assets · {parent.collectionCount} collections</p></div>
-        </div>
-        <span className="flex items-center gap-1 text-[11px] text-muted group-hover:text-foreground">Open Brand <ArrowRight className="size-3" /></span>
-      </Link>
+      <BrandNode brand={parent} brands={brands} level={1} />
+      <p className="sr-only">{parent.name} is the automatic Parent Brand. This hierarchy supports a maximum of three levels.</p>
+    </div>
+  );
+}
 
-      <div className="ml-5 border-l pl-4 pt-4 sm:ml-6 sm:pl-6">
-        <div className="mb-3 flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-muted"><GitBranch className="size-3" />{children.length} related identities</div>
-        <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-          {children.map((brand) => <BrandCard key={brand.id} brand={brand} parent={parent} />)}
-        </div>
-      </div>
-      <p className="sr-only">{parent.name} is the Parent Brand. Its child Brands are {children.map((brand) => brand.name).join(", ")}. {inheritanceSummary(parent)}</p>
+function BrandNode({ brand, brands, level }: { brand: Brand; brands: Brand[]; level: 1 | 2 | 3 }) {
+  const children = level < 3 ? brands.filter((candidate) => candidate.parentBrandId === brand.id) : [];
+  const levelLabel = level === 1 ? "Parent Brand" : level === 2 ? "Sub-brand" : "Nested Sub-brand";
+
+  return (
+    <div className={cn(level > 1 && "ml-5 border-l pl-4 pt-3 sm:ml-6 sm:pl-6")}>
+      <Link href={`/brands/${brand.slug}`} className="group flex items-center gap-4 border bg-panel/45 p-4 transition-colors hover:bg-elevated/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50">
+        <BrandMark brand={brand} className={level === 1 ? "size-12" : "size-10"} />
+        <div className="min-w-0 flex-1"><div className="flex flex-wrap items-center gap-2"><h2 className={cn("font-medium", level === 1 ? "text-base" : "text-sm")}>{brand.name}</h2><span className="text-[9px] uppercase tracking-[0.12em] text-muted">{levelLabel}</span><BrandStatusBadge status={brand.status} /></div><p className="mt-1.5 text-[10px] text-muted">{inheritanceSummary(brand)}</p></div>
+        <span className="hidden items-center gap-1 text-[11px] text-muted group-hover:text-foreground sm:flex">Open <ArrowRight className="size-3" /></span>
+      </Link>
+      {children.length > 0 ? <div><div className="ml-5 flex items-center gap-2 pt-3 text-[9px] font-semibold uppercase tracking-[0.12em] text-muted"><GitBranch className="size-3" />Level {level + 1}</div>{children.map((child) => <BrandNode key={child.id} brand={child} brands={brands} level={(level + 1) as 2 | 3} />)}</div> : null}
     </div>
   );
 }

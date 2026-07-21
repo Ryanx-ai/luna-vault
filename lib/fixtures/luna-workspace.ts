@@ -60,9 +60,9 @@ export const lunaWorkspaceFixture: WorkspaceOverview = {
 
 export const vaultFixtures: VaultSummary[] = [
   { id: "vault_luna", name: "Luna", description: "Luna brand family", collaboratorCount: 8, brandCount: 5, assetCount: 48, updatedAt: "2026-07-20T15:40:00+08:00", state: "active" },
-  { id: "vault_kuro", name: "Kuro", description: "Early-stage brand environment", collaboratorCount: 3, brandCount: 0, assetCount: 0, updatedAt: "2026-07-12T10:00:00+08:00", state: "early-stage" },
-  { id: "vault_pangea", name: "Pangea", description: "Early-stage brand environment", collaboratorCount: 4, brandCount: 0, assetCount: 0, updatedAt: "2026-07-08T14:30:00+08:00", state: "early-stage" },
-  { id: "vault_tethr", name: "Tethr", description: "Early-stage brand environment", collaboratorCount: 2, brandCount: 0, assetCount: 0, updatedAt: "2026-07-03T09:15:00+08:00", state: "early-stage" },
+  { id: "vault_kuro", name: "Kuro", description: "Early-stage brand environment", collaboratorCount: 3, brandCount: 1, assetCount: 0, updatedAt: "2026-07-12T10:00:00+08:00", state: "early-stage" },
+  { id: "vault_pangea", name: "Pangea", description: "Early-stage brand environment", collaboratorCount: 4, brandCount: 1, assetCount: 0, updatedAt: "2026-07-08T14:30:00+08:00", state: "early-stage" },
+  { id: "vault_tethr", name: "Tethr", description: "Early-stage brand environment", collaboratorCount: 2, brandCount: 1, assetCount: 0, updatedAt: "2026-07-03T09:15:00+08:00", state: "early-stage" },
 ];
 
 export const notificationFixtures: NotificationSummary[] = [

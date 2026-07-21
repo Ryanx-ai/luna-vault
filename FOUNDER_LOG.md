@@ -158,3 +158,17 @@ Future asset automation should protect designer intent: approved source assets r
 - no top-bar redesign
 
 The unresolved persistent top-bar behaviour remains technical debt and was not claimed as solved. This pass establishes where things belong; the next milestone can now design asset discovery within that architecture.
+
+## LV.MS.002-D — The Brand owns the truth
+
+The final Milestone 2 pass clarifies Luna Vault's defining product rule: **the Brand owns its Identity once.** Logo, Colour, Typography, and Graphic Assets are Brand variables. Guide, Collections, Packages, exports, developer kits, future AI, and future website generation should reference those variables rather than create parallel identity records.
+
+Brand detail is therefore a workspace, not a dashboard. Its job is to configure and understand the Brand. Inheritance remains visible through status badges, but it is an implementation detail—not the task users believe they are performing.
+
+Every Vault now begins with its own automatic Parent Brand. Users add Brands beneath that root in a familiar family structure, and the product deliberately stops at three levels. This protects clarity while leaving enough room for Parent Brand, Sub-brand, and Nested Sub-brand relationships.
+
+Create Brand should take seconds. A name is sufficient; parent placement, description, owner, and inheritance mode are refinements rather than gates.
+
+The Guide owns language and explanation: story, mission, vision, voice, usage guidance, do/don't guidance, examples, and additional documentation. It does not own another copy of the logo, palette, type system, or graphic assets.
+
+No Milestone 3 workflow was started. The next founder review should confirm that the Brand workspace feels like the operating centre of the system before any asset library is built.

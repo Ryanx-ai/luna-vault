@@ -9,7 +9,7 @@ type BrandContextValue = {
 };
 
 const BrandContext = createContext<BrandContextValue | null>(null);
-const identityRuleNames: IdentityRuleName[] = ["Logo", "Colour", "Typography", "Iconography", "Imagery", "Tone of Voice"];
+const identityRuleNames: IdentityRuleName[] = ["Logo", "Colour", "Typography", "Graphic Assets"];
 
 function slugify(value: string) {
   return value.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "") || "new-brand";
@@ -22,16 +22,17 @@ export function BrandProvider({ initialBrands, children }: { initialBrands: Bran
     const baseSlug = slugify(input.name);
     const matchingSlugs = brands.filter((brand) => brand.slug === baseSlug || brand.slug.startsWith(`${baseSlug}-`)).length;
     const slug = matchingSlugs === 0 ? baseSlug : `${baseSlug}-${matchingSlugs + 1}`;
+    const parentBrand = brands.find((candidate) => candidate.id === input.parentBrandId);
     const brand: Brand = {
       id: `brand_session_${brands.length + 1}`,
       vaultId: input.vaultId,
       name: input.name.trim(),
       slug,
-      description: input.description.trim(),
-      type: input.type,
+      description: input.description?.trim() ?? "",
+      type: parentBrand?.parentBrandId ? "Nested Sub-brand" : "Sub-brand",
       status: "Draft",
       parentBrandId: input.parentBrandId,
-      owner: input.owner,
+      owner: input.owner ?? { name: "Unassigned", initials: "—" },
       collaborators: [],
       createdAt: "2026-07-21T12:00:00+08:00",
       updatedAt: "2026-07-21T12:00:00+08:00",
@@ -44,7 +45,7 @@ export function BrandProvider({ initialBrands, children }: { initialBrands: Bran
       presentationToken: "graphite",
       identityRules: identityRuleNames.map((name) => ({
         name,
-        state: input.inheritanceStartingPoint === "inherit" && input.parentBrandId ? "Inherited" : "Not configured",
+        state: input.inheritanceStartingPoint === "inherit" ? "Inherited" : "Not Configured",
         sourceBrandId: input.inheritanceStartingPoint === "inherit" ? input.parentBrandId : undefined,
         note: input.inheritanceStartingPoint === "inherit" && input.parentBrandId ? "Starts with the parent Brand rule." : "No rule has been established yet.",
       })),

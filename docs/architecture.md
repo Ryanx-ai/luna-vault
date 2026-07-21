@@ -78,14 +78,18 @@ Milestone 1 introduces a small deterministic local-data boundary for the workspa
 
 Milestone 2 adds a focused Brand domain boundary:
 
-- `lib/types/brand.ts` models Brand type, lifecycle, ownership, collaborators, relationships, operational counts, guide completion, and identity-rule inheritance.
-- `lib/fixtures/luna-brands.ts` contains the deterministic Luna Parent Brand and four child Brand records.
+- `lib/types/brand.ts` models Brand type, lifecycle, hierarchy, ownership, and the four authoritative Identity System areas.
+- `lib/fixtures/luna-brands.ts` contains the deterministic Luna Brand Family plus one automatic Parent Brand for every other seeded Vault.
 - `lib/data/brands.ts` is the Brand query boundary used by the root layout and route metadata.
 - `components/providers/brand-provider.tsx` contains session-only Brand creation state. Created Brands disappear on refresh and never make a network request.
 
 `/brands` renders the structural Brands index. `/brands/[brandSlug]` renders seeded and session-created Brand details through the shared provider. Unknown slugs show a polished in-product not-found state. Switching away from a Vault while viewing one of its Brand routes returns the user to the Brands index so Brand data does not leak across Vaults.
 
-Reusable Brand components live in `components/brands/` and cover hierarchy, cards, lifecycle and inheritance badges, the inheritance matrix, Brand detail composition, and the Create Brand dialog. Overview Brand Family items and the Brands index share the same detail routes.
+Reusable Brand components live in `components/brands/` and cover the three-level hierarchy, simplified cards, lifecycle and identity-state badges, expandable Identity System sections, Brand workspace composition, and the Create Brand dialog. Overview Brand Family items and the Brands index share the same detail routes.
+
+Brand detail is a workspace rather than a dashboard. Its primary local navigation is Identity, Graphic Assets, and Guide. Logo, Colour, Typography, and Graphic Assets are owned once by the Brand; Guide presents authored documentation and references those identity decisions instead of duplicating them.
+
+Each seeded Vault automatically owns one Parent Brand. Session-created Brands must select an eligible parent and the UI excludes parents that would create a hierarchy deeper than Parent Brand → Sub-brand → Nested Sub-brand. Users do not manually create root Brands.
 
 Brand detail exposes a Brand-scoped Upload Assets entry point. It currently provides explicit mock feedback only: no file selection, storage, persistence, or asset workflow has begun.
 

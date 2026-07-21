@@ -306,3 +306,44 @@ Make the hierarchy **Vault → Brand Family → Brand → Assets** explicit acro
 ### Recommended next milestone
 
 **Milestone 3 — Asset Library**, scoped inside the active Brand architecture rather than as a generic Vault-level file browser.
+
+## LV.MS.002-D — Brand System Refinement
+
+**Status:** Complete<br />
+**Date:** 22 July 2026<br />
+**Branch:** `main`<br />
+**Commit:** `refactor: establish brand as the single source of truth`
+
+### Objective
+
+Close Milestone 2 by establishing each Brand as the authoritative home for Identity while keeping downstream surfaces as consumers of that source.
+
+### Completed scope
+
+- simplified Create Brand so Brand name is the only required user input
+- removed manual Parent Brand creation and seeded one automatic Parent Brand per Vault
+- prepared Parent Brand, Sub-brand, and Nested Sub-brand hierarchy with a three-level maximum
+- converted Brand detail from a metrics dashboard into an Identity, Graphic Assets, and Guide workspace
+- replaced the flat six-rule inheritance table with expandable Logo, Colour, Typography, and Graphic Assets sections
+- retained Inherited, Overridden, Unique, and Not Configured state visibility
+- prepared presentation-only Logo, Colour, Typography, and Graphic Assets structures
+- established Guide as authored documentation that references Brand-owned identity data
+- simplified Brand Family cards to hierarchy, status, navigation, and identity state
+
+### Preserved boundaries
+
+- Vault switcher and application shell were not changed.
+- Collections, Packages, Activity, Archive, and Settings were not changed.
+- Persistent top-bar behaviour remains known technical debt and was not investigated.
+- No upload, storage, backend, persistence, or Milestone 3 workflow was implemented.
+
+### Validation
+
+- TypeScript passed.
+- Production build passed.
+- Desktop and mobile Brand workflows passed.
+- Brand creation, automatic Parent Brands, workspace tabs, expandable Identity sections, routes, responsive layout, horizontal overflow, and browser console passed.
+
+### Recommended next milestone
+
+**Milestone 3 — Brand-Scoped Asset Library**, only after founder acceptance of this final Milestone 2 model.

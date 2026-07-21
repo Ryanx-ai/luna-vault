@@ -5,9 +5,9 @@ export default function GuidePage() {
     <PageScaffold
       eyebrow="Living documentation"
       title="Guide"
-      description="A living Brand document connected directly to approved assets and identity rules."
-      emptyTitle="The Guide is waiting to be structured"
-      emptyDescription="Future authorised editors will shape a polished, partially templated reference without duplicating Brand assets."
+      description="Generated documentation that references each Brand’s authoritative Identity System."
+      emptyTitle="Authored guidance is waiting"
+      emptyDescription="Brand story, mission, vision, voice, usage guidance, examples, and additional documentation will live here without duplicating Logo, Colour, Typography, or Graphic Assets."
     />
   );
 }

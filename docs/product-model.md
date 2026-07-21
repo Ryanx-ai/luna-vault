@@ -23,6 +23,14 @@ The structural view of every related Brand in a Vault. The supported product mod
 
 The primary identity system. A brand owns its assets, documentation, collections, relationships, and activity.
 
+Every Vault automatically owns one Parent Brand. Users create Sub-brands or Nested Sub-brands beneath the existing family; the supported hierarchy stops at three levels.
+
+### Identity System
+
+The Brand's authoritative source for Logo, Colour, Typography, and Graphic Assets. Statuses such as Inherited, Overridden, Unique, and Not Configured explain how each area is resolved without making inheritance the user's primary task.
+
+Guide, Collections, Packages, exports, developer kits, and future generators consume the Identity System. They must not own duplicate logo, colour, typography, or graphic-asset definitions.
+
 ### Sub-brand
 
 A product, campaign, event, regional identity, internal initiative, or related identity that may inherit from a parent brand. Inheritance and overrides must remain explicit.
@@ -43,7 +51,7 @@ A curated group of assets for a specific use, audience, campaign, channel, vendo
 
 ### Brand Guide
 
-Living documentation connected directly to stored assets. Its guidance evolves with the identity rather than becoming a detached static document.
+Generated living documentation connected directly to the Brand's Identity System. It owns authored material such as Brand Story, Mission, Vision, Voice, usage guidance, do/don't guidance, examples, and additional documentation—but never duplicate identity values.
 
 ### Member
 
