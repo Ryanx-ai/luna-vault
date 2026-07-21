@@ -1,7 +1,9 @@
-import { PageScaffold } from "@/components/layout/page-scaffold";
+import { WorkspaceOverview } from "@/components/overview/workspace-overview";
+import { getWorkspaceOverview } from "@/lib/data/workspace";
 
 export const metadata = { title: "Overview" };
 
-export default function OverviewPage() {
-  return <PageScaffold eyebrow="Command centre" title="Your brand infrastructure, at a glance." description="A structured view of the brands, assets, guidance, and activity that make up your vault." emptyTitle="Your vault is ready for its first brand" emptyDescription="The overview will become the operational pulse of every identity managed in Luna Vault." />;
+export default async function OverviewPage() {
+  const overview = await getWorkspaceOverview();
+  return <WorkspaceOverview data={overview} />;
 }

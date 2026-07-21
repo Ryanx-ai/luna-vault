@@ -49,11 +49,17 @@ Button variants use Class Variance Authority; class names are composed with `cls
 
 ### Public assets
 
-Optimised Luna combination-mark, wordmark, and symbol PNGs live in `public/brand/`. Next.js Image renders the navigation mark.
+Founder-supplied high-resolution brand originals are preserved outside the production bundle in `assets/source/brand/`. Proportionally scaled application copies live in `public/brand/`; the full Luna Vault logo is used in the sidebar brand area and the Luna logomark is used for compact marks and `app/icon.png`. The application copies preserve the source aspect ratio without cropping or reinterpretation.
 
 ### Current mock-data strategy
 
-There is no mock-data layer yet. Placeholder copy is local to each route, and shared page presentation is passed through typed `PageScaffold` props. There is no database, authentication, storage, or simulated product state.
+Milestone 1 introduces a small deterministic local-data boundary for the workspace overview:
+
+- `lib/types/workspace.ts` defines the workspace, brand, asset, activity, metric, and attention domain summaries.
+- `lib/fixtures/luna-workspace.ts` contains the seeded Luna workspace and brand family. Dates and values are fixed; no data is generated at runtime.
+- `lib/data/workspace.ts` is the local access boundary consumed by the overview route.
+
+`app/overview/page.tsx` obtains its data through that access function and passes it to the overview presentation. Other product routes remain static placeholders. There is still no database, authentication, cloud storage, or persistent mutation.
 
 ## Planned architecture
 
@@ -61,7 +67,7 @@ The following boundaries are directional and do not yet represent files in the r
 
 ### Mock application state
 
-Milestones 1–6 should introduce a small typed domain model and deterministic local demo data. Pages should consume that state through a clear service or repository boundary rather than importing scattered fixture objects. This keeps early workflows reviewable without prematurely adding backend infrastructure.
+Milestones 2–6 should extend the typed domain model and deterministic fixtures through the established local access boundary. Fixture objects should remain outside React components so early workflows stay reviewable without prematurely adding backend infrastructure.
 
 ### Future data-service boundary
 

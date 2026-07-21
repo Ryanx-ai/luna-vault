@@ -5,7 +5,7 @@ export function LunaMark({ className }: { className?: string }) {
   return (
     <div className={cn("relative size-6", className)} aria-label="Luna Vault">
       <Image
-        src="/brand/luna-mark.png"
+        src="/brand/luna-logomark.png"
         alt=""
         fill
         className="object-contain"

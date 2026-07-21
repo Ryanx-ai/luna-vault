@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronDown, Command } from "lucide-react";
-import { LunaMark } from "@/components/brand/luna-mark";
+import { LunaVaultLogo } from "@/components/brand/luna-vault-logo";
 import { primaryNavigation, utilityNavigation, type NavigationItem } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
 
@@ -33,8 +33,7 @@ export function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
     <aside className="flex h-full w-full flex-col bg-panel">
       <div className="flex h-14 items-center border-b px-3">
         <button className="flex w-full items-center gap-2 rounded-md p-1.5 text-left hover:bg-elevated" aria-label="Switch workspace">
-          <LunaMark />
-          <span className="min-w-0 flex-1 truncate text-sm font-medium">Luna Vault</span>
+          <LunaVaultLogo className="min-w-0 flex-1" />
           <ChevronDown className="size-3.5 text-muted" />
         </button>
       </div>

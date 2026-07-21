@@ -16,13 +16,15 @@ Each milestone is intentionally narrow enough to produce one reviewable product 
 
 ## Milestone 1 — Workspace Overview
 
+**Status:** Complete
+
 **Objective:** Create a convincing working workspace using realistic local mock data.
 
 **Included scope:** Workspace identity and switcher, overview metrics, recent assets, recent brands, recent activity, quick actions, meaningful empty states, and a seeded Luna demo workspace.
 
 **Explicit non-goals:** Database, authentication, persistence, uploads, and complete brand or asset workflows.
 
-**Definition of done:** The overview communicates the state of a realistic workspace, all displayed data comes from deterministic typed local state, and desktop and mobile views pass validation.
+**Definition of done:** The overview communicates the state of a realistic workspace, all displayed data comes from deterministic typed local state through a dedicated access boundary, and desktop and mobile views pass validation. Completed with the seeded Luna brand family, operational metrics, recent assets and activity, attention items, quick actions, and reusable empty-state treatment.
 
 ## Milestone 2 — Brands and Brand Families
 
