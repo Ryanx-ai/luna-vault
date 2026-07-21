@@ -65,3 +65,28 @@ The Luna brand-family model already feels like one of the product's strongest di
 For Milestone 2, the next question is:
 
 **How is my brand structured?**
+
+## Milestone 1.1 — Overview and Navigation Refinement
+
+### What this refinement clarified
+
+**Vault** is a deliberate product noun. It distinguishes Luna Vault from folders and generic workspaces: a vault is the operational home for a brand system, while brands and sub-brands describe the identity family living inside it.
+
+The simplified overview is more useful for designers because it answers the essential questions quickly instead of presenting every available data point at once. Brand Family now carries the page because structure, inheritance, and relationships are the product's clearest point of difference.
+
+### Product-language decisions
+
+- use **collaborators**, not members, because participation is creative and operational
+- place Activity and Recent assets inside **Updates** as two related but distinct views
+- reserve **Notifications** for actionable requests rather than duplicating the activity feed
+- keep **Brand Family** central to how a vault is understood
+
+### Founder principle reinforced
+
+Clarity does not come from adding more modules. It comes from giving each piece of information one clear home and making the most important relationship impossible to miss.
+
+The interface should help a designer understand the state of a brand system at a glance, then move with confidence. Feature quantity is not the measure of progress.
+
+### What remains intentionally deferred
+
+Milestone 1.1 does not begin Milestone 2. Real vault management, persistent switching, search, notification workflows, uploads, authentication, storage, and brand hierarchy editing remain future work.

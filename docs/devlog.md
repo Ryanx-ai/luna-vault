@@ -114,3 +114,58 @@ Scope:
 - local mock state only
 - no persistence
 - no Supabase
+
+## Milestone 1.1 — Overview and Navigation Refinement
+
+**Status:** Complete<br />
+**Date:** 21 July 2026<br />
+**Branch:** `main`<br />
+**Remote:** `https://github.com/Ryanx-ai/luna-vault.git`
+
+### Objective
+
+Respond to founder review by reducing the overview to its essential information architecture and strengthening vault-level navigation without adding a new product workflow.
+
+### Completed
+
+- simplified Overview containing only the vault header, compact metrics, and Brand Family
+- list and grid Brand Family views with relationship, ownership, update, asset, and collection context
+- deterministic Luna, Kuro, Pangea, and Tethr vault switching
+- reusable early-stage empty state for non-Luna vaults
+- sticky contextual top bar
+- Search Vault entry point
+- Updates panel separating Activity from Recent assets
+- actionable Notifications panel
+- profile and Manage Vault future-control surfaces
+- collaborator terminology across the overview
+- transparent-canvas trim for the production full-logo derivative while preserving the source asset
+
+### Information architecture decisions
+
+- **Vault** is the product-level container; **brand** and **sub-brand** describe the identity system inside it.
+- Brand Family is the primary overview content because hierarchy is central to Luna Vault's differentiation.
+- Activity and recently updated assets belong in Updates, not as competing overview sections.
+- Notifications is reserved for actionable requests and attention states.
+- Overview clarity is measured by prioritisation, not by the number of modules shown.
+
+### Validation
+
+- TypeScript passed.
+- The production build passed.
+- The root redirect and all eight application routes passed.
+- Desktop validation passed at 1440 × 900.
+- Mobile validation passed at 390 × 844.
+- Vault switching, Brand Family view switching, Updates, Notifications, profile, Manage Vault, sticky positioning, and the mobile drawer were exercised.
+- No horizontal overflow was present.
+- All images loaded and the browser console contained no errors.
+
+### Known issues and deferred work
+
+- Search, notifications, profile controls, vault management, and vault switching are intentionally local presentation behaviours.
+- The existing lint limitation remains: there is no configured non-interactive ESLint workflow.
+- Uploads, authentication, Supabase, persistent state, storage, permissions, and versioning remain deferred.
+- Milestone 2 has not begun.
+
+### Recommended next milestone
+
+**Milestone 2 — Brands and Brand Families**

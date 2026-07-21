@@ -1,4 +1,4 @@
-import type { WorkspaceOverview } from "@/lib/types/workspace";
+import type { NotificationSummary, UserProfile, VaultSummary, WorkspaceOverview } from "@/lib/types/workspace";
 
 const ryan = { name: "Ryan Chin", initials: "RC" } as const;
 const lunaTeam = { name: "Luna team", initials: "LT" } as const;
@@ -56,4 +56,24 @@ export const lunaWorkspaceFixture: WorkspaceOverview = {
     { id: "attention_template", title: "Presentation template is a draft", description: "The Luna Vault cover has not been approved.", kind: "draft", href: "/assets" },
     { id: "attention_lockup", title: "Outdated event lockup", description: "One archived lockup is still referenced by a collection.", kind: "outdated", href: "/collections" },
   ],
+};
+
+export const vaultFixtures: VaultSummary[] = [
+  { id: "vault_luna", name: "Luna", description: "Luna brand family", collaboratorCount: 8, brandCount: 5, assetCount: 48, updatedAt: "2026-07-20T15:40:00+08:00", state: "active" },
+  { id: "vault_kuro", name: "Kuro", description: "Early-stage brand environment", collaboratorCount: 3, brandCount: 0, assetCount: 0, updatedAt: "2026-07-12T10:00:00+08:00", state: "early-stage" },
+  { id: "vault_pangea", name: "Pangea", description: "Early-stage brand environment", collaboratorCount: 4, brandCount: 0, assetCount: 0, updatedAt: "2026-07-08T14:30:00+08:00", state: "early-stage" },
+  { id: "vault_tethr", name: "Tethr", description: "Early-stage brand environment", collaboratorCount: 2, brandCount: 0, assetCount: 0, updatedAt: "2026-07-03T09:15:00+08:00", state: "early-stage" },
+];
+
+export const notificationFixtures: NotificationSummary[] = [
+  { id: "notification_approval", title: "Approval requested", description: "Mei Tan requested Ryan's approval for Luna Events Primary Logo.", timestamp: "2026-07-20T16:10:00+08:00", unread: true, kind: "approval" },
+  { id: "notification_review", title: "Asset requires review", description: "Luna Vault App Icon v2 is waiting for review.", timestamp: "2026-07-20T13:30:00+08:00", unread: true, kind: "review" },
+  { id: "notification_format", title: "Required format missing", description: "Luna Events has no approved 32 × 32 favicon.", timestamp: "2026-07-19T10:20:00+08:00", unread: true, kind: "missing" },
+  { id: "notification_owner", title: "Owner decision pending", description: "Luna Labs Brand Pattern needs an assigned approver.", timestamp: "2026-07-18T15:05:00+08:00", unread: false, kind: "decision" },
+];
+
+export const userProfileFixture: UserProfile = {
+  name: "Ryan Chin",
+  initials: "RC",
+  role: "Vault owner",
 };

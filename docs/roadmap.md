@@ -26,6 +26,18 @@ Each milestone is intentionally narrow enough to produce one reviewable product 
 
 **Definition of done:** The overview communicates the state of a realistic workspace, all displayed data comes from deterministic typed local state through a dedicated access boundary, and desktop and mobile views pass validation. Completed with the seeded Luna brand family, operational metrics, recent assets and activity, attention items, quick actions, and reusable empty-state treatment.
 
+## Milestone 1.1 — Overview and Navigation Refinement
+
+**Status:** Complete
+
+**Objective:** Refine the founder-reviewed overview into a quieter, clearer vault command centre before expanding the product surface.
+
+**Included scope:** Simplified overview hierarchy, compact metrics, central Brand Family list and grid views, multi-vault sidebar context, sticky top bar, Search Vault entry point, separated Updates and Notifications, profile controls, collaborator terminology, and production logo scaling refinement.
+
+**Explicit non-goals:** New product workflows, persistent vault switching, real search, real notifications, uploads, authentication, Supabase, storage, and Milestone 2 brand-management features.
+
+**Definition of done:** The overview contains only the vault header, metrics, and Brand Family; shell navigation communicates vault context consistently; activity, assets, and actionable requests are clearly separated; desktop and mobile validation pass; and the refinement is committed and pushed without beginning Milestone 2.
+
 ## Milestone 2 — Brands and Brand Families
 
 **Objective:** Model brands, sub-brands, and inheritance.

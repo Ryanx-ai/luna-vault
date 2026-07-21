@@ -26,18 +26,20 @@ The `app/` directory contains the root layout, global CSS, a root redirect to `/
 - `/archive`
 - `/settings`
 
-All product pages are currently static placeholders composed with the shared page scaffold.
+The overview is a working local-data experience. The remaining product pages are static placeholders composed with the shared page scaffold.
 
 ### Component categories
 
 - `components/layout/` contains the application shell, sidebar, top bar, and shared page scaffold.
+- `components/providers/` contains the client-side selected-vault boundary.
+- `components/overview/` contains the workspace overview presentation.
 - `components/ui/` contains general-purpose Button and Badge primitives.
 - `components/brand/` contains Luna-specific identity rendering.
 - `lib/` contains shared utilities and typed navigation configuration.
 
 ### Shared layout
 
-`app/layout.tsx` wraps every route in `AppShell`. The shell provides a fixed desktop sidebar, mobile navigation drawer, top navigation, and the main content region. Client state is limited to navigation presentation.
+`app/layout.tsx` loads deterministic shell data and wraps every route in `AppShell`. The shell provides a fixed desktop sidebar, mobile navigation drawer, sticky top navigation, and the main content region. `VaultProvider` owns only the currently selected local vault; it does not imply persistence or authentication.
 
 ### UI primitives and styling
 
@@ -45,21 +47,29 @@ Button variants use Class Variance Authority; class names are composed with `cls
 
 ### Navigation
 
-`lib/navigation.ts` is the source of truth for primary and utility navigation items. It associates each route with a label and Lucide icon. The sidebar and top bar consume the same typed configuration.
+`lib/navigation.ts` is the source of truth for Workspace and utility navigation items. It associates each route with a label and Lucide icon. The sidebar renders a separate Vaults section above Workspace navigation and exposes the seeded Luna, Kuro, Pangea, and Tethr vaults. Selecting a vault updates shell context deterministically without changing routes or persisting state.
+
+The sticky top bar separates global shell concerns from page content:
+
+- the left region identifies the selected vault and current route
+- the centre provides the future-facing Search Vault entry point
+- the right region contains Updates, Notifications, and the profile menu
+
+Updates deliberately separates workspace activity from recently updated assets. Notifications represents actionable requests rather than a second activity feed.
 
 ### Public assets
 
-Founder-supplied high-resolution brand originals are preserved outside the production bundle in `assets/source/brand/`. Proportionally scaled application copies live in `public/brand/`; the full Luna Vault logo is used in the sidebar brand area and the Luna logomark is used for compact marks and `app/icon.png`. The application copies preserve the source aspect ratio without cropping or reinterpretation.
+Founder-supplied high-resolution brand originals are preserved outside the production bundle in `assets/source/brand/`. Proportionally scaled application copies live in `public/brand/`; the full Luna Vault logo is used in the sidebar brand area and the Luna logomark is used for compact marks and `app/icon.png`. The full production logo is a deterministic derivative with transparent outer canvas trimmed to improve interface scaling; its visible artwork and aspect ratio remain untouched. Source files are never modified, redrawn, distorted, or reinterpreted.
 
 ### Current mock-data strategy
 
 Milestone 1 introduces a small deterministic local-data boundary for the workspace overview:
 
 - `lib/types/workspace.ts` defines the workspace, brand, asset, activity, metric, and attention domain summaries.
-- `lib/fixtures/luna-workspace.ts` contains the seeded Luna workspace and brand family. Dates and values are fixed; no data is generated at runtime.
-- `lib/data/workspace.ts` is the local access boundary consumed by the overview route.
+- `lib/fixtures/luna-workspace.ts` contains the seeded vaults, notifications, profile, Luna workspace, and brand family. Dates and values are fixed; no data is generated at runtime.
+- `lib/data/workspace.ts` is the local access boundary consumed by the root shell and overview route.
 
-`app/overview/page.tsx` obtains its data through that access function and passes it to the overview presentation. Other product routes remain static placeholders. There is still no database, authentication, cloud storage, or persistent mutation.
+`app/overview/page.tsx` obtains its data through that access function and passes it to the overview presentation. Its visible hierarchy is intentionally limited to the vault header, compact metrics, and Brand Family. Activity and recently updated assets live in Updates, while actionable requests live in Notifications. Other product routes remain static placeholders. There is still no database, authentication, cloud storage, or persistent mutation.
 
 ## Planned architecture
 

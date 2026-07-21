@@ -18,6 +18,41 @@ export type Workspace = {
   updatedAt: string;
 };
 
+export type VaultSummary = {
+  id: string;
+  name: string;
+  description: string;
+  collaboratorCount: number;
+  brandCount: number;
+  assetCount: number;
+  updatedAt: string;
+  state: "active" | "early-stage";
+};
+
+export type NotificationSummary = {
+  id: string;
+  title: string;
+  description: string;
+  timestamp: string;
+  unread: boolean;
+  kind: "approval" | "review" | "missing" | "decision";
+};
+
+export type UserProfile = {
+  name: string;
+  initials: string;
+  role: string;
+};
+
+export type ShellData = {
+  vaults: VaultSummary[];
+  notifications: NotificationSummary[];
+  activity: ActivitySummary[];
+  recentAssets: AssetSummary[];
+  brands: BrandSummary[];
+  user: UserProfile;
+};
+
 export type BrandSummary = {
   id: string;
   name: string;
