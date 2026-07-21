@@ -40,13 +40,15 @@ Each milestone is intentionally narrow enough to produce one reviewable product 
 
 ## Milestone 2 — Brands and Brand Families
 
+**Status:** Complete
+
 **Objective:** Model brands, sub-brands, and inheritance.
 
 **Included scope:** Brands index, brand detail, create-brand interface, sub-brand hierarchy, inherited versus overridden indicators, ownership, metadata, brand switching, and local mock state.
 
 **Explicit non-goals:** Persistent creation, asset-library implementation, guide editing, permissions, and real collaboration.
 
-**Definition of done:** A user can explore and manipulate a representative local brand family, clearly distinguish inheritance from overrides, and navigate between brands without backend infrastructure.
+**Definition of done:** A user can explore and manipulate a representative local brand family, clearly distinguish inheritance from overrides, and navigate between brands without backend infrastructure. Completed with hierarchy and grid views, dynamic Brand details, relationship and ownership context, six identity-rule states, Vault isolation, and a deterministic session-only Create Brand flow.
 
 ## Milestone 3 — Asset Library
 

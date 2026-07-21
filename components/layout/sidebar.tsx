@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 
 function NavLink({ item, onNavigate }: { item: NavigationItem; onNavigate?: () => void }) {
   const pathname = usePathname();
-  const active = pathname === item.href;
+  const active = pathname === item.href || (item.href === "/brands" && pathname.startsWith("/brands/"));
   const Icon = item.icon;
 
   return (

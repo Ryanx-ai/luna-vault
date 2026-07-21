@@ -39,7 +39,7 @@ The overview is a working local-data experience. The remaining product pages are
 
 ### Shared layout
 
-`app/layout.tsx` loads deterministic shell data and wraps every route in `AppShell`. The shell occupies the viewport and prevents document-level scrolling. Its desktop sidebar and global top bar remain fixed in the shell while the `main` content region is the single vertical scroll container. This keeps global controls persistently accessible without duplicate scrollbars or content passing beneath the top bar. `VaultProvider` owns only the currently selected local vault; it does not imply persistence or authentication.
+`app/layout.tsx` loads deterministic shell and Brand data and wraps every route in `AppShell`. The shell occupies the viewport, offsets its desktop main column from the fixed sidebar, and assigns vertical overflow to the `main` content region. `VaultProvider` owns only the selected local Vault and `BrandProvider` owns session-local Brand state; neither implies persistence or authentication. Persistent top-bar behaviour remains recorded technical debt and is not considered resolved by this architecture.
 
 ### UI primitives and styling
 
@@ -69,7 +69,20 @@ Milestone 1 introduces a small deterministic local-data boundary for the workspa
 - `lib/fixtures/luna-workspace.ts` contains the seeded vaults, notifications, profile, Luna workspace, and brand family. Dates and values are fixed; no data is generated at runtime.
 - `lib/data/workspace.ts` is the local access boundary consumed by the root shell and overview route.
 
-`app/overview/page.tsx` obtains its data through that access function and passes it to the overview presentation. Its visible hierarchy is intentionally limited to the vault header, compact metrics, and Brand Family. Activity and recently updated assets live in Updates, while actionable requests live in Notifications. Other product routes remain static placeholders. There is still no database, authentication, cloud storage, or persistent mutation.
+`app/overview/page.tsx` obtains its data through that access function and passes it to the overview presentation. Its visible hierarchy is intentionally limited to the vault header, compact metrics, creation actions, and Brand Family. Activity and recently updated assets live in Updates, while actionable requests live in Notifications. Brands routes are working local-data experiences; the remaining product routes are static placeholders. There is still no database, authentication, cloud storage, or persistent mutation.
+
+### Brand Architecture
+
+Milestone 2 adds a focused Brand domain boundary:
+
+- `lib/types/brand.ts` models Brand type, lifecycle, ownership, collaborators, relationships, operational counts, guide completion, and identity-rule inheritance.
+- `lib/fixtures/luna-brands.ts` contains the deterministic Luna Parent Brand and four child Brand records.
+- `lib/data/brands.ts` is the Brand query boundary used by the root layout and route metadata.
+- `components/providers/brand-provider.tsx` contains session-only Brand creation state. Created Brands disappear on refresh and never make a network request.
+
+`/brands` renders the structural Brands index. `/brands/[brandSlug]` renders seeded and session-created Brand details through the shared provider. Unknown slugs show a polished in-product not-found state. Switching away from a Vault while viewing one of its Brand routes returns the user to the Brands index so Brand data does not leak across Vaults.
+
+Reusable Brand components live in `components/brands/` and cover hierarchy, cards, lifecycle and inheritance badges, the inheritance matrix, Brand detail composition, and the Create Brand dialog. Overview Brand Family items and the Brands index share the same detail routes.
 
 ## Planned architecture
 
@@ -77,7 +90,7 @@ The following boundaries are directional and do not yet represent files in the r
 
 ### Mock application state
 
-Milestones 2–6 should extend the typed domain model and deterministic fixtures through the established local access boundary. Fixture objects should remain outside React components so early workflows stay reviewable without prematurely adding backend infrastructure.
+Milestones 3–6 should extend the typed domain model and deterministic fixtures through the established local access boundaries. Fixture objects should remain outside React components so early workflows stay reviewable without prematurely adding backend infrastructure.
 
 ### Future data-service boundary
 

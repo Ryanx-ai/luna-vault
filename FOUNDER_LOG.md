@@ -108,3 +108,23 @@ The resulting hierarchy is clearer: **Vault identity → Vault state → creatio
 The desktop shell no longer allows the top-bar surface to overlap the sidebar logo and header area. The main column now begins with a real offset at the right edge of the fixed 240px sidebar, preserving a clearer boundary between global navigation and workspace content.
 
 The top bar still visually scrolls with the page in founder testing. That behaviour remains an explicit technical-debt item rather than a solved claim: **the top bar shell offset is corrected, but persistent top-bar behaviour still requires a future focused investigation against the actual browser scroll container.** It is intentionally deferred so Milestone 2 can proceed, and no Milestone 2 product implementation has started.
+
+## Milestone 2 — Brand Architecture
+
+Milestone 2 turned Brand Family from a useful Overview element into navigable Brand Architecture. The core question was simple: **How is my Brand structured?** The answer now includes where a Brand sits, who owns it, what it inherits, what it overrides, and which rules are uniquely its own.
+
+Inheritance is a defining difference between Luna Vault and ordinary storage. A folder can contain a logo, but it cannot explain whether a child Brand shares the Parent Brand's typography, replaces its colour system, or has no imagery rule yet. Those relationships and decisions are part of the Brand itself.
+
+**A Brand is not a folder.** A Brand is defined by relationships and rules, not only by its assets.
+
+### What should intentionally not be built next
+
+- no persistence or Supabase yet
+- no authentication or permissions
+- no real uploads
+- no guide editing
+- no approval workflow
+- no complex Brand health score
+- no top-bar redesign inside a product milestone
+
+Milestone 3 should focus on discovering and understanding assets inside this established Brand structure, without weakening the architecture into a generic file browser.

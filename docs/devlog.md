@@ -206,3 +206,58 @@ Respond to founder review by reducing the overview to its essential information 
 ### Known technical debt
 
 > The top bar shell offset is corrected, but persistent top-bar behaviour still requires a future focused investigation against the actual browser scroll container.
+
+## Milestone 2 — Brand Architecture
+
+**Status:** Complete<br />
+**Date:** 21 July 2026<br />
+**Branch:** `main`<br />
+**Commit:** `feat: build Luna Vault Brand Architecture`
+
+### Objective
+
+Answer **“How is my Brand structured?”** by turning Brand Family into a navigable local Brand Architecture experience rather than a dashboard summary or folder browser.
+
+### Completed scope
+
+- structural Brands index with hierarchy and grid views
+- Luna Parent Brand and four child Brand records
+- dynamic Brand detail routes
+- ownership, collaborators, lifecycle, metadata, and operational summaries
+- parent, sibling, and child relationship navigation
+- six-rule identity inheritance matrix
+- reusable Brand Architecture components
+- Overview-to-Brand navigation
+- dynamic Brand breadcrumbs and active sidebar state
+- non-Luna empty states and Vault isolation
+- accessible session-only Create Brand flow
+- polished unknown-Brand state
+
+### Domain and route changes
+
+- Added a focused Brand model, deterministic fixture boundary, and Brand data-access boundary.
+- Added a shell-level Brand provider for contained session state.
+- Added `/brands/[brandSlug]`; `/brands` now renders the working Brand index.
+- Created Brands update the local family and can be opened during the current session, but disappear on refresh.
+
+### Validation
+
+- TypeScript passed.
+- The production build passed.
+- `/brands`, all five seeded Brand routes, an invalid Brand route, and all existing application routes returned successfully.
+- Desktop validation passed at 1440 × 900.
+- Mobile validation passed at 390 × 844.
+- Hierarchy/grid switching, Brand navigation, breadcrumbs, ownership, relationships, inheritance, form errors, session creation, Vault isolation, and route safety passed.
+- No horizontal overflow was present and the browser console contained no errors.
+
+### Known issues and deferred work
+
+- Persistent top-bar behaviour remains open technical debt and was not changed in this milestone.
+- The existing interactive lint limitation remains unresolved.
+- Brand creation is intentionally session-only.
+- Real editing, persistence, Supabase, authentication, permissions, Assets, Collections, Guide editing, approvals, and uploads remain deferred.
+- Milestone 3 has not started.
+
+### Recommended next milestone
+
+**Milestone 3 — Asset Library**

@@ -1,9 +1,11 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 import { useState } from "react";
 import { Activity, Bell, ChevronDown, Clock3, FileImage, Menu, Search, X } from "lucide-react";
 import { useVault } from "@/components/providers/vault-provider";
+import { useBrands } from "@/components/providers/brand-provider";
 import { Button } from "@/components/ui/button";
 import { primaryNavigation, utilityNavigation } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
@@ -13,9 +15,12 @@ type OpenPanel = "updates" | "notifications" | "profile" | null;
 export function Topbar({ onMenuClick }: { onMenuClick: () => void }) {
   const pathname = usePathname();
   const { selectedVault, shellData } = useVault();
+  const { brands } = useBrands();
   const [openPanel, setOpenPanel] = useState<OpenPanel>(null);
   const [updatesView, setUpdatesView] = useState<"activity" | "assets">("activity");
   const item = [...primaryNavigation, ...utilityNavigation].find((entry) => entry.href === pathname);
+  const detailSlug = pathname.startsWith("/brands/") ? pathname.split("/")[2] : undefined;
+  const activeBrand = detailSlug ? brands.find((brand) => brand.slug === detailSlug) : undefined;
   const unreadCount = shellData.notifications.filter((notification) => notification.unread).length;
 
   const togglePanel = (panel: Exclude<OpenPanel, null>) => setOpenPanel((current) => current === panel ? null : panel);
@@ -28,7 +33,7 @@ export function Topbar({ onMenuClick }: { onMenuClick: () => void }) {
         </Button>
         <span className="truncate text-xs text-muted">{selectedVault.name}</span>
         <span className="text-muted/50">/</span>
-        <span className="truncate text-xs font-medium text-subtle">{item?.label ?? "Luna Vault"}</span>
+        {detailSlug ? <><Link href="/brands" className="truncate text-xs text-muted hover:text-foreground">Brands</Link><span className="text-muted/50">/</span><span className="truncate text-xs font-medium text-subtle">{activeBrand?.name ?? "Brand not found"}</span></> : <span className="truncate text-xs font-medium text-subtle">{item?.label ?? "Luna Vault"}</span>}
       </div>
 
       <Button variant="outline" className="hidden h-8 w-full justify-start px-2.5 md:flex" aria-label="Search Vault">

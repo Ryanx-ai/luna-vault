@@ -34,7 +34,7 @@ function BrandList({ brands }: { brands: BrandSummary[] }) {
   return (
     <div className="divide-y">
       {brands.map((brand) => (
-        <div key={brand.id} className="grid gap-3 px-4 py-3.5 transition-colors hover:bg-elevated/40 sm:grid-cols-[minmax(0,1fr)_110px_110px] sm:items-center sm:px-5">
+        <Link key={brand.id} href={`/brands/${brand.slug}`} className="grid gap-3 px-4 py-3.5 transition-colors hover:bg-elevated/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent/50 sm:grid-cols-[minmax(0,1fr)_110px_110px] sm:items-center sm:px-5">
           <div className="flex min-w-0 items-center gap-3">
             <BrandIdentity brand={brand} />
             <div className="min-w-0">
@@ -44,7 +44,7 @@ function BrandList({ brands }: { brands: BrandSummary[] }) {
           </div>
           <p className="text-xs text-muted"><span className="text-subtle">{brand.approvedAssetCount}</span> / {brand.assetCount} approved</p>
           <p className="text-[11px] text-muted sm:text-right">Updated {displayDate.format(new Date(brand.updatedAt))}</p>
-        </div>
+        </Link>
       ))}
     </div>
   );
@@ -54,7 +54,7 @@ function BrandGrid({ brands }: { brands: BrandSummary[] }) {
   return (
     <div className="grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-3">
       {brands.map((brand) => (
-        <article key={brand.id} className="min-w-0 bg-panel p-4 transition-colors hover:bg-elevated/70">
+        <Link key={brand.id} href={`/brands/${brand.slug}`} className="min-w-0 bg-panel p-4 transition-colors hover:bg-elevated/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent/50">
           <div className="flex items-start justify-between gap-3"><BrandIdentity brand={brand} size="large" /><Relationship brand={brand} /></div>
           <h3 className="mt-4 truncate text-sm font-medium text-subtle">{brand.name}</h3>
           <p className="mt-1 text-[11px] text-muted">{brand.owner.name}</p>
@@ -63,7 +63,7 @@ function BrandGrid({ brands }: { brands: BrandSummary[] }) {
             <p><span className="block text-sm font-medium text-subtle">{brand.approvedAssetCount}</span>Approved</p>
           </div>
           <p className="mt-3 text-[10px] text-muted">Updated {displayDate.format(new Date(brand.updatedAt))}</p>
-        </article>
+        </Link>
       ))}
     </div>
   );
