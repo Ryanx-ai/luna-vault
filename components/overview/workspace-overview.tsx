@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { Clock3, GitBranch, Grid2X2, List, Settings2, Users, X } from "lucide-react";
+import { Clock3, GitBranch, Grid2X2, List, Plus, Settings2, Upload, Users, X } from "lucide-react";
 import { useVault } from "@/components/providers/vault-provider";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -72,7 +72,7 @@ function BrandGrid({ brands }: { brands: BrandSummary[] }) {
 export function WorkspaceOverview({ data }: { data: WorkspaceOverviewData }) {
   const { selectedVault } = useVault();
   const [view, setView] = useState<"list" | "grid">("list");
-  const [manageOpen, setManageOpen] = useState(false);
+  const [headerPanel, setHeaderPanel] = useState<"manage" | "create" | "upload" | null>(null);
   const isLuna = selectedVault.id === "vault_luna";
   const metrics = isLuna ? data.metrics : [
     { label: "Total assets", value: selectedVault.assetCount, supportingText: "No assets added" },
@@ -93,12 +93,25 @@ export function WorkspaceOverview({ data }: { data: WorkspaceOverviewData }) {
             <span className="flex items-center gap-1.5"><Users className="size-3.5" />{selectedVault.collaboratorCount} collaborators</span>
           </div>
         </div>
-        <Button variant="outline" onClick={() => setManageOpen((open) => !open)} aria-expanded={manageOpen}><Settings2 className="size-3.5" />Manage Vault</Button>
+        <div className="flex flex-wrap items-center gap-2">
+          <Button variant="outline" onClick={() => setHeaderPanel((panel) => panel === "create" ? null : "create")} aria-expanded={headerPanel === "create"}><Plus className="size-3.5" />Create Brand</Button>
+          <Button variant="outline" onClick={() => setHeaderPanel((panel) => panel === "manage" ? null : "manage")} aria-expanded={headerPanel === "manage"}><Settings2 className="size-3.5" />Manage Vault</Button>
+          <Button onClick={() => setHeaderPanel((panel) => panel === "upload" ? null : "upload")} aria-expanded={headerPanel === "upload"}><Upload className="size-3.5" />Upload Assets</Button>
+        </div>
 
-        {manageOpen ? (
+        {headerPanel ? (
           <div className="absolute right-0 top-full z-20 mt-2 w-[min(340px,calc(100vw-32px))] border bg-panel p-4 shadow-2xl">
-            <div className="flex items-center justify-between"><p className="text-xs font-medium">Manage {selectedVault.name}</p><button onClick={() => setManageOpen(false)} aria-label="Close Manage Vault" className="text-muted hover:text-foreground"><X className="size-3.5" /></button></div>
-            <p className="mt-2 text-[11px] leading-5 text-muted">Collaborators, permissions, Vault details, ownership, privacy, and archive settings will live here in a later milestone.</p>
+            <div className="flex items-center justify-between">
+              <p className="text-xs font-medium">{headerPanel === "manage" ? `Manage ${selectedVault.name}` : headerPanel === "create" ? "Create Brand" : "Upload Assets"}</p>
+              <button onClick={() => setHeaderPanel(null)} aria-label="Close Vault action" className="text-muted hover:text-foreground"><X className="size-3.5" /></button>
+            </div>
+            <p className="mt-2 text-[11px] leading-5 text-muted">
+              {headerPanel === "manage"
+                ? "Collaborators, permissions, Vault details, ownership, privacy, and archive settings will live here in a later milestone."
+                : headerPanel === "create"
+                  ? "Brand creation will be available in a later milestone. No brand has been created."
+                  : "Asset uploads will be available in a later milestone. No files have been selected or uploaded."}
+            </p>
           </div>
         ) : null}
       </section>

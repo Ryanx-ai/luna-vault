@@ -39,7 +39,7 @@ The overview is a working local-data experience. The remaining product pages are
 
 ### Shared layout
 
-`app/layout.tsx` loads deterministic shell data and wraps every route in `AppShell`. The shell provides a fixed desktop sidebar, mobile navigation drawer, sticky top navigation, and the main content region. `VaultProvider` owns only the currently selected local vault; it does not imply persistence or authentication.
+`app/layout.tsx` loads deterministic shell data and wraps every route in `AppShell`. The shell occupies the viewport and prevents document-level scrolling. Its desktop sidebar and global top bar remain fixed in the shell while the `main` content region is the single vertical scroll container. This keeps global controls persistently accessible without duplicate scrollbars or content passing beneath the top bar. `VaultProvider` owns only the currently selected local vault; it does not imply persistence or authentication.
 
 ### UI primitives and styling
 

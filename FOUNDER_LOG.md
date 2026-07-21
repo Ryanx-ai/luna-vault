@@ -90,3 +90,9 @@ The interface should help a designer understand the state of a brand system at a
 ### What remains intentionally deferred
 
 Milestone 1.1 does not begin Milestone 2. Real vault management, persistent switching, search, notification workflows, uploads, authentication, storage, and brand hierarchy editing remain future work.
+
+## Milestone 1 closure fix — Essential actions remain visible
+
+The simplified Overview should remain quiet without hiding the actions that establish how the product will be used. Create Brand and Upload Assets belong in the Vault header because they are essential entry points, not dashboard content. Create Vault belongs beside the Vaults label as a compact signal that Luna Vault will support multiple brand environments.
+
+The global top bar is infrastructure: breadcrumb, search, updates, notifications, and profile must remain available while the user explores long content. This correction preserves the simplified canvas while restoring those essential controls. Milestone 2 has not started.

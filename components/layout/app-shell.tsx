@@ -18,7 +18,7 @@ export function AppShell({ children, shellData }: { children: React.ReactNode; s
 
   return (
     <VaultProvider shellData={shellData}>
-      <div className="flex min-h-screen bg-canvas">
+      <div className="flex h-dvh overflow-hidden bg-canvas">
         <div className="fixed inset-y-0 left-0 hidden w-60 border-r md:block">
           <Sidebar />
         </div>
@@ -35,9 +35,9 @@ export function AppShell({ children, shellData }: { children: React.ReactNode; s
           </div>
         )}
 
-        <div className="flex min-h-screen min-w-0 flex-1 flex-col md:pl-60">
+        <div className="flex h-dvh min-w-0 flex-1 flex-col md:pl-60">
           <Topbar onMenuClick={() => setMobileOpen(true)} />
-          <main className="flex-1">{children}</main>
+          <main className="min-h-0 flex-1 overflow-y-auto overflow-x-hidden">{children}</main>
         </div>
       </div>
     </VaultProvider>

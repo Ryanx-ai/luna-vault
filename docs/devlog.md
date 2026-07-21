@@ -169,3 +169,14 @@ Respond to founder review by reducing the overview to its essential information 
 ### Recommended next milestone
 
 **Milestone 2 — Brands and Brand Families**
+
+## Milestone 1 closure fix — Vault actions and persistent top bar
+
+**Status:** Complete<br />
+**Date:** 21 July 2026<br />
+
+- Restored the essential Create Brand and Upload Assets controls to the Vault header with honest deferred-feature feedback.
+- Introduced a compact Create Vault control as a future-facing affordance in the Vaults sidebar section.
+- Corrected the application shell so the global top bar remains accessible while only the main content region scrolls.
+- Preserved the simplified Overview canvas: no Quick Actions, Recent Assets, Activity, Needs Attention, or additional dashboard panels were reintroduced.
+- Milestone 2 remains unstarted.
