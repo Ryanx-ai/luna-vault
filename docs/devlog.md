@@ -180,3 +180,14 @@ Respond to founder review by reducing the overview to its essential information 
 - Corrected the application shell so the global top bar remains accessible while only the main content region scrolls.
 - Preserved the simplified Overview canvas: no Quick Actions, Recent Assets, Activity, Needs Attention, or additional dashboard panels were reintroduced.
 - Milestone 2 remains unstarted.
+
+## LV.MS.001-B — Overview action hierarchy closure
+
+**Status:** Complete<br />
+**Date:** 21 July 2026<br />
+
+- Moved Create Brand and Upload Assets from the Vault header into the workflow between metrics and Brand Family.
+- Kept Manage Vault in the header as the administrative action.
+- Positioned Create Brand and Upload Assets as the secondary and primary creation actions respectively.
+- The Overview now reads Vault identity → Vault state → creation → brand structure.
+- Milestone 2 remains unstarted.

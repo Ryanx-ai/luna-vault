@@ -72,7 +72,8 @@ function BrandGrid({ brands }: { brands: BrandSummary[] }) {
 export function WorkspaceOverview({ data }: { data: WorkspaceOverviewData }) {
   const { selectedVault } = useVault();
   const [view, setView] = useState<"list" | "grid">("list");
-  const [headerPanel, setHeaderPanel] = useState<"manage" | "create" | "upload" | null>(null);
+  const [manageOpen, setManageOpen] = useState(false);
+  const [creationPanel, setCreationPanel] = useState<"create" | "upload" | null>(null);
   const isLuna = selectedVault.id === "vault_luna";
   const metrics = isLuna ? data.metrics : [
     { label: "Total assets", value: selectedVault.assetCount, supportingText: "No assets added" },
@@ -93,25 +94,15 @@ export function WorkspaceOverview({ data }: { data: WorkspaceOverviewData }) {
             <span className="flex items-center gap-1.5"><Users className="size-3.5" />{selectedVault.collaboratorCount} collaborators</span>
           </div>
         </div>
-        <div className="flex flex-wrap items-center gap-2">
-          <Button variant="outline" onClick={() => setHeaderPanel((panel) => panel === "create" ? null : "create")} aria-expanded={headerPanel === "create"}><Plus className="size-3.5" />Create Brand</Button>
-          <Button variant="outline" onClick={() => setHeaderPanel((panel) => panel === "manage" ? null : "manage")} aria-expanded={headerPanel === "manage"}><Settings2 className="size-3.5" />Manage Vault</Button>
-          <Button onClick={() => setHeaderPanel((panel) => panel === "upload" ? null : "upload")} aria-expanded={headerPanel === "upload"}><Upload className="size-3.5" />Upload Assets</Button>
-        </div>
+        <Button variant="outline" onClick={() => setManageOpen((open) => !open)} aria-expanded={manageOpen}><Settings2 className="size-3.5" />Manage Vault</Button>
 
-        {headerPanel ? (
+        {manageOpen ? (
           <div className="absolute right-0 top-full z-20 mt-2 w-[min(340px,calc(100vw-32px))] border bg-panel p-4 shadow-2xl">
             <div className="flex items-center justify-between">
-              <p className="text-xs font-medium">{headerPanel === "manage" ? `Manage ${selectedVault.name}` : headerPanel === "create" ? "Create Brand" : "Upload Assets"}</p>
-              <button onClick={() => setHeaderPanel(null)} aria-label="Close Vault action" className="text-muted hover:text-foreground"><X className="size-3.5" /></button>
+              <p className="text-xs font-medium">Manage {selectedVault.name}</p>
+              <button onClick={() => setManageOpen(false)} aria-label="Close Manage Vault" className="text-muted hover:text-foreground"><X className="size-3.5" /></button>
             </div>
-            <p className="mt-2 text-[11px] leading-5 text-muted">
-              {headerPanel === "manage"
-                ? "Collaborators, permissions, Vault details, ownership, privacy, and archive settings will live here in a later milestone."
-                : headerPanel === "create"
-                  ? "Brand creation will be available in a later milestone. No brand has been created."
-                  : "Asset uploads will be available in a later milestone. No files have been selected or uploaded."}
-            </p>
+            <p className="mt-2 text-[11px] leading-5 text-muted">Collaborators, permissions, Vault details, ownership, privacy, and archive settings will live here in a later milestone.</p>
           </div>
         ) : null}
       </section>
@@ -127,7 +118,26 @@ export function WorkspaceOverview({ data }: { data: WorkspaceOverviewData }) {
         </div>
       </section>
 
-      <section className="mt-6 border bg-panel/30" aria-labelledby="brand-family-title">
+      <section className="relative mt-4 flex flex-col justify-end gap-2 sm:flex-row" aria-label="Vault creation actions">
+        <Button variant="outline" className="w-full sm:w-auto" onClick={() => setCreationPanel((panel) => panel === "create" ? null : "create")} aria-expanded={creationPanel === "create"}><Plus className="size-3.5" />Create Brand</Button>
+        <Button className="w-full sm:w-auto" onClick={() => setCreationPanel((panel) => panel === "upload" ? null : "upload")} aria-expanded={creationPanel === "upload"}><Upload className="size-3.5" />Upload Assets</Button>
+
+        {creationPanel ? (
+          <div className="absolute right-0 top-full z-20 mt-2 w-[min(340px,calc(100vw-32px))] border bg-panel p-4 shadow-2xl">
+            <div className="flex items-center justify-between">
+              <p className="text-xs font-medium">{creationPanel === "create" ? "Create Brand" : "Upload Assets"}</p>
+              <button onClick={() => setCreationPanel(null)} aria-label="Close creation action" className="text-muted hover:text-foreground"><X className="size-3.5" /></button>
+            </div>
+            <p className="mt-2 text-[11px] leading-5 text-muted">
+              {creationPanel === "create"
+                ? "Brand creation will be available in a later milestone. No brand has been created."
+                : "Asset uploads will be available in a later milestone. No files have been selected or uploaded."}
+            </p>
+          </div>
+        ) : null}
+      </section>
+
+      <section className="mt-4 border bg-panel/30" aria-labelledby="brand-family-title">
         <div className="flex items-center justify-between gap-4 border-b px-4 py-3 sm:px-5">
           <div><h2 id="brand-family-title" className="text-sm font-medium">Brand Family</h2><p className="mt-0.5 text-xs text-muted">Parent and sub-brand relationships inside {selectedVault.name}.</p></div>
           <div className="flex shrink-0 rounded-md border p-0.5" aria-label="Brand Family presentation">

@@ -96,3 +96,9 @@ Milestone 1.1 does not begin Milestone 2. Real vault management, persistent swit
 The simplified Overview should remain quiet without hiding the actions that establish how the product will be used. Create Brand and Upload Assets belong in the Vault header because they are essential entry points, not dashboard content. Create Vault belongs beside the Vaults label as a compact signal that Luna Vault will support multiple brand environments.
 
 The global top bar is infrastructure: breadcrumb, search, updates, notifications, and profile must remain available while the user explores long content. This correction preserves the simplified canvas while restoring those essential controls. Milestone 2 has not started.
+
+## LV.MS.001-B — Creation belongs in the workflow
+
+Create Brand and Upload Assets now sit between the Vault's metrics and Brand Family. Manage Vault remains in the header because it governs the Vault; creation actions belong in the working flow because they move the brand system forward.
+
+The resulting hierarchy is clearer: **Vault identity → Vault state → creation → brand structure.** This closes Milestone 1 without beginning Milestone 2.
