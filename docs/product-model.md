@@ -32,6 +32,8 @@ The primary identity system. A brand owns its assets, documentation, collections
 
 Every Vault automatically owns one Parent Brand. Users create Sub-brands or Nested Sub-brands beneath the existing family; the supported hierarchy stops at three levels.
 
+Users may also create an Independent Brand as another top-level Brand within the active Vault. Creation defaults to Sub-brand. When parent identity inheritance is enabled, only Colour and Typography inherit; Logo remains Not Configured and Assets and Guide are never inherited automatically.
+
 ### Identity
 
 The Brand's authoritative source for Logo, Colour, and Typography. Statuses such as Inherited, Overridden, Unique, and Not Configured explain how each area is resolved without making inheritance the user's primary task.
@@ -48,7 +50,9 @@ A documented brand object, not merely a file. It carries identity, purpose, stat
 
 Assets always belong to a Brand. Future utilities may derive approved outputs such as alternate formats, resized files, favicons, or social avatars, but those outputs must remain traceable to an unchanged approved source asset.
 
-Each Asset also belongs to a Vault and has one primary category plus tags, lifecycle status, pinning, attribution, file metadata, description, and usage notes. Folders are queryable views of these records rather than ownership containers. Upload will eventually accept multiple files and collect category, tags, status, and description before a person confirms the result.
+Each Asset also belongs to a Vault and has one primary category plus tags, lifecycle status, pinning, attribution, file metadata, description, and usage notes. Folders are queryable views of these records rather than ownership containers. Upload accepts multiple browser-selected files and collects category, tags, status, and description before a person confirms the result.
+
+Milestone 3 implements this as deterministic fixtures plus contained session state. Multiple browser-selected files can be described, classified with a confirmed category, and added without network or storage calls. Pinning and metadata changes update the same Asset object used by the Brand library and Logo Identity gallery.
 
 ### Asset Version
 

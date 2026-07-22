@@ -28,11 +28,11 @@ export function BrandProvider({ initialBrands, children }: { initialBrands: Bran
       vaultId: input.vaultId,
       name: input.name.trim(),
       slug,
-      description: input.description?.trim() ?? "",
-      type: parentBrand?.parentBrandId ? "Nested Sub-brand" : "Sub-brand",
+      description: "",
+      type: input.mode === "independent" ? "Independent Brand" : parentBrand?.parentBrandId ? "Nested Sub-brand" : "Sub-brand",
       status: "Draft",
-      parentBrandId: input.parentBrandId,
-      owner: input.owner ?? { name: "Unassigned", initials: "—" },
+      parentBrandId: input.mode === "sub-brand" ? input.parentBrandId : undefined,
+      owner: { name: "Ryan Chin", initials: "RC" },
       collaborators: [],
       createdAt: "2026-07-21T12:00:00+08:00",
       updatedAt: "2026-07-21T12:00:00+08:00",
@@ -43,16 +43,19 @@ export function BrandProvider({ initialBrands, children }: { initialBrands: Bran
       guideCompletion: 0,
       mark: "/brand/luna-logomark.png",
       presentationToken: "graphite",
-      identityRules: identityRuleNames.map((name) => ({
-        name,
-        state: input.inheritanceStartingPoint === "inherit" ? "Inherited" : "Not Configured",
-        sourceBrandId: input.inheritanceStartingPoint === "inherit" ? input.parentBrandId : undefined,
-        note: input.inheritanceStartingPoint === "inherit" && input.parentBrandId ? "Starts with the parent Brand rule." : "No rule has been established yet.",
-      })),
+      identityRules: identityRuleNames.map((name) => {
+        const inherited = input.mode === "sub-brand" && input.inheritParentIdentity && name !== "Logo";
+        return {
+          name,
+          state: inherited ? "Inherited" : "Not Configured",
+          sourceBrandId: inherited ? input.parentBrandId : undefined,
+          note: inherited ? "Uses the parent Brand settings." : name === "Logo" ? "No logos added yet." : name === "Colour" ? "No colours added yet." : "No typefaces added yet.",
+        };
+      }),
       childBrandIds: [],
     };
 
-    setBrands((current) => current.map((item) => item.id === input.parentBrandId ? { ...item, childBrandIds: [...item.childBrandIds, brand.id] } : item).concat(brand));
+    setBrands((current) => current.map((item) => input.parentBrandId && item.id === input.parentBrandId ? { ...item, childBrandIds: [...item.childBrandIds, brand.id] } : item).concat(brand));
     return brand;
   };
 

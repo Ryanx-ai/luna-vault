@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { AppShell } from "@/components/layout/app-shell";
 import { getBrands } from "@/lib/data/brands";
+import { getAssets } from "@/lib/data/assets";
 import { getShellData } from "@/lib/data/workspace";
 import "./globals.css";
 
@@ -15,11 +16,11 @@ export const viewport: Viewport = {
 };
 
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  const [shellData, brands] = await Promise.all([getShellData(), getBrands()]);
+  const [shellData, brands, assets] = await Promise.all([getShellData(), getBrands(), getAssets()]);
   return (
     <html lang="en">
       <body>
-        <AppShell shellData={shellData} brands={brands}>{children}</AppShell>
+        <AppShell shellData={shellData} brands={brands} assets={assets}>{children}</AppShell>
       </body>
     </html>
   );

@@ -6,6 +6,7 @@ import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import type { Brand, BrandLifecycleStatus, IdentityRule, InheritanceState } from "@/lib/types/brand";
+import type { Asset } from "@/lib/types/asset";
 import { cn } from "@/lib/utils";
 
 const statusStyles: Record<BrandLifecycleStatus, string> = {
@@ -59,7 +60,7 @@ const identityContents: Record<IdentityRule["name"], string[]> = {
   Typography: ["Typeface", "Role", "Weights and styles", "OTF", "TTF", "WOFF", "WOFF2", "Variable font", "Usage notes"],
 };
 
-export function IdentitySystemWorkspace({ rules, sourceName }: { rules: IdentityRule[]; sourceName?: string }) {
+export function IdentitySystemWorkspace({ rules, sourceName, logoAssets = [] }: { rules: IdentityRule[]; sourceName?: string; logoAssets?: Asset[] }) {
   const [openSection, setOpenSection] = useState<IdentityRule["name"] | null>("Logo");
   return (
     <div className="divide-y border" aria-label="Identity System sections">
@@ -70,7 +71,7 @@ export function IdentitySystemWorkspace({ rules, sourceName }: { rules: Identity
             <InheritanceBadge state={rule.state} />
             <ChevronDown className={cn("size-4 shrink-0 text-muted transition-transform", openSection === rule.name && "rotate-180")} />
           </button>
-          {openSection === rule.name ? <div className="border-t px-4 py-4 sm:px-5"><p className="text-[11px] leading-5 text-muted">{rule.note}</p><div className={cn("mt-3 grid gap-2", rule.name === "Logo" ? "grid-cols-2 sm:grid-cols-4" : "sm:grid-cols-2 lg:grid-cols-3")}>{identityContents[rule.name].map((item) => <div key={item} className={cn("border bg-canvas p-3 text-[10px] text-subtle", rule.name === "Logo" && "flex min-h-20 items-end")}>{item}</div>)}</div></div> : null}
+          {openSection === rule.name ? <div className="border-t px-4 py-4 sm:px-5"><p className="text-[11px] leading-5 text-muted">{rule.note}</p>{rule.name === "Logo" && logoAssets.length > 0 ? <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">{logoAssets.map((asset) => <div key={asset.id} className="border bg-canvas p-3"><div className="relative h-16"><Image src={asset.thumbnail ?? "/brand/luna-logomark.png"} alt="" fill sizes="160px" className="object-contain" /></div><p className="mt-2 truncate text-[10px] text-subtle">{asset.name}</p><p className="mt-1 text-[9px] text-muted">{asset.status}{asset.pinned ? " · Pinned" : ""}</p></div>)}</div> : <div className={cn("mt-3 grid gap-2", rule.name === "Logo" ? "grid-cols-2 sm:grid-cols-4" : "sm:grid-cols-2 lg:grid-cols-3")}>{identityContents[rule.name].map((item) => <div key={item} className={cn("border bg-canvas p-3 text-[10px] text-subtle", rule.name === "Logo" && "flex min-h-20 items-end")}>{item}</div>)}</div>}</div> : null}
         </div>
       ))}
     </div>

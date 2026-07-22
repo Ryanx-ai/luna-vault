@@ -1,6 +1,6 @@
 import type { PersonSummary } from "@/lib/types/workspace";
 
-export type BrandType = "Parent Brand" | "Product" | "Sub-brand" | "Nested Sub-brand" | "Event" | "Campaign" | "Internal Initiative";
+export type BrandType = "Parent Brand" | "Independent Brand" | "Product" | "Sub-brand" | "Nested Sub-brand" | "Event" | "Campaign" | "Internal Initiative";
 export type BrandLifecycleStatus = "Active" | "Draft" | "In Review" | "Archived";
 export type InheritanceState = "Inherited" | "Overridden" | "Unique" | "Not Configured";
 export type IdentityRuleName = "Logo" | "Colour" | "Typography";
@@ -43,8 +43,7 @@ export type Brand = {
 export type CreateBrandInput = {
   vaultId: string;
   name: string;
-  parentBrandId: string;
-  description?: string;
-  owner?: PersonSummary;
-  inheritanceStartingPoint: "inherit" | "independent";
+  mode: "sub-brand" | "independent";
+  parentBrandId?: string;
+  inheritParentIdentity: boolean;
 };

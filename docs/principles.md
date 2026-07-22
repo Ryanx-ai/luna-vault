@@ -35,6 +35,12 @@ An asset should clearly communicate:
 - what it replaced
 - what it relates to
 
+Assets remain scoped to one Vault and one Brand. Identity, Guide, Collections, Packages, Search, and Activity reference those same objects rather than making copies.
+
+## Inheritance should be deliberate
+
+Sub-brand creation defaults to inheriting the parent Brand’s Colour and Typography. Logo, Assets, and Guide remain distinct. Independent Brands begin without a parent, and every hierarchy stops at three levels.
+
 ## Confidence is the product
 
 Storage is not the core value. The product should make users confident that they have found the correct, current, approved asset.

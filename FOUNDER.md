@@ -57,6 +57,10 @@ For the MVP, Brand hierarchy stops at Parent Brand, Sub-brand, and Nested Sub-br
 
 Folders organise views of Assets; they do not own files. Collections are committed external releases, while Packages are generated technical deliveries for consumers such as web, application, and game teams.
 
+Brand creation begins with a choice: a Sub-brand inside an existing family or an Independent Brand at the top level of a Vault. Sub-brand is the default. It may inherit Colour and Typography from its parent, while Logo remains unique and unconfigured until the creator adds it.
+
+The Vault owner controls the automatic root Parent Brand. Vault owners may create top-level and nested Brands; collaborators may create Sub-brands unless restricted, but do not take ownership of the root. Detailed permissions remain future work.
+
 ## Vision
 
 We believe every brand should have a living workspace instead of a static folder—one place where teams can:

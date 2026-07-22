@@ -8,6 +8,7 @@ import { AssetLibrary } from "@/components/brands/asset-library";
 import { BrandMark, BrandStatusBadge, IdentitySystemWorkspace } from "@/components/brands/brand-primitives";
 import { useBrands } from "@/components/providers/brand-provider";
 import { useVault } from "@/components/providers/vault-provider";
+import { useAssets } from "@/components/providers/asset-provider";
 import { Button } from "@/components/ui/button";
 import { EmptyState } from "@/components/ui/empty-state";
 import { cn } from "@/lib/utils";
@@ -18,6 +19,7 @@ const guideSections = ["Brand Story", "Mission", "Vision", "Principles", "Audien
 export function BrandDetail({ brandSlug }: { brandSlug: string }) {
   const { brands } = useBrands();
   const { selectedVault } = useVault();
+  const { assets } = useAssets();
   const router = useRouter();
   const [activeView, setActiveView] = useState<"identity" | "assets" | "guide">("identity");
   const [headerPanel, setHeaderPanel] = useState<"manage" | null>(null);
@@ -54,7 +56,7 @@ export function BrandDetail({ brandSlug }: { brandSlug: string }) {
             <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-[11px] text-muted"><span className="flex items-center gap-1.5"><UserRound className="size-3.5" />{brand.owner.name}</span><span className="flex items-center gap-1.5"><Clock3 className="size-3.5" />Updated {displayDate.format(new Date(brand.updatedAt))}</span></div>
           </div>
         </div>
-        <Button variant="outline" onClick={() => setHeaderPanel((panel) => panel === "manage" ? null : "manage")} aria-expanded={headerPanel === "manage"}><Settings2 className="size-3.5" />Manage Brand</Button>
+        <Button variant="outline" onClick={() => setHeaderPanel((panel) => panel === "manage" ? null : "manage")} aria-expanded={headerPanel === "manage"}><Settings2 className="size-3.5" />Configure Brand</Button>
         {headerPanel === "manage" ? <ActionPanel title={`Manage ${brand.name}`} onClose={() => setHeaderPanel(null)}>Brand management is not available yet.</ActionPanel> : null}
       </header>
 
@@ -65,15 +67,15 @@ export function BrandDetail({ brandSlug }: { brandSlug: string }) {
       {activeView === "identity" ? (
         <section className="mt-6" aria-labelledby="identity-system-title">
           <div className="mb-4"><h2 id="identity-system-title" className="text-lg font-medium">Identity</h2><p className="mt-1 max-w-2xl text-xs leading-5 text-muted">Define the logo, colours, and typography used by this Brand.</p></div>
-          <IdentitySystemWorkspace rules={brand.identityRules} sourceName={parent?.name} />
+          <IdentitySystemWorkspace rules={brand.identityRules} sourceName={parent?.name} logoAssets={assets.filter((asset) => asset.vaultId === brand.vaultId && asset.brandId === brand.id && asset.category === "Logos")} />
         </section>
       ) : null}
 
-      {activeView === "assets" ? <AssetLibrary brandName={brand.name} /> : null}
+      {activeView === "assets" ? <AssetLibrary brand={brand} /> : null}
 
       {activeView === "guide" ? (
         <section className="mt-6" aria-labelledby="guide-title">
-          <div className="border bg-panel/30 p-4 sm:p-5"><h2 id="guide-title" className="text-lg font-medium">Guide</h2><p className="mt-2 max-w-2xl text-xs leading-5 text-muted">This Guide brings together the Brand’s identity and usage guidance.</p></div>
+          <div className="border bg-panel/30 p-4 sm:p-5"><h2 id="guide-title" className="text-lg font-medium">Guide</h2><p className="mt-2 max-w-2xl text-xs leading-5 text-muted">This Guide brings together the Brand’s identity and usage guidance.</p><p className="mt-2 text-[10px] text-muted">{assets.filter((asset) => asset.brandId === brand.id && asset.status === "Approved").length} approved Assets available to reference.</p></div>
           <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{guideSections.map((section) => <div key={section} className="flex min-h-24 items-start gap-3 border bg-panel/30 p-4"><FileText className="mt-0.5 size-4 text-muted" /><div><h3 className="text-xs font-medium text-subtle">{section}</h3><p className="mt-1 text-[10px] leading-4 text-muted">No content added yet.</p></div></div>)}</div>
         </section>
       ) : null}

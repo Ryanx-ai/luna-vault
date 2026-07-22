@@ -95,7 +95,13 @@ The architectural rule is: **A Brand should only be defined once. Everything els
 
 Each seeded Vault automatically owns one Parent Brand. Session-created Brands must select an eligible parent and the UI excludes parents that would create a hierarchy deeper than Parent Brand → Sub-brand → Nested Sub-brand. Users do not manually create root Brands.
 
-`components/brands/asset-library.tsx` presents Brand-scoped category views and compact deferred actions. Folder selection is local presentation state. Upload and folder creation provide explicit mock feedback only: no file selection, storage, persistence, or asset mutation has begun.
+`components/brands/asset-library.tsx` presents the Brand-scoped working library. Category selection is local presentation state; multiple-file upload, pinning, selection, detail preview, and metadata changes use contained session state. Folder creation remains unavailable, and no cloud storage or persistence is implied.
+
+### Milestone 3 local Asset state
+
+`AssetProvider` owns deterministic fixture Assets and browser-session mutations behind a focused context boundary. It supports adding Assets, pinning, and restrained metadata updates without persistence. `AssetLibrary` provides category views, search, filters, sorting, grid/list presentation, selection, bulk actions, previews, and a real multiple-file input. Uploaded files remain in memory and are scoped by `vaultId` and `brandId`.
+
+Brand creation now distinguishes Sub-brand from Independent Brand. Parent eligibility uses the existing depth calculation, Ryan Chin is the prototype default owner, and inheritance maps only Colour and Typography to the selected parent. The Logo rule always begins Not Configured.
 
 Kuro is the founder's first internal MVP test case. Milestone 3 has not started.
 

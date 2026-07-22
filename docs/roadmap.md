@@ -175,3 +175,13 @@ These utilities are explicitly post-MVP. Each should be evaluated and scoped as 
 **Status:** Complete
 
 Milestone 2 received its final user-facing copy polish. Active product surfaces now prioritise plain Brand language and no longer expose internal architecture or development-stage explanations. Milestone 2 is approved and complete; Milestone 3 remains not started.
+
+## LV.MS.003 — Brand-Scoped Asset Library
+
+**Status:** Complete
+
+**Objective:** Let users add, organise, preview, and confidently reuse Assets inside a Brand.
+
+**Completed scope:** Revised Brand creation, deterministic Kuro Assets, metadata-driven category views, grid/list presentation, search, filters, sorting, pinning, detail preview, bulk actions, confirmed multi-file upload, shared Logo Asset references, responsive layouts, and strict Brand/Vault isolation.
+
+**Local-only limitations:** Brand and Asset changes reset on refresh. No cloud storage, authentication, permissions, production downloads, deletion, generated variants, Guide editing, Collections, Packages, or Milestone 4 versioning was added.

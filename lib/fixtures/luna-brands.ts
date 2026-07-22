@@ -26,7 +26,7 @@ export const lunaBrandFixtures: Brand[] = [
     id: "brand_luna", vaultId: "vault_luna", name: "Luna", slug: "luna", description: "Primary identity and shared system for the Luna family.", type: "Parent Brand", status: "Active", owner: ryan,
     collaborators: [{ ...mei, role: "Brand operator" }, { ...lunaTeam, role: "Design team" }], createdAt: "2024-01-12T10:00:00+08:00", updatedAt: "2026-07-20T14:20:00+08:00",
     assetCount: 18, approvedAssetCount: 15, inReviewAssetCount: 2, collectionCount: 3, guideCompletion: 92, mark: "/brand/luna-logomark.png", presentationToken: "violet",
-    identityRules: rules({ Logo: "Unique", Colour: "Unique", Typography: "Unique" }, { Logo: "The primary Luna identity source.", Colour: "Defines the shared Luna palette.", Typography: "Defines the family typography system." }),
+    identityRules: rules({ Logo: "Unique", Colour: "Unique", Typography: "Unique" }, { Logo: "Primary Luna logo.", Colour: "Defines the shared Luna palette.", Typography: "Defines the family typography system." }),
     childBrandIds: ["brand_studio", "brand_vault", "brand_labs", "brand_events"],
   },
   {

@@ -5,20 +5,20 @@ import type { Brand } from "@/lib/types/brand";
 import { cn } from "@/lib/utils";
 
 export function BrandHierarchy({ brands }: { brands: Brand[] }) {
-  const parent = brands.find((brand) => !brand.parentBrandId);
-  if (!parent) return null;
+  const roots = brands.filter((brand) => !brand.parentBrandId);
+  if (roots.length === 0) return null;
 
   return (
-    <div aria-label={`${parent.name} Brand Family`}>
-      <BrandNode brand={parent} brands={brands} level={1} />
-      <p className="sr-only">{parent.name} is the Parent Brand. This Brand Family supports three levels.</p>
+    <div className="space-y-4" aria-label="Brand Family hierarchy">
+      {roots.map((root) => <BrandNode key={root.id} brand={root} brands={brands} level={1} />)}
+      <p className="sr-only">This Brand Family supports three levels.</p>
     </div>
   );
 }
 
 function BrandNode({ brand, brands, level }: { brand: Brand; brands: Brand[]; level: 1 | 2 | 3 }) {
   const children = level < 3 ? brands.filter((candidate) => candidate.parentBrandId === brand.id) : [];
-  const levelLabel = level === 1 ? "Parent Brand" : level === 2 ? "Sub-brand" : "Nested Sub-brand";
+  const levelLabel = brand.type === "Independent Brand" ? "Independent Brand" : level === 1 ? "Parent Brand" : level === 2 ? "Sub-brand" : "Nested Sub-brand";
 
   return (
     <div className={cn(level > 1 && "ml-5 border-l pl-4 pt-3 sm:ml-6 sm:pl-6")}>

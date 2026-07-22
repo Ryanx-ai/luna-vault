@@ -218,3 +218,11 @@ This is a computer-engineering boundary pass, not Milestone 3. It establishes ty
 Milestone 2 received its final user-facing copy polish. Internal architecture and development language has been removed from the product interface so Luna Vault now speaks plainly to designers, Brand owners, clients, and collaborators.
 
 The underlying Brand architecture remains unchanged. This pass improves what people read: clear names, states, available actions, hierarchy, and useful empty-state guidance. Milestone 2 is approved and complete. Milestone 3 has not started.
+
+## Milestone 3 — From structure to daily Asset work
+
+The LVMH mental-model test made Brand creation clearer: a new Brand is either a Sub-brand within a family or an Independent Brand at the top of a Vault. Sub-brand is the default because it reflects the most common family-building action. The `Inherit parent identity` switch deliberately carries only Colour and Typography; Logo remains unique and begins unconfigured.
+
+Milestone 3 shifts Luna Vault from defining structure to doing daily Asset work. Kuro now has a realistic Brand-scoped library where a creator can find, filter, pin, select, preview, and add Assets. Categories remain metadata-driven views. Upload suggestions are simple and explainable, and the creator always confirms the destination.
+
+The automatic root remains controlled by the Vault owner. Collaborator permissions are recorded but not implemented. All Brand and Asset mutations remain in the browser session, and Milestone 4 has not started.

@@ -69,6 +69,45 @@ Turn the application foundation into a believable operational workspace and esta
 - Image loading passed.
 - The browser console contained no errors.
 
+## LV.MS.003 — Brand-Scoped Asset Library
+
+**Status:** Complete<br />
+**Date:** 23 July 2026<br />
+**Branch:** `main`<br />
+**Directive:** `LV.MS.003`
+
+### Brand Creation prerequisite
+
+- removed Description and Owner decisions from creation; Ryan Chin is the prototype default owner
+- added Sub-brand and Independent Brand modes with Sub-brand selected by default
+- retained eligible-parent filtering and the three-level maximum
+- added an `Inherit parent identity` switch that applies only Colour and Typography
+- kept Logo Not Configured and navigated directly to every newly created Brand
+
+### Asset Library
+
+- added ten deterministic Kuro Asset fixtures and a contained session-state provider
+- implemented All Assets plus eleven default category views, counts, search, status/type filters, sorting, grid/list modes, selection, pinning, and bulk category/tag/status/pin actions
+- added an accessible Asset detail drawer and honest unavailable-download state
+- implemented real multiple-file selection with browser metadata, editable category/tags/status/description, deterministic suggestions, explicit confirmation, and immediate Brand-scoped results
+- connected the Logo Identity gallery and Guide reference count to the same Asset records
+
+### Boundaries
+
+- no Supabase, cloud storage, authentication, permissions, production download, deletion, generated variants, Guide editing, Collections, Packages, or Milestone 4 work
+- Brand and Asset changes remain browser-session only and reset on refresh
+- the known persistent top-bar issue remains unchanged
+
+### Validation
+
+- TypeScript and the production build passed.
+- All application routes and Overview loaded successfully.
+- Brand creation passed for inherited Sub-brand, non-inherited Sub-brand, and Independent Brand modes.
+- Kuro categories, counts, search, filters, sorting, grid/list modes, pinning, selection, bulk category updates, detail preview, shared Identity references, and Guide reference count passed in the rendered interface.
+- Multiple real local files were selected through the browser input, reviewed with an editable suggestion, and added to Kuro; Luna remained isolated.
+- Desktop at 1440×900 and mobile at 390×844 passed with no horizontal overflow; mobile navigation remained functional.
+- The browser console contained no errors.
+
 ## LV.MS.002-F — Final User-Facing Copy Polish
 
 **Status:** Complete<br />

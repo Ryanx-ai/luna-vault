@@ -4,6 +4,7 @@ export type AssetStatus = "Draft" | "In Review" | "Approved" | "Archived";
 export type AssetFileType = "Image" | "Video" | "Audio" | "Font" | "Document" | "Archive" | "3D" | "Other";
 
 export const defaultAssetCategories = [
+  "Logos",
   "Illustrations",
   "Photography",
   "Campaign Graphics",
@@ -46,3 +47,5 @@ export type Asset = {
   description?: string;
   usageNotes?: string;
 };
+
+export type CreateAssetInput = Pick<Asset, "vaultId" | "brandId" | "name" | "originalFilename" | "fileType" | "mimeType" | "extension" | "category" | "tags" | "status"> & Partial<Pick<Asset, "sizeBytes" | "description">>;
