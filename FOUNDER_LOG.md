@@ -232,3 +232,7 @@ The automatic root remains controlled by the Vault owner. Collaborator permissio
 **People enter a Vault to work on its Brand ecosystem, not to inspect dashboard totals.** Brands therefore becomes the Vault home and first Workspace destination. The dedicated Overview interface is retired, while its route remains a safe redirect for existing links.
 
 Activity is renamed Timeline to express the evolving history of the Brand Family: creation, identity decisions, Asset work, releases, deliveries, and archival change. Updates remains the compact global feed; Timeline is the full historical workspace. No Milestone 4 work was introduced.
+
+## LV.CLOSE.003 — End-of-day reflection
+
+Brands became the Vault home, and Timeline replaced Activity as the history of the Brand ecosystem. The Brand remains the single source of truth: Identity owns Logo, Colour, and Typography; Assets belong to Brands; and Guide brings that Brand information together without duplicating it. With the Asset Library established, Luna continues evolving from organised handover into a living Brand operating system. Milestone 3 is complete and ready for founder review. Milestone 4 has not started.

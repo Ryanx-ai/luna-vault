@@ -100,4 +100,4 @@ These modes describe user intent rather than separate products. A single person 
 
 Luna Vault has not committed to whether Brands can be duplicated, transferred, shared, or referenced across Vaults. Kuro is the first internal MVP test environment; its use will inform which of those behaviours solves a real operational need without weakening the Vault boundary.
 
-Milestone 3 has not started. The current model remains local and presentation-only; Milestone 2-E prepares only its typed and interaction boundaries.
+Milestone 3 is complete. Brand creation and Asset Library changes remain local to the browser session and reset on refresh. Milestone 4 has not started.

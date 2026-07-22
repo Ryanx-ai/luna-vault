@@ -87,7 +87,7 @@ Milestone 2 adds a focused Brand domain boundary:
 
 `/brands` renders the structural Brands index. `/brands/[brandSlug]` renders seeded and session-created Brand details through the shared provider. Unknown slugs show a polished in-product not-found state. Switching away from a Vault while viewing one of its Brand routes returns the user to the Brands index so Brand data does not leak across Vaults.
 
-Reusable Brand components live in `components/brands/` and cover the three-level hierarchy, simplified cards, lifecycle and identity-state badges, expandable Identity System sections, Brand workspace composition, and the Create Brand dialog. Overview Brand Family items and the Brands index share the same detail routes.
+Reusable Brand components live in `components/brands/` and cover the three-level hierarchy, simplified cards, lifecycle and identity-state badges, expandable Identity System sections, Brand workspace composition, and the Create Brand dialog. The Brands index and Brand workspaces share the same detail routes.
 
 Brand detail is a workspace rather than a dashboard. Its primary local navigation is Identity, Assets, and Guide. Identity owns Logo, Colour, and Typography; the Asset Library owns documented Brand assets; Guide presents authored documentation and references both without duplicating them.
 
@@ -103,7 +103,7 @@ Each seeded Vault automatically owns one Parent Brand. Session-created Brands mu
 
 Brand creation now distinguishes Sub-brand from Independent Brand. Parent eligibility uses the existing depth calculation, Ryan Chin is the prototype default owner, and inheritance maps only Colour and Typography to the selected parent. The Logo rule always begins Not Configured.
 
-Kuro is the founder's first internal MVP test case. Milestone 3 has not started.
+Kuro is the founder's first internal MVP test case. Milestone 3 is complete and awaiting founder review; Milestone 4 has not started.
 
 ## Planned architecture
 

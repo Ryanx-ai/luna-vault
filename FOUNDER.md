@@ -86,3 +86,7 @@ A thoughtful handover gives confidence to both the designer and the client. If L
 
 — Ryan Chin<br />
 Founder, Luna Vault
+
+## Current product state
+
+Milestone 3 establishes the daily Brand workspace: Brands is the Vault home, Identity owns Logo, Colour, and Typography, Assets belong to Brands, Guide brings Brand information together, and Timeline preserves how the ecosystem evolves. Luna Vault is continuing to grow into a Brand operating system. Milestone 4 has not started.

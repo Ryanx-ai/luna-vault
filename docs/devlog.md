@@ -69,6 +69,31 @@ Turn the application foundation into a believable operational workspace and esta
 - Image loading passed.
 - The browser console contained no errors.
 
+## LV.CLOSE.003 — End-of-Day Repository Closure
+
+**Status:** Complete<br />
+**Date:** 23 July 2026<br />
+**Branch:** `main`<br />
+**Directive:** `LV.CLOSE.003`
+
+### Current state
+
+- Milestone 3 is complete and frozen for founder review.
+- Brands is the primary Vault workspace; the retired `/overview` route redirects to `/brands`.
+- Timeline replaces Activity; `/activity` redirects to `/timeline`.
+- Brand creation and the Brand-scoped Asset Library remain contained browser-session workflows.
+- Milestone 4 has not started.
+
+### Outstanding technical debt
+
+- Persistent top-bar behaviour requires a focused investigation against the actual browser scroll container.
+- Brand, Vault, and Asset mutations remain local-only session state.
+- Persistence, Supabase, and authentication are not implemented.
+
+### Next task
+
+Founder walkthrough → approve Milestone 3 → begin Milestone 4 planning.
+
 ## LV.MS.003 — Primary Workspace and Timeline Addendum
 
 **Status:** Complete<br />

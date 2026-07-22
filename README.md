@@ -4,7 +4,7 @@
 
 Luna Vault is a living workspace for organising, documenting, handing over, and managing brand systems.
 
-The product is in active early development. Milestone 0 — Foundation is complete: the repository currently provides the application architecture, visual language, responsive shell, and placeholder routes. Product workflows and persistent data are intentionally deferred.
+The product is in active early development. Milestone 3 — Brand-Scoped Asset Library is complete and ready for founder review. Brands is the primary Vault workspace, Timeline records Brand evolution, and Brand creation and Asset Library workflows run in contained browser-session state. Persistent data remains intentionally deferred.
 
 ## Product vision
 
@@ -39,7 +39,9 @@ Open [http://localhost:3000](http://localhost:3000). The root route redirects to
 - `/overview` (compatibility redirect to `/brands`)
 - `/assets`
 - `/brands`
+- `/brands/[brandSlug]`
 - `/collections`
+- `/packages`
 - `/guide`
 - `/timeline`
 - `/activity` (compatibility redirect to `/timeline`)
@@ -60,4 +62,4 @@ Open [http://localhost:3000](http://localhost:3000). The root route redirects to
 
 Next.js 15, React 19, TypeScript, Tailwind CSS, and the Next.js App Router.
 
-**Current milestone:** Milestone 0 — Foundation (complete). See the [roadmap](docs/roadmap.md) for the planned sequence of reviewable product increments.
+**Current milestone:** Milestone 3 — Brand-Scoped Asset Library (complete, pending founder approval). Milestone 4 has not started. See the [roadmap](docs/roadmap.md) for the planned sequence of reviewable product increments.

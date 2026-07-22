@@ -188,4 +188,4 @@ Milestone 2 received its final user-facing copy polish. Active product surfaces 
 
 ### Primary workspace and Timeline addendum
 
-Brands is now the active Vault home and first Workspace destination. The dedicated Overview interface was retired without moving dashboard totals into Brands; `/overview` remains a compatibility redirect. Activity was renamed Timeline at `/timeline`, with `/activity` retained as a compatibility redirect. Timeline represents the chronological evolution of the Brand ecosystem. Milestone 3 remains the active milestone for this refinement.
+Brands is now the active Vault home and first Workspace destination. The dedicated Overview interface was retired without moving dashboard totals into Brands; `/overview` remains a compatibility redirect. Activity was renamed Timeline at `/timeline`, with `/activity` retained as a compatibility redirect. Timeline represents the chronological evolution of the Brand ecosystem. Milestone 3 is complete and awaiting founder review; Milestone 4 has not started.
