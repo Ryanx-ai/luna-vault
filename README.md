@@ -23,7 +23,7 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000). The root route redirects to `/overview`.
+Open [http://localhost:3000](http://localhost:3000). The root route redirects to `/brands`.
 
 ## Scripts
 
@@ -36,12 +36,13 @@ Open [http://localhost:3000](http://localhost:3000). The root route redirects to
 
 ## Current routes
 
-- `/overview`
+- `/overview` (compatibility redirect to `/brands`)
 - `/assets`
 - `/brands`
 - `/collections`
 - `/guide`
-- `/activity`
+- `/timeline`
+- `/activity` (compatibility redirect to `/timeline`)
 - `/archive`
 - `/settings`
 

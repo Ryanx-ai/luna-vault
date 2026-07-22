@@ -1,9 +1,8 @@
 import {
-  Activity,
   Archive,
   Boxes,
   FolderOpen,
-  Gauge,
+  GitBranch,
   Package,
   Settings,
   type LucideIcon,
@@ -16,11 +15,10 @@ export type NavigationItem = {
 };
 
 export const primaryNavigation: NavigationItem[] = [
-  { label: "Overview", href: "/overview", icon: Gauge },
   { label: "Brands", href: "/brands", icon: Boxes },
   { label: "Collections", href: "/collections", icon: FolderOpen },
   { label: "Packages", href: "/packages", icon: Package },
-  { label: "Activity", href: "/activity", icon: Activity },
+  { label: "Timeline", href: "/timeline", icon: GitBranch },
 ];
 
 export const utilityNavigation: NavigationItem[] = [

@@ -71,7 +71,7 @@ export function Topbar({ onMenuClick }: { onMenuClick: () => void }) {
                 <div className="flex border-b p-1">
                   {(["activity", "assets"] as const).map((view) => (
                     <button key={view} onClick={() => setUpdatesView(view)} className={cn("flex-1 rounded-sm px-3 py-1.5 text-xs capitalize transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50", updatesView === view ? "bg-elevated text-foreground" : "text-muted hover:text-subtle")} aria-pressed={updatesView === view}>
-                      {view === "activity" ? "Activity" : "Recent assets"}
+                      {view === "activity" ? "Recent Changes" : "Recent assets"}
                     </button>
                   ))}
                 </div>

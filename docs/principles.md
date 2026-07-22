@@ -35,7 +35,7 @@ An asset should clearly communicate:
 - what it replaced
 - what it relates to
 
-Assets remain scoped to one Vault and one Brand. Identity, Guide, Collections, Packages, Search, and Activity reference those same objects rather than making copies.
+Assets remain scoped to one Vault and one Brand. Identity, Guide, Collections, Packages, Search, and Timeline reference those same objects rather than making copies.
 
 ## Inheritance should be deliberate
 

@@ -1,9 +1,5 @@
 import { lunaWorkspaceFixture, notificationFixtures, userProfileFixture, vaultFixtures } from "@/lib/fixtures/luna-workspace";
-import type { ShellData, WorkspaceOverview } from "@/lib/types/workspace";
-
-export async function getWorkspaceOverview(): Promise<WorkspaceOverview> {
-  return lunaWorkspaceFixture;
-}
+import type { ShellData } from "@/lib/types/workspace";
 
 export async function getShellData(): Promise<ShellData> {
   return {

@@ -69,6 +69,30 @@ Turn the application foundation into a believable operational workspace and esta
 - Image loading passed.
 - The browser console contained no errors.
 
+## LV.MS.003 — Primary Workspace and Timeline Addendum
+
+**Status:** Complete<br />
+**Date:** 23 July 2026<br />
+**Directive:** `LV.MS.003`
+
+- retired Overview from primary navigation and made Brands the active Vault home
+- redirected `/` and `/overview` to `/brands`
+- renamed Activity to Timeline, introduced `/timeline`, and redirected `/activity` safely
+- kept Brands focused on Brand Family work without adding dashboard metrics
+- renamed the compact Updates tab to Recent Changes while preserving Updates as the global control
+- standardised Configure Vault and Configure Brand language
+- preserved Brand creation, Asset Library, hierarchy, Vault switcher design, and persistence boundaries
+
+### Validation
+
+- TypeScript and the production build passed.
+- Rendered desktop validation at 1440×900 confirmed Brands as the first navigation item, Timeline naming and breadcrumb, and zero horizontal overflow.
+- `/` and `/overview` redirected to `/brands`; `/activity` redirected to `/timeline`; `/timeline` loaded directly.
+- Vault switching preserved Timeline where relevant and the Brands landing page remained isolated to the selected Vault.
+- Updates remained functional with Recent Changes and Recent assets as distinct compact views.
+- Mobile validation at 390×844 confirmed the drawer order, absence of Overview, Timeline access, and zero horizontal overflow.
+- The browser console contained no errors.
+
 ## LV.MS.003 — Brand-Scoped Asset Library
 
 **Status:** Complete<br />

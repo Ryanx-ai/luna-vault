@@ -226,3 +226,9 @@ The LVMH mental-model test made Brand creation clearer: a new Brand is either a 
 Milestone 3 shifts Luna Vault from defining structure to doing daily Asset work. Kuro now has a realistic Brand-scoped library where a creator can find, filter, pin, select, preview, and add Assets. Categories remain metadata-driven views. Upload suggestions are simple and explainable, and the creator always confirms the destination.
 
 The automatic root remains controlled by the Vault owner. Collaborator permissions are recorded but not implemented. All Brand and Asset mutations remain in the browser session, and Milestone 4 has not started.
+
+## Milestone 3 — Primary workspace and Timeline
+
+**People enter a Vault to work on its Brand ecosystem, not to inspect dashboard totals.** Brands therefore becomes the Vault home and first Workspace destination. The dedicated Overview interface is retired, while its route remains a safe redirect for existing links.
+
+Activity is renamed Timeline to express the evolving history of the Brand Family: creation, identity decisions, Asset work, releases, deliveries, and archival change. Updates remains the compact global feed; Timeline is the full historical workspace. No Milestone 4 work was introduced.

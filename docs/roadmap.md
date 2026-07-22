@@ -185,3 +185,7 @@ Milestone 2 received its final user-facing copy polish. Active product surfaces 
 **Completed scope:** Revised Brand creation, deterministic Kuro Assets, metadata-driven category views, grid/list presentation, search, filters, sorting, pinning, detail preview, bulk actions, confirmed multi-file upload, shared Logo Asset references, responsive layouts, and strict Brand/Vault isolation.
 
 **Local-only limitations:** Brand and Asset changes reset on refresh. No cloud storage, authentication, permissions, production downloads, deletion, generated variants, Guide editing, Collections, Packages, or Milestone 4 versioning was added.
+
+### Primary workspace and Timeline addendum
+
+Brands is now the active Vault home and first Workspace destination. The dedicated Overview interface was retired without moving dashboard totals into Brands; `/overview` remains a compatibility redirect. Activity was renamed Timeline at `/timeline`, with `/activity` retained as a compatibility redirect. Timeline represents the chronological evolution of the Brand ecosystem. Milestone 3 remains the active milestone for this refinement.

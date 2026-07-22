@@ -15,14 +15,15 @@ This document distinguishes the repository as it exists today from the boundarie
 
 ### Routes
 
-The `app/` directory contains the root layout, global CSS, a root redirect to `/overview`, and one page module for each current route:
+The `app/` directory contains the root layout, global CSS, a root redirect to `/brands`, and one page module for each current route:
 
-- `/overview`
+- `/overview` (compatibility redirect)
 - `/assets`
 - `/brands`
 - `/collections`
 - `/guide`
-- `/activity`
+- `/timeline`
+- `/activity` (compatibility redirect)
 - `/archive`
 - `/settings`
 - `/packages`
@@ -33,7 +34,6 @@ The overview is a working local-data experience. The remaining product pages are
 
 - `components/layout/` contains the application shell, sidebar, top bar, and shared page scaffold.
 - `components/providers/` contains the client-side selected-vault boundary.
-- `components/overview/` contains the workspace overview presentation.
 - `components/ui/` contains general-purpose Button and Badge primitives.
 - `components/brand/` contains Luna-specific identity rendering.
 - `lib/` contains shared utilities and typed navigation configuration.
@@ -48,7 +48,7 @@ Button variants use Class Variance Authority; class names are composed with `cls
 
 ### Navigation
 
-`lib/navigation.ts` is the source of truth for primary and utility navigation items. Primary navigation is ordered Overview, Brands, Collections, Packages, and Activity; Archive and Settings remain utility destinations. Assets and Guide belong inside Brands. Their direct routes remain available as compatibility placeholders but are not workspace navigation destinations.
+`lib/navigation.ts` is the source of truth for primary and utility navigation items. Primary navigation is ordered Brands, Collections, Packages, and Timeline; Archive and Settings remain utility destinations. Brands is the active Vault home. Overview redirects to Brands, Activity redirects to Timeline, and Assets and Guide remain inside Brands.
 
 The sidebar exposes one compact active-Vault switcher near its top. Its accessible menu lists the seeded Luna, Kuro, Pangea, and Tethr Vaults, communicates the selected state, and preserves a deferred Create new Vault affordance. Selection updates shell context deterministically without changing routes or persisting state.
 
@@ -72,7 +72,7 @@ Milestone 1 introduces a small deterministic local-data boundary for the workspa
 - `lib/fixtures/luna-workspace.ts` contains the seeded vaults, notifications, profile, Luna workspace, and brand family. Dates and values are fixed; no data is generated at runtime.
 - `lib/data/workspace.ts` is the local access boundary consumed by the root shell and overview route.
 
-`app/overview/page.tsx` obtains its data through that access function and passes it to the overview presentation. Its visible hierarchy is intentionally limited to the Vault header, compact metrics, and Brand Family. Brand creation belongs to Brands and asset upload belongs to Brand detail, so neither appears on Overview. Activity and recently updated assets live in Updates, while actionable requests live in Notifications. Brands routes are working local-data experiences; the remaining product routes are static placeholders. There is still no database, authentication, cloud storage, or persistent mutation.
+`/brands` is the primary Vault landing experience and answers which Brands exist and where work continues. The former Overview interface is retired; `/overview` remains only as a redirect and no dashboard metrics are duplicated onto Brands. Recent Changes and recent Assets remain in Updates, while actionable requests live in Notifications. There is still no database, authentication, cloud storage, or persistent mutation.
 
 ### Brand Architecture
 

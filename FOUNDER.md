@@ -74,6 +74,8 @@ We believe every brand should have a living workspace instead of a static folder
 - hand over projects professionally
 - keep brands alive long after the original designer has left
 
+Brands is the primary Vault workspace: the place people enter to understand the Brand ecosystem and continue working. Timeline preserves the chronological history of how that ecosystem changes. Dashboard totals are not a primary destination.
+
 ## Personal note
 
 I hope this becomes a product that gives designers more ownership over the systems they create.

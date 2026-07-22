@@ -52,7 +52,7 @@ Vault
 
 A Vault is an environment for one connected brand system. Its Brand Family explains the relationships between Parent Brands, Sub-brands, and—where the product eventually proves it necessary—one further level of nested Sub-brand. Assets live inside the Brand they belong to; they are not an independent pile of files.
 
-The surrounding product surfaces each have a distinct role: Collections prepare controlled external handovers, Packages support development delivery, Guide holds living brand documentation, Activity preserves brand history, and Archive holds shelved identities without discarding their context.
+The surrounding product surfaces each have a distinct role: Collections prepare controlled external handovers, Packages support development delivery, Guide holds living brand documentation, Timeline preserves Brand history, and Archive holds shelved identities without discarding their context.
 
 Kuro will be the first internal MVP test case for validating this model with real work. That learning will inform future cross-Vault behaviour and the exact depth of Brand hierarchy before those rules are committed in the product.
 

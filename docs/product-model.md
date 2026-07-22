@@ -80,9 +80,9 @@ A user with controlled access to a Vault or Brand. Membership determines the Vau
 
 A controlled client-facing or vendor-facing view. It exposes an intentional subset of approved information without requiring full workspace membership.
 
-### Activity
+### Timeline
 
-A record of meaningful brand-management actions. Activity helps teams understand what changed, when, and by whom.
+A chronological record of meaningful Brand changes. Timeline helps teams understand how the active Vault and Brand Family evolved, what changed, when, and by whom.
 
 ## Product modes
 
