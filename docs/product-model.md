@@ -6,11 +6,11 @@
 Vault
 └── Brand Family
     └── Brand
-        ├── Identity System
+        ├── Identity
         │   ├── Logo
         │   ├── Colour
         │   ├── Typography
-        │   └── Graphic Assets
+        ├── Assets
         └── Guide
 ```
 
@@ -32,11 +32,11 @@ The primary identity system. A brand owns its assets, documentation, collections
 
 Every Vault automatically owns one Parent Brand. Users create Sub-brands or Nested Sub-brands beneath the existing family; the supported hierarchy stops at three levels.
 
-### Identity System
+### Identity
 
-The Brand's authoritative source for Logo, Colour, Typography, and Graphic Assets. Statuses such as Inherited, Overridden, Unique, and Not Configured explain how each area is resolved without making inheritance the user's primary task.
+The Brand's authoritative source for Logo, Colour, and Typography. Statuses such as Inherited, Overridden, Unique, and Not Configured explain how each area is resolved without making inheritance the user's primary task.
 
-Guide, Collections, Packages, exports, developer kits, and future generators consume the Identity System. They must not own duplicate logo, colour, typography, or graphic-asset definitions.
+Guide, Collections, Packages, exports, developer kits, and future generators consume Brand-owned Identity and Assets. They must not own duplicate definitions.
 
 ### Sub-brand
 
@@ -48,6 +48,8 @@ A documented brand object, not merely a file. It carries identity, purpose, stat
 
 Assets always belong to a Brand. Future utilities may derive approved outputs such as alternate formats, resized files, favicons, or social avatars, but those outputs must remain traceable to an unchanged approved source asset.
 
+Each Asset also belongs to a Vault and has one primary category plus tags, lifecycle status, pinning, attribution, file metadata, description, and usage notes. Folders are queryable views of these records rather than ownership containers. Upload will eventually accept multiple files and collect category, tags, status, and description before a person confirms the result.
+
 ### Asset Version
 
 A historical or current file revision belonging to an asset. Exactly one version should be clearly identifiable as current when appropriate.
@@ -56,9 +58,15 @@ A historical or current file revision belonging to an asset. Exactly one version
 
 A curated group of assets for a specific use, audience, campaign, channel, vendor, or handover. A collection organises references to assets without duplicating their source of truth.
 
+A Collection is a committed external release: an intentional, reviewable set whose contents should not drift silently when its source Assets change.
+
+### Package
+
+A generated technical delivery assembled from Brand-owned source data for a declared consumer or platform. Packages may serve a website, native application, game engine, developer handoff, or production vendor without becoming a second Brand definition.
+
 ### Brand Guide
 
-Generated living documentation connected directly to the Brand's Identity System. It owns authored material such as Brand Story, Mission, Vision, Voice, usage guidance, do/don't guidance, examples, and additional documentation—but never duplicate identity values.
+A living README connected directly to the Brand's Identity and selected Assets. It owns authored material such as Brand Story, Mission, Vision, Principles, Audience Notes, Voice, usage guidance, do/don't guidance, examples, and additional documentation—but never duplicate Brand values.
 
 ### Member
 
@@ -88,4 +96,4 @@ These modes describe user intent rather than separate products. A single person 
 
 Luna Vault has not committed to whether Brands can be duplicated, transferred, shared, or referenced across Vaults. Kuro is the first internal MVP test environment; its use will inform which of those behaviours solves a real operational need without weakening the Vault boundary.
 
-Milestone 3 has not started. The current model remains local and presentation-only.
+Milestone 3 has not started. The current model remains local and presentation-only; Milestone 2-E prepares only its typed and interaction boundaries.

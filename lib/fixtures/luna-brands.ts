@@ -4,7 +4,7 @@ const ryan = { name: "Ryan Chin", initials: "RC" } as const;
 const lunaTeam = { name: "Luna team", initials: "LT" } as const;
 const mei = { name: "Mei Tan", initials: "MT" } as const;
 
-const ruleNames: IdentityRuleName[] = ["Logo", "Colour", "Typography", "Graphic Assets"];
+const ruleNames: IdentityRuleName[] = ["Logo", "Colour", "Typography"];
 
 function rules(states: Record<IdentityRuleName, InheritanceState>, notes: Partial<Record<IdentityRuleName, string>> = {}): IdentityRule[] {
   return ruleNames.map((name) => ({
@@ -19,7 +19,6 @@ const inherited: Record<IdentityRuleName, InheritanceState> = {
   Logo: "Overridden",
   Colour: "Inherited",
   Typography: "Inherited",
-  "Graphic Assets": "Unique",
 };
 
 export const lunaBrandFixtures: Brand[] = [
@@ -27,7 +26,7 @@ export const lunaBrandFixtures: Brand[] = [
     id: "brand_luna", vaultId: "vault_luna", name: "Luna", slug: "luna", description: "Primary identity and shared system for the Luna family.", type: "Parent Brand", status: "Active", owner: ryan,
     collaborators: [{ ...mei, role: "Brand operator" }, { ...lunaTeam, role: "Design team" }], createdAt: "2024-01-12T10:00:00+08:00", updatedAt: "2026-07-20T14:20:00+08:00",
     assetCount: 18, approvedAssetCount: 15, inReviewAssetCount: 2, collectionCount: 3, guideCompletion: 92, mark: "/brand/luna-logomark.png", presentationToken: "violet",
-    identityRules: rules({ Logo: "Unique", Colour: "Unique", Typography: "Unique", "Graphic Assets": "Unique" }, { Logo: "The primary Luna identity source.", Colour: "Defines the shared Luna palette.", Typography: "Defines the family typography system.", "Graphic Assets": "Defines the shared visual asset language." }),
+    identityRules: rules({ Logo: "Unique", Colour: "Unique", Typography: "Unique" }, { Logo: "The primary Luna identity source.", Colour: "Defines the shared Luna palette.", Typography: "Defines the family typography system." }),
     childBrandIds: ["brand_studio", "brand_vault", "brand_labs", "brand_events"],
   },
   {
@@ -44,13 +43,13 @@ export const lunaBrandFixtures: Brand[] = [
     id: "brand_labs", vaultId: "vault_luna", name: "Luna Labs", slug: "luna-labs", description: "Internal initiative for experimental tools and new ideas.", type: "Internal Initiative", status: "Draft", parentBrandId: "brand_luna", owner: mei,
     collaborators: [{ ...ryan, role: "Sponsor" }], createdAt: "2026-02-06T10:30:00+08:00", updatedAt: "2026-07-17T11:30:00+08:00",
     assetCount: 6, approvedAssetCount: 3, inReviewAssetCount: 1, collectionCount: 0, guideCompletion: 35, mark: "/brand/luna-logomark.png", presentationToken: "graphite",
-    identityRules: rules({ Logo: "Not Configured", Colour: "Inherited", Typography: "Inherited", "Graphic Assets": "Unique" }), childBrandIds: [],
+    identityRules: rules({ Logo: "Not Configured", Colour: "Inherited", Typography: "Inherited" }), childBrandIds: [],
   },
   {
     id: "brand_events", vaultId: "vault_luna", name: "Luna Events", slug: "luna-events", description: "Event identity system for community gatherings and launches.", type: "Event", status: "In Review", parentBrandId: "brand_luna", owner: mei,
     collaborators: [{ ...ryan, role: "Approver" }], createdAt: "2026-04-22T13:00:00+08:00", updatedAt: "2026-07-18T09:15:00+08:00",
     assetCount: 4, approvedAssetCount: 1, inReviewAssetCount: 2, collectionCount: 1, guideCompletion: 48, mark: "/brand/luna-logomark.png", presentationToken: "plum",
-    identityRules: rules({ Logo: "Overridden", Colour: "Overridden", Typography: "Inherited", "Graphic Assets": "Unique" }), childBrandIds: [],
+    identityRules: rules({ Logo: "Overridden", Colour: "Overridden", Typography: "Inherited" }), childBrandIds: [],
   },
   ...[
     { id: "brand_kuro", vaultId: "vault_kuro", name: "Kuro", slug: "kuro" },
@@ -60,6 +59,6 @@ export const lunaBrandFixtures: Brand[] = [
     id, vaultId, name, slug, description: `Automatic Parent Brand for the ${name} Vault.`, type: "Parent Brand", status: "Draft", owner: ryan,
     collaborators: [], createdAt: "2026-07-22T09:00:00+08:00", updatedAt: "2026-07-22T09:00:00+08:00", assetCount: 0, approvedAssetCount: 0,
     inReviewAssetCount: 0, collectionCount: 0, guideCompletion: 0, mark: "/brand/luna-logomark.png", presentationToken: "graphite",
-    identityRules: rules({ Logo: "Not Configured", Colour: "Not Configured", Typography: "Not Configured", "Graphic Assets": "Not Configured" }), childBrandIds: [],
+    identityRules: rules({ Logo: "Not Configured", Colour: "Not Configured", Typography: "Not Configured" }), childBrandIds: [],
   })),
 ];

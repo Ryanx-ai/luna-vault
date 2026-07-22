@@ -204,3 +204,11 @@ A Brand owns its Identity System. Guide, Collections, Packages, exports, and fut
 ### Next founder action
 
 Test Milestone 2 tomorrow before making additional product changes.
+
+## LV.MS.002-E — Asset Library Architecture Refinement
+
+Founder review clarified that Graphic Assets is not a fourth Identity rule. Identity is Logo, Colour, and Typography; Assets is the Brand-owned library beside it, and Guide is the living README that references both.
+
+The library is intentionally metadata-first. An Asset belongs to a Vault and Brand, while folders are views driven by category and metadata. Future upload suggestions must be deterministic, inspectable, and confirmed by a person. Collections represent committed external releases; Packages generate technical deliveries, including the demanding case of assets prepared for games and applications.
+
+This is a computer-engineering boundary pass, not Milestone 3. It establishes types, empty fixture access, and interaction language without adding storage, persistence, AI, or working uploads. The persistent top-bar issue remains untouched technical debt.

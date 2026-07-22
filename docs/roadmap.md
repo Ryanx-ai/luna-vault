@@ -86,6 +86,18 @@ Each milestone is intentionally narrow enough to produce one reviewable product 
 
 **Definition of done:** Users can discover, filter, inspect, and select representative local assets, and complete a clearly labelled mock upload flow across supported viewport sizes.
 
+## LV.MS.002-E — Asset Library Architecture Refinement
+
+**Status:** Complete
+
+**Objective:** Simplify the Brand workspace and prepare a disciplined Brand-scoped Asset Library boundary before Milestone 3.
+
+**Included scope:** Identity/Assets/Guide navigation, structured Identity placeholders, category-view Asset Library presentation, typed Asset metadata, empty fixture/data boundaries, workspace Guide navigation removal, and product-model records.
+
+**Explicit non-goals:** Milestone 3 implementation, real upload, storage, persistence, AI interfaces, automated classification, Guide editing, shell changes, and top-bar debt investigation.
+
+**Definition of done:** The repository clearly separates Identity, Assets, and Guide; assets remain owned by Brand and Vault rather than folders; downstream Collection and Package roles are recorded; validation passes.
+
 ## Milestone 4 — Asset Documentation and Versioning
 
 **Objective:** Turn files into documented brand objects.

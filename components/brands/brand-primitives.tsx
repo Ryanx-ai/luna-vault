@@ -54,10 +54,9 @@ export function BrandCard({ brand }: { brand: Brand }) {
 }
 
 const identityContents: Record<IdentityRule["name"], string[]> = {
-  Logo: ["Primary Logo", "Wordmark", "Symbol", "Horizontal", "Vertical", "Favicon", "App Icon", "Custom Tagged Variants"],
-  Colour: ["Primary", "Secondary", "Accent", "Neutral", "Semantic colours", "Custom tags"],
-  Typography: ["Primary Typeface", "Secondary Typeface", "Monospace", "Display Typeface", "Uploaded font files", "Custom tags"],
-  "Graphic Assets": ["Illustrations", "Photography", "Campaign Graphics", "Social Assets", "Patterns", "Textures", "Icons", "Templates", "Custom Tags"],
+  Logo: ["Primary Logo", "Wordmark", "Symbol", "Horizontal", "Vertical", "Favicon", "App Icon", "Custom tagged variants"],
+  Colour: ["Name", "HEX", "RGB", "CMYK", "Pantone / print reference", "Role", "Contrast guidance", "Custom tag"],
+  Typography: ["Typeface", "Role", "Weights and styles", "OTF", "TTF", "WOFF", "WOFF2", "Variable font", "Usage notes"],
 };
 
 export function IdentitySystemWorkspace({ rules, sourceName }: { rules: IdentityRule[]; sourceName?: string }) {
@@ -71,7 +70,7 @@ export function IdentitySystemWorkspace({ rules, sourceName }: { rules: Identity
             <InheritanceBadge state={rule.state} />
             <ChevronDown className={cn("size-4 shrink-0 text-muted transition-transform", openSection === rule.name && "rotate-180")} />
           </button>
-          {openSection === rule.name ? <div className="border-t px-4 py-4 sm:px-5"><p className="text-[11px] leading-5 text-muted">{rule.note}</p><div className="mt-3 flex flex-wrap gap-2">{identityContents[rule.name].map((item) => <span key={item} className="border bg-canvas px-2.5 py-1.5 text-[10px] text-subtle">{item}</span>)}</div><p className="mt-3 text-[10px] text-muted">Prepared for future configuration. No uploads or edits are active.</p></div> : null}
+          {openSection === rule.name ? <div className="border-t px-4 py-4 sm:px-5"><p className="text-[11px] leading-5 text-muted">{rule.note}</p><div className={cn("mt-3 grid gap-2", rule.name === "Logo" ? "grid-cols-2 sm:grid-cols-4" : "sm:grid-cols-2 lg:grid-cols-3")}>{identityContents[rule.name].map((item) => <div key={item} className={cn("border bg-canvas p-3 text-[10px] text-subtle", rule.name === "Logo" && "flex min-h-20 items-end")}>{item}</div>)}</div><p className="mt-3 text-[10px] text-muted">Prepared for future configuration. No uploads or edits are active.</p></div> : null}
         </div>
       ))}
     </div>

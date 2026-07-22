@@ -8,7 +8,19 @@ Brands are living systems made up of assets, rules, relationships, history, and 
 
 **A Brand should only be defined once. Everything else references it.**
 
-The Brand is the single source of truth for Logo, Colour, Typography, and Graphic Assets. Guide consumes that Identity System and owns authored documentation only. Collections, Packages, exports, and future utilities must reference Brand-owned identity rather than duplicate it.
+The Brand is the single source of truth for Logo, Colour, Typography, and Assets. Guide consumes that source and owns authored documentation only. Collections, Packages, exports, and future utilities must reference Brand-owned information rather than duplicate it.
+
+## Folders are views, not owners
+
+An Asset belongs to its Vault and Brand. Categories, tags, status, pinning, and other metadata make it discoverable; moving it between folder views must never create a second source of truth.
+
+## Automation must ask
+
+Future deterministic suggestions may help classify or prepare Assets, but a person confirms meaningful metadata, category, and output decisions. Luna does not silently reinterpret a Brand.
+
+## Releases and deliveries are different
+
+Collections are curated, committed releases for external audiences. Packages are generated technical deliveries for a defined target, including web, mobile, desktop, and game-development workflows.
 
 ## Every asset has context
 

@@ -3,7 +3,7 @@ import type { PersonSummary } from "@/lib/types/workspace";
 export type BrandType = "Parent Brand" | "Product" | "Sub-brand" | "Nested Sub-brand" | "Event" | "Campaign" | "Internal Initiative";
 export type BrandLifecycleStatus = "Active" | "Draft" | "In Review" | "Archived";
 export type InheritanceState = "Inherited" | "Overridden" | "Unique" | "Not Configured";
-export type IdentityRuleName = "Logo" | "Colour" | "Typography" | "Graphic Assets";
+export type IdentityRuleName = "Logo" | "Colour" | "Typography";
 
 export type BrandCollaborator = PersonSummary & {
   role?: string;

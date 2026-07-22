@@ -48,7 +48,7 @@ Button variants use Class Variance Authority; class names are composed with `cls
 
 ### Navigation
 
-`lib/navigation.ts` is the source of truth for primary and utility navigation items. It associates each route with a label and Lucide icon. Primary navigation is ordered Overview, Brands, Collections, Packages, Guide, and Activity; Archive and Settings remain utility destinations. Assets is intentionally absent from primary navigation because assets belong to Brands, while the direct `/assets` route remains available as a contextual placeholder.
+`lib/navigation.ts` is the source of truth for primary and utility navigation items. Primary navigation is ordered Overview, Brands, Collections, Packages, and Activity; Archive and Settings remain utility destinations. Assets and Guide belong inside Brands. Their direct routes remain available as compatibility placeholders but are not workspace navigation destinations.
 
 The sidebar exposes one compact active-Vault switcher near its top. Its accessible menu lists the seeded Luna, Kuro, Pangea, and Tethr Vaults, communicates the selected state, and preserves a deferred Create new Vault affordance. Selection updates shell context deterministically without changing routes or persisting state.
 
@@ -78,7 +78,9 @@ Milestone 1 introduces a small deterministic local-data boundary for the workspa
 
 Milestone 2 adds a focused Brand domain boundary:
 
-- `lib/types/brand.ts` models Brand type, lifecycle, hierarchy, ownership, and the four authoritative Identity System areas.
+- `lib/types/brand.ts` models Brand type, lifecycle, hierarchy, ownership, and the three authoritative Identity areas.
+- `lib/types/asset.ts` models Brand- and Vault-owned Asset metadata and default category views without storage concerns.
+- `lib/fixtures/luna-assets.ts` and `lib/data/assets.ts` establish an empty, typed local data boundary for the next milestone.
 - `lib/fixtures/luna-brands.ts` contains the deterministic Luna Brand Family plus one automatic Parent Brand for every other seeded Vault.
 - `lib/data/brands.ts` is the Brand query boundary used by the root layout and route metadata.
 - `components/providers/brand-provider.tsx` contains session-only Brand creation state. Created Brands disappear on refresh and never make a network request.
@@ -87,13 +89,13 @@ Milestone 2 adds a focused Brand domain boundary:
 
 Reusable Brand components live in `components/brands/` and cover the three-level hierarchy, simplified cards, lifecycle and identity-state badges, expandable Identity System sections, Brand workspace composition, and the Create Brand dialog. Overview Brand Family items and the Brands index share the same detail routes.
 
-Brand detail is a workspace rather than a dashboard. Its primary local navigation is Identity, Graphic Assets, and Guide. Logo, Colour, Typography, and Graphic Assets are owned once by the Brand; Guide presents authored documentation and references those identity decisions instead of duplicating them.
+Brand detail is a workspace rather than a dashboard. Its primary local navigation is Identity, Assets, and Guide. Identity owns Logo, Colour, and Typography; the Asset Library owns documented Brand assets; Guide presents authored documentation and references both without duplicating them.
 
 The architectural rule is: **A Brand should only be defined once. Everything else references it.** Assets remain Brand-scoped, while Guide consumes Brand-owned identity and stores authored documentation only.
 
 Each seeded Vault automatically owns one Parent Brand. Session-created Brands must select an eligible parent and the UI excludes parents that would create a hierarchy deeper than Parent Brand → Sub-brand → Nested Sub-brand. Users do not manually create root Brands.
 
-Brand detail exposes a Brand-scoped Upload Assets entry point. It currently provides explicit mock feedback only: no file selection, storage, persistence, or asset workflow has begun.
+`components/brands/asset-library.tsx` presents Brand-scoped category views and compact deferred actions. Folder selection is local presentation state. Upload and folder creation provide explicit mock feedback only: no file selection, storage, persistence, or asset mutation has begun.
 
 Kuro is the founder's first internal MVP test case. Milestone 3 has not started.
 

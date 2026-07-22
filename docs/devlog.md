@@ -360,3 +360,34 @@ Close Milestone 2 by establishing each Brand as the authoritative home for Ident
 ### Recommended next milestone
 
 **Milestone 3 — Brand-Scoped Asset Library**, only after founder acceptance of this final Milestone 2 model.
+
+## LV.MS.002-E — Asset Library Architecture Refinement
+
+**Status:** Complete<br />
+**Date:** 22 July 2026<br />
+**Branch:** `main`<br />
+**Directive:** `LV.MS.002-E`
+
+### Completed scope
+
+- reduced Brand Identity to Logo, Colour, and Typography
+- renamed the Brand workspace tab from Graphic Assets to Assets
+- prepared structured Logo, Colour, and Typography presentation slots
+- added Brand-scoped Asset Library category views and deferred Upload Assets/New Folder feedback
+- established typed Asset, empty fixture, and data-access boundaries
+- removed Guide from workspace navigation while preserving `/guide` compatibility
+- recorded folders as views, Collections as committed releases, and Packages as generated technical deliveries
+
+### Boundaries and debt
+
+- No real upload, storage, persistence, AI, or Milestone 3 workflow was implemented.
+- The top bar shell offset is corrected, but persistent top-bar behaviour still requires a future focused investigation against the actual browser scroll container.
+- The non-interactive ESLint limitation remains unresolved.
+
+### Validation
+
+- TypeScript and the production build passed.
+- All application routes loaded successfully.
+- Brand creation, automatic Parent Brand behaviour, eligible parent depth, Brand overview navigation, and Vault boundaries remained intact.
+- Desktop at 1440×900 and mobile at 390×844 passed with no horizontal overflow; the mobile drawer remained functional.
+- The browser console contained no errors.

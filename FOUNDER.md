@@ -51,9 +51,11 @@ Luna Vault is built around one durable product principle:
 
 **A Brand should only be defined once. Everything else references it.**
 
-Each Vault automatically owns a Parent Brand. That Brand and its descendants own their Identity Systems: Logo, Colour, Typography, and Graphic Assets. Guide, Collections, Packages, exports, and future utilities consume that source rather than maintaining duplicate identity information.
+Each Vault automatically owns a Parent Brand. That Brand and its descendants define Identity through Logo, Colour, and Typography, and own their Assets as documented Brand objects. Guide, Collections, Packages, exports, and future utilities consume that source rather than maintaining duplicate information.
 
 For the MVP, Brand hierarchy stops at Parent Brand, Sub-brand, and Nested Sub-brand. Assets remain scoped to the Brand they belong to, and Guide owns authored documentation rather than identity values.
+
+Folders organise views of Assets; they do not own files. Collections are committed external releases, while Packages are generated technical deliveries for consumers such as web, application, and game teams.
 
 ## Vision
 

@@ -9,7 +9,7 @@ type BrandContextValue = {
 };
 
 const BrandContext = createContext<BrandContextValue | null>(null);
-const identityRuleNames: IdentityRuleName[] = ["Logo", "Colour", "Typography", "Graphic Assets"];
+const identityRuleNames: IdentityRuleName[] = ["Logo", "Colour", "Typography"];
 
 function slugify(value: string) {
   return value.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "") || "new-brand";

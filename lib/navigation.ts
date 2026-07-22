@@ -1,7 +1,6 @@
 import {
   Activity,
   Archive,
-  BookOpen,
   Boxes,
   FolderOpen,
   Gauge,
@@ -21,7 +20,6 @@ export const primaryNavigation: NavigationItem[] = [
   { label: "Brands", href: "/brands", icon: Boxes },
   { label: "Collections", href: "/collections", icon: FolderOpen },
   { label: "Packages", href: "/packages", icon: Package },
-  { label: "Guide", href: "/guide", icon: BookOpen },
   { label: "Activity", href: "/activity", icon: Activity },
 ];
 

@@ -3,11 +3,11 @@ export const metadata = { title: "Guide" };
 export default function GuidePage() {
   return (
     <PageScaffold
-      eyebrow="Living documentation"
-      title="Guide"
-      description="Generated documentation that references each Brand’s authoritative Identity System."
-      emptyTitle="Authored guidance is waiting"
-      emptyDescription="Brand story, mission, vision, voice, usage guidance, examples, and additional documentation will live here without duplicating Logo, Colour, Typography, or Graphic Assets."
+      eyebrow="Compatibility route"
+      title="Brand Guides"
+      description="Guides now live inside each Brand workspace, where they can reference that Brand’s authoritative Identity and Assets."
+      emptyTitle="Open a Brand to view its Guide"
+      emptyDescription="This route remains available for compatibility, but Guide is no longer a workspace-level destination."
     />
   );
 }
