@@ -7,7 +7,7 @@ export default function CollectionsPage() {
       title="Collections"
       description="Curated groups of approved Brand assets for clients, vendors, press, campaigns, and partners."
       emptyTitle="No Collections prepared"
-      emptyDescription="Collections will provide controlled access to the right approved assets without exposing the wider Brand system."
+      emptyDescription="Create a Collection when you are ready to share a focused set of approved assets."
     />
   );
 }

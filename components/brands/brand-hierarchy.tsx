@@ -11,7 +11,7 @@ export function BrandHierarchy({ brands }: { brands: Brand[] }) {
   return (
     <div aria-label={`${parent.name} Brand Family`}>
       <BrandNode brand={parent} brands={brands} level={1} />
-      <p className="sr-only">{parent.name} is the automatic Parent Brand. This hierarchy supports a maximum of three levels.</p>
+      <p className="sr-only">{parent.name} is the Parent Brand. This Brand Family supports three levels.</p>
     </div>
   );
 }

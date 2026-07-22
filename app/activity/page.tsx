@@ -7,7 +7,7 @@ export default function ActivityPage() {
       title="Activity"
       description="A chronological record of meaningful changes across Brands and their descendants."
       emptyTitle="No major Brand changes yet"
-      emptyDescription="Future history will place the newest Brand creation, rebrand, rule change, approval, or archive event first."
+      emptyDescription="Brand creation, identity changes, approvals, and archive events will appear here."
     />
   );
 }

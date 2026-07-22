@@ -68,6 +68,34 @@ Turn the application foundation into a believable operational workspace and esta
 - The mobile drawer passed.
 - Image loading passed.
 - The browser console contained no errors.
+
+## LV.MS.002-F — Final User-Facing Copy Polish
+
+**Status:** Complete<br />
+**Date:** 22 July 2026<br />
+**Branch:** `main`<br />
+**Directive:** `LV.MS.002-F`
+
+### Completed scope
+
+- removed internal architecture, development-phase, fixture, and future-milestone language from active product surfaces
+- rewrote Overview, Brands, Brand detail, Identity, Assets, Guide, Collections, Packages, Activity, Archive, Settings, dialogs, and empty states in plain Brand language
+- removed generated Parent Brand descriptions from Brand headers
+- retained concise and honest feedback for unavailable actions
+
+### Closure
+
+- Milestone 2 is approved and complete.
+- Milestone 3 remains not started.
+- Product architecture, routes, data boundaries, hierarchy, navigation, and shell behaviour were unchanged.
+
+### Validation
+
+- TypeScript and the production build passed.
+- All application routes loaded successfully.
+- Brand headers, Identity, Assets, Guide, Brand creation, and Vault switching passed.
+- Desktop at 1440×900 and mobile at 390×844 passed with no horizontal overflow; the mobile drawer remained functional.
+- The browser console contained no errors.
 - The Git worktree was clean after commit and push.
 
 ### Package manager decision

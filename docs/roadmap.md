@@ -169,3 +169,9 @@ Each milestone is intentionally narrow enough to produce one reviewable product 
 **Definition of done:** A separately prioritised utility solves a validated user problem, preserves source assets, produces reviewable output, and strengthens rather than bypasses Luna Vault's structured brand model.
 
 These utilities are explicitly post-MVP. Each should be evaluated and scoped as its own reviewable increment before implementation.
+
+## LV.MS.002-F — Milestone 2 Closure
+
+**Status:** Complete
+
+Milestone 2 received its final user-facing copy polish. Active product surfaces now prioritise plain Brand language and no longer expose internal architecture or development-stage explanations. Milestone 2 is approved and complete; Milestone 3 remains not started.

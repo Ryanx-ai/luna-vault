@@ -59,7 +59,7 @@ export function CreateBrandDialog({ open, onClose, vaultId, availableParents }: 
         </div>
 
         {createdBrand ? (
-          <div className="p-6 text-center"><span className="mx-auto flex size-10 items-center justify-center rounded-full border border-emerald-400/20 bg-emerald-400/[0.06] text-emerald-300"><Check className="size-4" /></span><h3 className="mt-4 text-base font-medium">{createdBrand.name} created for this session</h3><p className="mx-auto mt-2 max-w-sm text-xs leading-5 text-muted">The draft Brand and its starting identity rules are available until the page is refreshed. Persistent creation remains deferred.</p><div className="mt-5 flex justify-center gap-2"><Button variant="outline" onClick={resetAndClose}>Done</Button><Button asChild><Link href={`/brands/${createdBrand.slug}`} onClick={resetAndClose}>Open Brand</Link></Button></div></div>
+          <div className="p-6 text-center"><span className="mx-auto flex size-10 items-center justify-center rounded-full border border-emerald-400/20 bg-emerald-400/[0.06] text-emerald-300"><Check className="size-4" /></span><h3 className="mt-4 text-base font-medium">{createdBrand.name} created</h3><div className="mt-5 flex justify-center gap-2"><Button variant="outline" onClick={resetAndClose}>Done</Button><Button asChild><Link href={`/brands/${createdBrand.slug}`} onClick={resetAndClose}>Open Brand</Link></Button></div></div>
         ) : (
           <form onSubmit={submit} noValidate>
             <div className="space-y-4 p-5">

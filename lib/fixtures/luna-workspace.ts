@@ -8,7 +8,7 @@ export const lunaWorkspaceFixture: WorkspaceOverview = {
   workspace: {
     id: "workspace_luna",
     name: "Luna",
-    description: "The working source of truth for the Luna brand family.",
+    description: "The home of the Luna brand family.",
     logo: "/brand/luna-logomark.png",
     plan: "Foundation",
     memberCount: 8,

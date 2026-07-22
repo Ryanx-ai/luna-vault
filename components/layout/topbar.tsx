@@ -105,7 +105,7 @@ export function Topbar({ onMenuClick }: { onMenuClick: () => void }) {
             {openPanel === "profile" ? (
               <div className="p-4">
                 <div className="flex items-center gap-3"><span className="flex size-9 items-center justify-center rounded-full border bg-elevated text-xs font-semibold">{shellData.user.initials}</span><div><p className="text-sm font-medium">{shellData.user.name}</p><p className="text-[11px] text-muted">{shellData.user.role}</p></div></div>
-                <p className="mt-4 border-t pt-3 text-[11px] leading-5 text-muted">Account, personalisation, permission, and privacy controls will live here in a later milestone.</p>
+                <p className="mt-4 border-t pt-3 text-[11px] leading-5 text-muted">Account settings are not available yet.</p>
               </div>
             ) : null}
           </div>

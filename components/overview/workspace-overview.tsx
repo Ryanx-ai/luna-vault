@@ -67,7 +67,7 @@ export function WorkspaceOverview({ data }: { data: WorkspaceOverviewData }) {
     { label: "Total assets", value: selectedVault.assetCount, supportingText: "No assets added" },
     { label: "Approved", value: 0, supportingText: "Nothing approved" },
     { label: "In review", value: 0, supportingText: "Nothing awaiting review" },
-    { label: "Brands", value: familyBrands.length, supportingText: "Automatic Parent Brand" },
+    { label: "Brands", value: familyBrands.length, supportingText: "1 Parent Brand" },
     { label: "Collections", value: 0, supportingText: "No collections" },
   ];
 
@@ -90,7 +90,7 @@ export function WorkspaceOverview({ data }: { data: WorkspaceOverviewData }) {
               <p className="text-xs font-medium">Manage {selectedVault.name}</p>
               <button onClick={() => setManageOpen(false)} aria-label="Close Manage Vault" className="text-muted hover:text-foreground"><X className="size-3.5" /></button>
             </div>
-            <p className="mt-2 text-[11px] leading-5 text-muted">Collaborators, permissions, Vault details, ownership, privacy, and archive settings will live here in a later milestone.</p>
+            <p className="mt-2 text-[11px] leading-5 text-muted">Vault management is not available yet.</p>
           </div>
         ) : null}
       </section>

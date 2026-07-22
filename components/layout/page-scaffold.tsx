@@ -1,6 +1,4 @@
-import { ArrowUpRight, Plus } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { ArrowUpRight } from "lucide-react";
 
 type PageScaffoldProps = {
   eyebrow: string;
@@ -18,15 +16,10 @@ export function PageScaffold({ eyebrow, title, description, emptyTitle, emptyDes
           <div className="mb-3 flex items-center gap-2">
             <span className="size-1.5 rounded-full bg-accent" />
             <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted">{eyebrow}</p>
-            <Badge>Foundation</Badge>
           </div>
           <h1 className="text-balance text-2xl font-semibold tracking-[-0.025em] sm:text-3xl">{title}</h1>
           <p className="mt-2 max-w-xl text-sm leading-6 text-muted">{description}</p>
         </div>
-        <Button className="self-start sm:self-auto" disabled>
-          <Plus className="size-4" />
-          Create
-        </Button>
       </section>
 
       <section className="py-6 sm:py-8">
@@ -36,7 +29,6 @@ export function PageScaffold({ eyebrow, title, description, emptyTitle, emptyDes
           </div>
           <h2 className="text-sm font-medium text-foreground">{emptyTitle}</h2>
           <p className="mt-2 max-w-sm text-xs leading-5 text-muted">{emptyDescription}</p>
-          <p className="mt-6 text-[10px] font-semibold uppercase tracking-[0.12em] text-muted/60">Coming in Phase 2</p>
         </div>
       </section>
     </div>

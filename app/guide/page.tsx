@@ -3,11 +3,11 @@ export const metadata = { title: "Guide" };
 export default function GuidePage() {
   return (
     <PageScaffold
-      eyebrow="Compatibility route"
+      eyebrow="Brand documentation"
       title="Brand Guides"
-      description="Guides now live inside each Brand workspace, where they can reference that Brand’s authoritative Identity and Assets."
+      description="Each Brand Guide brings together identity, usage guidance, examples, and documentation."
       emptyTitle="Open a Brand to view its Guide"
-      emptyDescription="This route remains available for compatibility, but Guide is no longer a workspace-level destination."
+      emptyDescription="Choose a Brand from the Brands page to open its Guide."
     />
   );
 }

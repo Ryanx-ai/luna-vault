@@ -7,7 +7,7 @@ export default function ArchivePage() {
       title="Archive"
       description="Discontinued Sub-brands, retired campaigns, and superseded Brand systems preserved with context."
       emptyTitle="No Brands are archived"
-      emptyDescription="Shelved identities will remain recoverable and historically understandable without appearing in active Brand Families."
+      emptyDescription="Archived Brands and campaigns will appear here with their history and context."
     />
   );
 }

@@ -55,7 +55,7 @@ export function BrandDetail({ brandSlug }: { brandSlug: string }) {
           </div>
         </div>
         <Button variant="outline" onClick={() => setHeaderPanel((panel) => panel === "manage" ? null : "manage")} aria-expanded={headerPanel === "manage"}><Settings2 className="size-3.5" />Manage Brand</Button>
-        {headerPanel === "manage" ? <ActionPanel title={`Manage ${brand.name}`} onClose={() => setHeaderPanel(null)}>Brand details, ownership, lifecycle, and archive controls will become editable in a later milestone.</ActionPanel> : null}
+        {headerPanel === "manage" ? <ActionPanel title={`Manage ${brand.name}`} onClose={() => setHeaderPanel(null)}>Brand management is not available yet.</ActionPanel> : null}
       </header>
 
       <nav className="flex gap-1 border-b" aria-label={`${brand.name} workspace`}>
@@ -64,7 +64,7 @@ export function BrandDetail({ brandSlug }: { brandSlug: string }) {
 
       {activeView === "identity" ? (
         <section className="mt-6" aria-labelledby="identity-system-title">
-          <div className="mb-4"><h2 id="identity-system-title" className="text-lg font-medium">Identity</h2><p className="mt-1 max-w-2xl text-xs leading-5 text-muted">Logo, Colour, and Typography are defined once by {brand.name}. Guides, Collections, Packages, exports, and future tools reference these decisions.</p></div>
+          <div className="mb-4"><h2 id="identity-system-title" className="text-lg font-medium">Identity</h2><p className="mt-1 max-w-2xl text-xs leading-5 text-muted">Define the logo, colours, and typography used by this Brand.</p></div>
           <IdentitySystemWorkspace rules={brand.identityRules} sourceName={parent?.name} />
         </section>
       ) : null}
@@ -73,8 +73,8 @@ export function BrandDetail({ brandSlug }: { brandSlug: string }) {
 
       {activeView === "guide" ? (
         <section className="mt-6" aria-labelledby="guide-title">
-          <div className="border bg-panel/30 p-4 sm:p-5"><h2 id="guide-title" className="text-lg font-medium">Guide</h2><p className="mt-2 max-w-2xl text-xs leading-5 text-muted">A living README for {brand.name}. It references authoritative Identity and selected Assets while owning only authored explanation—never duplicated Brand data.</p></div>
-          <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{guideSections.map((section) => <div key={section} className="flex min-h-24 items-start gap-3 border bg-panel/30 p-4"><FileText className="mt-0.5 size-4 text-muted" /><div><h3 className="text-xs font-medium text-subtle">{section}</h3><p className="mt-1 text-[10px] leading-4 text-muted">Authored documentation will live here.</p></div></div>)}</div>
+          <div className="border bg-panel/30 p-4 sm:p-5"><h2 id="guide-title" className="text-lg font-medium">Guide</h2><p className="mt-2 max-w-2xl text-xs leading-5 text-muted">This Guide brings together the Brand’s identity and usage guidance.</p></div>
+          <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{guideSections.map((section) => <div key={section} className="flex min-h-24 items-start gap-3 border bg-panel/30 p-4"><FileText className="mt-0.5 size-4 text-muted" /><div><h3 className="text-xs font-medium text-subtle">{section}</h3><p className="mt-1 text-[10px] leading-4 text-muted">No content added yet.</p></div></div>)}</div>
         </section>
       ) : null}
     </div>

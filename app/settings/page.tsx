@@ -6,8 +6,8 @@ export default function SettingsPage() {
       eyebrow="Vault configuration"
       title="Settings"
       description="Configure the shared foundations and preferences of the active Vault."
-      emptyTitle="Vault settings are coming later"
-      emptyDescription="Collaborators, Brand defaults, and Vault-level preferences will be configured here."
+      emptyTitle="No settings available"
+      emptyDescription="Vault collaborators, Brand defaults, and shared preferences will appear here."
     />
   );
 }

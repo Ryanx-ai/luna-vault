@@ -11,7 +11,7 @@ function rules(states: Record<IdentityRuleName, InheritanceState>, notes: Partia
     name,
     state: states[name],
     sourceBrandId: states[name] === "Inherited" ? "brand_luna" : undefined,
-    note: notes[name] ?? (states[name] === "Inherited" ? "Uses the shared parent system." : states[name] === "Overridden" ? "A Brand-specific decision replaces the parent rule." : states[name] === "Unique" ? "Defined specifically for this Brand." : "No identity source has been configured yet."),
+    note: notes[name] ?? (states[name] === "Inherited" ? "Uses the parent Brand settings." : states[name] === "Overridden" ? "Uses settings created for this Brand." : states[name] === "Unique" ? "Defined specifically for this Brand." : name === "Logo" ? "No logos added yet." : name === "Colour" ? "No colours added yet." : "No typefaces added yet."),
   }));
 }
 
@@ -56,7 +56,7 @@ export const lunaBrandFixtures: Brand[] = [
     { id: "brand_pangea", vaultId: "vault_pangea", name: "Pangea", slug: "pangea" },
     { id: "brand_tethr", vaultId: "vault_tethr", name: "Tethr", slug: "tethr" },
   ].map(({ id, vaultId, name, slug }): Brand => ({
-    id, vaultId, name, slug, description: `Automatic Parent Brand for the ${name} Vault.`, type: "Parent Brand", status: "Draft", owner: ryan,
+    id, vaultId, name, slug, description: "", type: "Parent Brand", status: "Draft", owner: ryan,
     collaborators: [], createdAt: "2026-07-22T09:00:00+08:00", updatedAt: "2026-07-22T09:00:00+08:00", assetCount: 0, approvedAssetCount: 0,
     inReviewAssetCount: 0, collectionCount: 0, guideCompletion: 0, mark: "/brand/luna-logomark.png", presentationToken: "graphite",
     identityRules: rules({ Logo: "Not Configured", Colour: "Not Configured", Typography: "Not Configured" }), childBrandIds: [],
