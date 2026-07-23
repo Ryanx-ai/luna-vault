@@ -26,7 +26,7 @@ export function Topbar({ onMenuClick }: { onMenuClick: () => void }) {
   const togglePanel = (panel: Exclude<OpenPanel, null>) => setOpenPanel((current) => current === panel ? null : panel);
 
   return (
-    <header className="relative z-30 grid h-14 shrink-0 grid-cols-[minmax(0,1fr)_auto] items-center border-b bg-canvas px-4 md:grid-cols-[minmax(180px,1fr)_minmax(180px,320px)_minmax(220px,1fr)] md:px-6">
+    <header className="sticky top-0 z-30 grid h-14 shrink-0 grid-cols-[minmax(0,1fr)_auto] items-center border-b bg-canvas px-4 md:grid-cols-[minmax(180px,1fr)_minmax(180px,320px)_minmax(220px,1fr)] md:px-6">
       <div className="flex min-w-0 items-center gap-2">
         <Button variant="ghost" size="icon" className="-ml-2 md:hidden" onClick={onMenuClick} aria-label="Open navigation">
           <Menu className="size-4" />

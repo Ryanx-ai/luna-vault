@@ -43,8 +43,10 @@ export function AppShell({ children, shellData, brands, assets }: { children: Re
           )}
 
           <div className={`flex h-dvh min-w-0 flex-col transition-[margin] ${sidebarCollapsed ? "md:ml-16" : "md:ml-60"}`}>
-            <Topbar onMenuClick={() => setMobileOpen(true)} />
-            <main className="min-h-0 flex-1 overflow-y-auto overflow-x-hidden">{children}</main>
+            <div className="min-h-0 flex-1 overflow-y-auto overflow-x-hidden overscroll-contain">
+              <Topbar onMenuClick={() => setMobileOpen(true)} />
+              <main>{children}</main>
+            </div>
           </div>
         </div>
         </AssetProvider>

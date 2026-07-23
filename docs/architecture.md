@@ -142,3 +142,7 @@ Guide sections now use an ordered typed model with section type, source, and ton
 Workspace Appearance is a persistent in-session preference in Configure Brand. Choosing Brand Identity records intent but does not reskin the application. The prepared theme-token type remains intentionally dormant until Vault persistence and runtime theming are earned.
 
 Asset deletion is session-local and centralized in `AssetProvider`, so the Asset Library, Identity, and Guide consume the same remaining records without duplicating Asset objects. Permission roles and capabilities are typed product preparation only; no authentication or enforcement exists.
+
+## Persistent top bar
+
+The main-column viewport owns one vertical scroll container. The top bar is the first child of that container and uses `position: sticky; top: 0`, while route content follows in normal document flow. This keeps the 56px header visible without fixed offsets or compensating page padding. Desktop sidebar width changes remain expressed by the main-column margin (`240px` expanded, `64px` collapsed); mobile has no desktop offset. The header’s `z-30` layer sits above route content and below the sidebar (`z-40`), mobile drawer (`z-50`), dialogs (`z-70`), and Asset overlays (`z-80`).

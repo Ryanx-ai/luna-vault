@@ -559,3 +559,9 @@ The final founder pass hardened clipboard access, persistent raster-source guida
 Cloud and API remain static, feature-gated internal and fundraising Vision Surfaces and can be hidden with `NEXT_PUBLIC_SHOW_VISION_SURFACES=false` before external Vault beta. No backend, authentication, storage, conversion infrastructure, permission enforcement, Collection workflow, Cloud/API functionality, Runtime work, or Milestone 4 implementation was added.
 
 Vault earns Cloud. Cloud earns API. API earns Runtime. Nothing skips the queue.
+
+## LV.TD.001 — Persistent top-bar behaviour
+
+The shell’s actual vertical scroller was the route `<main>`, while the top bar was a static sibling. It appeared stable in some browsers but persistence was incidental rather than declared, and the clipped outer shell still reported content overflow beyond the viewport. The main column now owns one explicit scroll container; the top bar is sticky at its top and route content remains in normal flow immediately beneath it. No fixed positioning, hard-coded content padding, route changes, or product architecture changes were introduced.
+
+Validated across the expanded and collapsed desktop sidebar, mobile drawer, long Brand pages, Assets, Configure Brand, static Vision Surfaces, and all existing routes. The persistent top-bar technical debt is resolved. Milestone 4 has not started.

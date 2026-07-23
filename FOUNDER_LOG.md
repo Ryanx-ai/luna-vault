@@ -261,4 +261,8 @@ Brands are where identities are created. Collections are where identities are ex
 
 Vault earns Cloud. Cloud earns API. API earns Runtime. Nothing skips the queue. Milestone 4 has not started.
 
+## LV.TD.001 — Shell debt closed
+
+The remaining top-bar debt is resolved. Luna Vault now has one deliberate main-column scroll container with a sticky 56px top bar, reliable desktop sidebar alignment, and unchanged mobile drawer behaviour. The correction formalises the existing shell without redesigning it. Milestone 4 has not started.
+
 Milestone 3 remains active pending founder approval. Milestone 4 has not started.
