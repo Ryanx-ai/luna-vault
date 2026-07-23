@@ -130,3 +130,11 @@ The exact modules and schema will be decided when their milestone begins; they a
 `IdentityWorkspace` composes Logo, Colour, Typography, and a contained appearance preview. Core Logo roles point to Brand-scoped Asset IDs; local image selection enters the same `AssetProvider`. Supported image previews use object URLs tracked and revoked by the provider. Colour and Typography changes remain component-local.
 
 `BrandThemeTokens` establishes Moonlight Black as the safe default and prepares future Brand-scoped adaptation without changing Luna’s shell or system typography. The desktop sidebar collapse remains session-local and leaves the mobile drawer independent. The known persistent top-bar scrolling issue is unchanged.
+
+## Living Brand boundaries
+
+`BrandProvider.commitIdentity` updates shared Brand rule state in memory. Identity controls keep edits local until Commit. New Logo files remain pending and outside `AssetProvider` while deterministic duplicate review runs; accepted files enter the same Brand-scoped Asset collection used by Guide. Content hashing, SVG structure analysis, and visual similarity remain future work.
+
+Guide sections now use an ordered typed model with section type, source, and tone, preparing page or slide composition without copying Identity or Asset records. `/brands/[brandSlug]/configure` is the dedicated session-local governance surface.
+
+`SHOW_VISION_SURFACES` gates `/cloud` and `/api` navigation for internal development. Both routes are static UI only: no handlers, network calls, OAuth, keys, jobs, or integrations. The shell remains Luna-owned; press-and-hold Brand appearance affects only the Brand header and restores on pointer, key, leave, or blur.

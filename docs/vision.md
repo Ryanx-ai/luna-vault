@@ -57,3 +57,9 @@ The surrounding product surfaces each have a distinct role: Collections prepare 
 Kuro will be the first internal MVP test case for validating this model with real work. That learning will inform future cross-Vault behaviour and the exact depth of Brand hierarchy before those rules are committed in the product.
 
 Future asset utilities may create approved outputs such as resized files, alternate formats, favicons, or social avatars, but the original approved source asset must remain authoritative and intact.
+
+## The living Luna ecosystem
+
+Luna’s long-term system connects Brand memory, distribution, creation, intelligence, infrastructure, and Brand-native computing. Vault is the source of structured Brand truth. Cloud will distribute deliberate Brand commits. API will expose approved Brand data to applications.
+
+Cloud and API currently appear only as internal, static, feature-gated Vision Surfaces. They make the direction visible without pretending that publishing, integrations, endpoints, keys, or infrastructure exist. Luna remains the stable and accessible system while each Brand becomes a living surface. Milestone 4 has not started.

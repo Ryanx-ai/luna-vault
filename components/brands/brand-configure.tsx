@@ -1,0 +1,43 @@
+"use client";
+
+import Link from "next/link";
+import { ArrowLeft, Archive, Cloud, Code2, ImageIcon, Shield, Trash2, Users } from "lucide-react";
+import { useMemo, useState } from "react";
+import { useBrands } from "@/components/providers/brand-provider";
+import { useVault } from "@/components/providers/vault-provider";
+import { BrandMark, BrandStatusBadge } from "@/components/brands/brand-primitives";
+import { Button } from "@/components/ui/button";
+import { EmptyState } from "@/components/ui/empty-state";
+import type { Brand } from "@/lib/types/brand";
+
+const sections = ["General", "Hierarchy", "Ownership", "Privacy and access", "Brand appearance", "Commit behaviour", "Permissions", "Integrations", "Danger zone"];
+
+export function BrandConfigure({ brandSlug }: { brandSlug: string }) {
+  const { brands, canMoveBrand, moveBrand } = useBrands();
+  const { selectedVault } = useVault();
+  const brand = brands.find((item) => item.slug === brandSlug);
+  const [active, setActive] = useState("General");
+  if (!brand || brand.vaultId !== selectedVault.id) return <div className="mx-auto max-w-3xl p-6"><EmptyState title="Brand configuration unavailable" description="Open this Brand from its active Vault to configure it." action={<Button asChild variant="outline"><Link href="/brands">Return to Brands</Link></Button>} /></div>;
+  return <div className="mx-auto w-full max-w-[1120px] px-4 py-7 sm:px-6 lg:px-8"><Link href={`/brands/${brand.slug}`} className="inline-flex items-center gap-1.5 text-[11px] text-muted hover:text-foreground"><ArrowLeft className="size-3" />Return to {brand.name}</Link><header className="mt-5 flex flex-col gap-4 border-b pb-6 sm:flex-row sm:items-center"><BrandMark brand={brand} className="size-12" /><div className="min-w-0 flex-1"><p className="text-[10px] uppercase tracking-[0.12em] text-muted">Configure Brand</p><h1 className="mt-1 text-2xl font-semibold">{brand.name}</h1></div><BrandStatusBadge status={brand.status} /></header><div className="mt-6 grid gap-6 md:grid-cols-[190px_minmax(0,1fr)]"><nav className="space-y-1 md:sticky md:top-4 md:self-start" aria-label="Brand configuration sections">{sections.map((section)=><button key={section} onClick={()=>setActive(section)} aria-current={active===section?"page":undefined} className={`block w-full border-l-2 px-3 py-2 text-left text-[11px] ${active===section?"border-accent bg-accent/[0.04] text-foreground":"border-transparent text-muted hover:text-subtle"}`}>{section}</button>)}</nav><main className="min-w-0"><ConfigSection brand={brand} active={active} brands={brands} canMoveBrand={canMoveBrand} moveBrand={moveBrand} /></main></div></div>;
+}
+
+function ConfigSection({ brand, active, brands, canMoveBrand, moveBrand }: { brand: Brand; active: string; brands: Brand[]; canMoveBrand: ReturnType<typeof useBrands>["canMoveBrand"]; moveBrand: ReturnType<typeof useBrands>["moveBrand"] }) {
+  const [parentId,setParentId]=useState(brand.parentBrandId??"");
+  const [confirming,setConfirming]=useState(false);
+  const [message,setMessage]=useState("");
+  const options=useMemo(()=>brands.filter((item)=>item.vaultId===brand.vaultId&&item.id!==brand.id&&canMoveBrand(brand.id,item.id).ok),[brand,brands,canMoveBrand]);
+  if(active==="Hierarchy") return <Panel title="Hierarchy" copy="Control where this Brand belongs and what it inherits."><Field label="Current parent"><select aria-label="Parent Brand" value={parentId} disabled={brand.type==="Parent Brand"} onChange={(event)=>{setParentId(event.target.value);setConfirming(false);setMessage("");}} className="h-9 w-full border bg-canvas px-3 text-xs"><option value="">Independent Brand</option>{options.map((item)=><option key={item.id} value={item.id}>{item.name}</option>)}</select></Field><Field label="Identity inheritance"><p>Colour and Typography may inherit from the parent. Logo remains Brand-specific.</p></Field><Field label="Children"><p>{brand.childBrandIds.length} connected Brand{brand.childBrandIds.length===1?"":"s"}</p></Field>{confirming?<div className="border border-accent/20 p-3"><p className="text-xs">Move {brand.name} under {brands.find((item)=>item.id===parentId)?.name??"no parent"}?</p><div className="mt-3 flex gap-2"><Button onClick={()=>{const result=moveBrand(brand.id,parentId||undefined);setMessage(result.ok?"Hierarchy updated for this session.":result.message??"Move unavailable.");setConfirming(false);}}>Confirm</Button><Button variant="outline" onClick={()=>setConfirming(false)}>Cancel</Button></div></div>:<Button onClick={()=>setConfirming(true)} disabled={brand.type==="Parent Brand"}>Review hierarchy change</Button>}{message?<p className="text-[11px] text-muted">{message}</p>:null}</Panel>;
+  if(active==="General") return <Panel title="General" copy="Core details used throughout this Brand workspace."><Field label="Brand name"><input value={brand.name} readOnly className="h-9 w-full border bg-canvas px-3 text-xs" /></Field><Field label="Slug"><code>{brand.slug}</code></Field><Field label="Brand image"><div className="flex items-center gap-2"><ImageIcon className="size-4 text-muted" /><span>Uses the connected Brand mark</span></div></Field><Field label="Lifecycle"><BrandStatusBadge status={brand.status} /></Field></Panel>;
+  if(active==="Ownership") return <Panel title="Ownership" copy="People responsible for this Brand."><Field label="Account owner"><p>{brand.owner.name}</p></Field><Placeholder icon={Users} title="Co-owner" /><Placeholder icon={Users} title="Collaborators" /></Panel>;
+  if(active==="Privacy and access") return <Panel title="Privacy and access" copy="This Brand is currently available inside its Vault."><Choice title="Private" detail="Only invited people" /><Choice title="Vault" detail="Visible inside this Vault" active /><Choice title="Public Guide" detail="Coming later" /></Panel>;
+  if(active==="Brand appearance") return <Panel title="Brand appearance" copy="Luna remains the stable system while the Brand becomes the living surface."><Choice title="Luna system appearance" detail="Moonlight Black default" active /><Choice title="Preview Brand appearance" detail="Available from the Brand header" /><Choice title="Apply to Brand workspace" detail="Coming later" /></Panel>;
+  if(active==="Commit behaviour") return <Panel title="Commit behaviour" copy="Commit validates a deliberate Brand state before connected outputs change."><Field label="Before Commit"><p>Review likely duplicates, prefer SVG masters, and confirm connected output warnings.</p></Field><Field label="After Commit"><p>Update session-local Identity, connected Asset references, and Guide surfaces.</p></Field></Panel>;
+  if(active==="Integrations") return <Panel title="Integrations" copy="Future Brand distribution and infrastructure connections."><Placeholder icon={Cloud} title="Luna Cloud" /><Placeholder icon={Code2} title="Luna API" /></Panel>;
+  if(active==="Danger zone") return <Panel title="Danger zone" copy="High-impact Brand controls remain unavailable in this prototype."><Placeholder icon={Archive} title="Archive Brand" /><Placeholder icon={Shield} title="Transfer ownership" /><Placeholder icon={Trash2} title="Delete Brand" /></Panel>;
+  return <Panel title={active} copy="Coming later. No access or permission changes are active in this prototype."><Placeholder icon={Shield} title={active} /></Panel>;
+}
+
+function Panel({ title,copy,children }:{title:string;copy:string;children:React.ReactNode}){return <section className="space-y-4 border bg-panel/25 p-5 sm:p-6"><div className="border-b pb-4"><h2 className="text-base font-medium">{title}</h2><p className="mt-1 text-[11px] leading-5 text-muted">{copy}</p></div>{children}</section>;}
+function Field({label,children}:{label:string;children:React.ReactNode}){return <div><p className="mb-1.5 text-[9px] uppercase tracking-[0.1em] text-muted">{label}</p><div className="text-xs text-subtle">{children}</div></div>;}
+function Choice({title,detail,active=false}:{title:string;detail:string;active?:boolean}){return <div className={`border p-3 ${active?"border-accent/30 bg-accent/[0.04]":""}`}><p className="text-xs font-medium">{title}</p><p className="mt-1 text-[10px] text-muted">{detail}</p></div>;}
+function Placeholder({icon:Icon,title}:{icon:typeof Users;title:string}){return <div className="flex items-center gap-3 border p-3"><Icon className="size-4 text-muted" /><div><p className="text-xs">{title}</p><p className="mt-1 text-[10px] text-muted">Coming later</p></div></div>;}

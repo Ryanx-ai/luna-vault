@@ -17,7 +17,7 @@ export function BrandHierarchy({ brands, onRequestMove, canMove }: { brands: Bra
 }
 
 function BrandNode({ brand, brands, level, onRequestMove, canMove }: { brand: Brand; brands: Brand[]; level: 1 | 2 | 3; onRequestMove?: (brandId: string, parentId: string) => void; canMove?: (brandId: string, parentId: string) => boolean }) {
-  const children = level < 3 ? brands.filter((candidate) => candidate.parentBrandId === brand.id) : [];
+  const children = level < 3 ? brands.filter((candidate) => candidate.parentBrandId === brand.id).sort((a,b)=>brand.childBrandIds.indexOf(a.id)-brand.childBrandIds.indexOf(b.id)) : [];
   const levelLabel = brand.type === "Independent Brand" ? "Independent Brand" : level === 1 ? "Parent Brand" : level === 2 ? "Sub-brand" : "Nested Sub-brand";
 
   return (

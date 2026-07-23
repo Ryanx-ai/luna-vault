@@ -88,3 +88,11 @@ A Brand workspace may reflect configured Logo, Colour, and Typography tokens, cr
 ## Honest automation
 
 Derived logos, colour values, print references, and font packages must remain source-aware. Luna should not claim automatic output, Pantone accuracy, conversion quality, or licensing rights it cannot verify.
+
+## Commit before connected change
+
+Editing and preview are exploratory. Commit is the deliberate, validated transition into the Brand’s selected session state. Likely duplicates must be reviewed before a new Logo Asset enters the library, and SVG should be preferred as the safest master without blocking honest raster use.
+
+## Keep the future visible, not fictional
+
+Vision Surfaces may express Luna’s direction, but they must be static, feature-gated, and explicit about unavailable functionality. Cloud means Brand distribution. API means Brand infrastructure.

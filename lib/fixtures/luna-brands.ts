@@ -27,30 +27,29 @@ export const lunaBrandFixtures: Brand[] = [
     collaborators: [{ ...mei, role: "Brand operator" }, { ...lunaTeam, role: "Design team" }], createdAt: "2024-01-12T10:00:00+08:00", updatedAt: "2026-07-20T14:20:00+08:00",
     assetCount: 18, approvedAssetCount: 15, inReviewAssetCount: 2, collectionCount: 3, guideCompletion: 92, mark: "/brand/luna-logomark.png", presentationToken: "violet",
     identityRules: rules({ Logo: "Unique", Colour: "Unique", Typography: "Unique" }, { Logo: "Primary Luna logo.", Colour: "Defines the shared Luna palette.", Typography: "Defines the family typography system." }),
-    childBrandIds: ["brand_studio", "brand_vault", "brand_labs", "brand_events"],
+    childBrandIds: ["brand_vault", "brand_cloud", "brand_studio", "brand_ai", "brand_api", "brand_runtime"],
   },
   {
-    id: "brand_studio", vaultId: "vault_luna", name: "Luna Studio", slug: "luna-studio", description: "Creative practice for identity, product, and experience design.", type: "Product", status: "Active", parentBrandId: "brand_luna", owner: ryan,
+    id: "brand_studio", vaultId: "vault_luna", name: "Luna Studio", slug: "luna-studio", description: "Brand creation", type: "Product", status: "Active", parentBrandId: "brand_luna", owner: ryan,
     collaborators: [{ ...mei, role: "Designer" }], createdAt: "2024-03-08T09:00:00+08:00", updatedAt: "2026-07-19T17:10:00+08:00",
     assetCount: 9, approvedAssetCount: 7, inReviewAssetCount: 1, collectionCount: 1, guideCompletion: 78, mark: "/brand/luna-logomark.png", presentationToken: "slate", identityRules: rules(inherited), childBrandIds: [],
   },
   {
-    id: "brand_vault", vaultId: "vault_luna", name: "Luna Vault", slug: "luna-vault", description: "Brand infrastructure product for living identity systems.", type: "Product", status: "Active", parentBrandId: "brand_luna", owner: lunaTeam,
+    id: "brand_vault", vaultId: "vault_luna", name: "Luna Vault", slug: "luna-vault", description: "Brand memory", type: "Product", status: "Beta", parentBrandId: "brand_luna", owner: lunaTeam,
     collaborators: [{ ...ryan, role: "Product owner" }, { ...mei, role: "Brand operator" }], createdAt: "2025-11-18T11:00:00+08:00", updatedAt: "2026-07-20T15:40:00+08:00",
     assetCount: 11, approvedAssetCount: 6, inReviewAssetCount: 3, collectionCount: 2, guideCompletion: 64, mark: "/brand/luna-logomark.png", presentationToken: "violet", identityRules: rules(inherited), childBrandIds: [],
   },
-  {
-    id: "brand_labs", vaultId: "vault_luna", name: "Luna Labs", slug: "luna-labs", description: "Internal initiative for experimental tools and new ideas.", type: "Internal Initiative", status: "Draft", parentBrandId: "brand_luna", owner: mei,
-    collaborators: [{ ...ryan, role: "Sponsor" }], createdAt: "2026-02-06T10:30:00+08:00", updatedAt: "2026-07-17T11:30:00+08:00",
-    assetCount: 6, approvedAssetCount: 3, inReviewAssetCount: 1, collectionCount: 0, guideCompletion: 35, mark: "/brand/luna-logomark.png", presentationToken: "graphite",
+  ...[
+    { id: "brand_cloud", name: "Luna Cloud", slug: "luna-cloud", description: "Brand distribution", status: "Concept" as const },
+    { id: "brand_ai", name: "Luna AI", slug: "luna-ai", description: "Brand intelligence", status: "Planned" as const },
+    { id: "brand_api", name: "Luna API", slug: "luna-api", description: "Brand infrastructure", status: "Concept" as const },
+    { id: "brand_runtime", name: "Luna Runtime", slug: "luna-runtime", description: "Brand-native computing", status: "Planned" as const },
+  ].map((item): Brand => ({
+    ...item, vaultId: "vault_luna", type: "Product", parentBrandId: "brand_luna", owner: ryan, collaborators: [],
+    createdAt: "2026-07-23T09:00:00+08:00", updatedAt: "2026-07-23T09:00:00+08:00", assetCount: 0, approvedAssetCount: 0,
+    inReviewAssetCount: 0, collectionCount: 0, guideCompletion: 0, mark: "/brand/luna-logomark.png", presentationToken: "graphite",
     identityRules: rules({ Logo: "Not Configured", Colour: "Inherited", Typography: "Inherited" }), childBrandIds: [],
-  },
-  {
-    id: "brand_events", vaultId: "vault_luna", name: "Luna Events", slug: "luna-events", description: "Event identity system for community gatherings and launches.", type: "Event", status: "In Review", parentBrandId: "brand_luna", owner: mei,
-    collaborators: [{ ...ryan, role: "Approver" }], createdAt: "2026-04-22T13:00:00+08:00", updatedAt: "2026-07-18T09:15:00+08:00",
-    assetCount: 4, approvedAssetCount: 1, inReviewAssetCount: 2, collectionCount: 1, guideCompletion: 48, mark: "/brand/luna-logomark.png", presentationToken: "plum",
-    identityRules: rules({ Logo: "Overridden", Colour: "Overridden", Typography: "Inherited" }), childBrandIds: [],
-  },
+  })),
   ...[
     { id: "brand_kuro", vaultId: "vault_kuro", name: "Kuro", slug: "kuro" },
     { id: "brand_pangea", vaultId: "vault_pangea", name: "Pangea", slug: "pangea" },

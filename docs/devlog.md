@@ -94,6 +94,21 @@ Turn the application foundation into a believable operational workspace and esta
 - The top bar shell offset remains correct, but persistent top-bar behaviour still requires focused investigation against the actual browser scroll container.
 - Milestone 3 remains active pending founder approval. Milestone 4 has not started.
 
+## 2026-07-23 — LV.MS.003-H Living Brand refinement
+
+- corrected the collapsed sidebar into a centred rail with a 32px Luna logomark, contained toggle, accessible icon tooltips, and quiet Beta navigation
+- seeded Luna Vault, Cloud, Studio, AI, API, and Runtime beneath Luna with honest lifecycle states
+- replaced the Configure popover with `/brands/[brandSlug]/configure`
+- added session-local Commit actions for Logo, Colours, and Typography
+- kept new Logo files pending until deterministic duplicate review and explicit acceptance
+- added SVG-first guidance, raster warnings, quick copy/download actions, and future derivative slots
+- replaced colour cards with a weighted living palette plus progressive native picker and synchronized HEX/RGB
+- moved Brand appearance to a press-and-hold header preview
+- prepared reusable ordered Guide section types
+- added feature-gated static `/cloud` and `/api` internal Vision Surfaces
+
+No persistence, backend API, Cloud publishing, authentication, permissions, conversion, generation, Guide editing, PDF export, or Milestone 4 scope was introduced.
+
 ## LV.CLOSE.003 — End-of-Day Repository Closure
 
 **Status:** Complete<br />
@@ -532,3 +547,7 @@ Close Milestone 2 by establishing each Brand as the authoritative home for Ident
 - Brand creation, automatic Parent Brand behaviour, eligible parent depth, Brand overview navigation, and Vault boundaries remained intact.
 - Desktop at 1440×900 and mobile at 390×844 passed with no horizontal overflow; the mobile drawer remained functional.
 - The browser console contained no errors.
+
+## Current status — LV.MS.003-H (23 July 2026)
+
+The Living Brand refinement is implemented and validated under Milestone 3. Commit remains session-local; Configure Brand is the governance route; the living palette, SVG-first duplicate review, temporary Brand preview, seeded Luna ecosystem, and static feature-gated Cloud/API Vision Surfaces are active in the internal build. Milestone 3 remains active pending founder approval. Milestone 4 has not started.

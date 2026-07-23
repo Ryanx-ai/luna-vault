@@ -14,6 +14,9 @@ const statusStyles: Record<BrandLifecycleStatus, string> = {
   Draft: "border-white/10 bg-white/[0.03] text-muted",
   "In Review": "border-violet-400/20 bg-violet-400/[0.07] text-violet-300",
   Archived: "border-white/10 bg-transparent text-muted",
+  Planned: "border-white/10 bg-white/[0.03] text-muted",
+  Concept: "border-sky-400/15 bg-sky-400/[0.04] text-sky-200",
+  Beta: "border-accent/20 bg-accent/[0.05] text-accent",
 };
 
 const inheritanceStyles: Record<InheritanceState, string> = {

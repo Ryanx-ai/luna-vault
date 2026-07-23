@@ -195,3 +195,9 @@ Brands is now the active Vault home and first Workspace destination. The dedicat
 **Status:** Implemented, pending final founder approval
 
 Editable Brand hierarchy, confirmed re-parenting, Configure Brand fallback, three core Logo roles, structured Colour and Typography, simplified Asset intake, real local previews, vertical Guide sections, desktop sidebar collapse, and Brand-theme token preparation complete the Milestone 3 review surface. Persistence, cloud storage, permissions, production conversions, global Brand theming, and version history remain deferred. Milestone 4 has not started.
+
+### Living Brand and Vision Surfaces
+
+**Status:** Implemented under Milestone 3, pending founder approval
+
+Session-local Commit, SVG-first Logo guidance, pre-Commit duplicate comparison, Identity quick actions, the living colour palette and picker, press-and-hold Brand appearance, dedicated Configure Brand governance, typed Guide sections, and the seeded Luna ecosystem complete the refinement. Cloud and API are internal, static, feature-gated Vision Surfaces. They do not advance Milestone 4 or add infrastructure.

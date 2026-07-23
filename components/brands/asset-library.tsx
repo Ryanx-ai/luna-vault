@@ -77,7 +77,7 @@ export function AssetLibrary({ brand }: { brand: Brand }) {
 
 function Preview({ asset, compact = false }: { asset: Asset; compact?: boolean }) {
   return <div className={cn("relative flex items-center justify-center overflow-hidden bg-elevated", compact ? "size-9 border" : "h-36 border-b")}>
-    {asset.thumbnail ? asset.thumbnail.startsWith("blob:") ? <img src={asset.thumbnail} alt={`${asset.name} preview`} className="h-full w-full object-contain p-3" /> : <Image src={asset.thumbnail} alt="" fill sizes={compact ? "36px" : "320px"} className="object-contain p-3" /> : <div className="text-center"><File className="mx-auto size-6 text-muted" /><span className="mt-1 block text-[9px] text-muted">{asset.extension}</span></div>}
+    {asset.thumbnail ? asset.thumbnail.startsWith("blob:") ? <img src={asset.thumbnail} alt={`${asset.name} preview`} className="h-full w-full object-contain p-3" /> : <Image src={asset.thumbnail} alt="" fill sizes={compact ? "36px" : "320px"} priority className="object-contain p-3" /> : <div className="text-center"><File className="mx-auto size-6 text-muted" /><span className="mt-1 block text-[9px] text-muted">{asset.extension}</span></div>}
   </div>;
 }
 

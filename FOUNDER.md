@@ -92,3 +92,5 @@ Founder, Luna Vault
 Milestone 3 establishes the daily Brand workspace: Brands is the Vault home, Identity owns Logo, Colour, and Typography, Assets belong to Brands, Guide brings Brand information together, and Timeline preserves how the ecosystem evolves. Luna Vault is continuing to grow into a Brand operating system. Milestone 4 has not started.
 
 The founder-review refinement makes that workspace more tangible: Brand families can be corrected without leaving the session; Identity guides Logo, Colour, and Typography configuration; upload stays deliberately simple; and Guide reads as an authored Brand document. A future Brand workspace may adapt to its own identity, but Luna’s navigation, contrast, accessibility, and Moonlight Black fallback remain non-negotiable.
+
+Commit is the deliberate transition from exploration into the Brand’s selected state. Luna remains the stable system while each Brand becomes a living surface. Cloud represents Brand distribution; API represents Brand infrastructure. Both remain honest internal Vision Surfaces until their workflows earn implementation.

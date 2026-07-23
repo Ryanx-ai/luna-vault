@@ -244,3 +244,13 @@ The real Kuro workflow exposed where structure still felt like a prototype. Bran
 The founder decision for Asset intake is `Upload → Organise → Done`: file, category, and tags are enough. Approval status and description no longer interrupt upload. Local image previews remain honest and ephemeral.
 
 The walkthrough also established the “chameleon” idea: a Brand workspace may eventually reflect its own identity, but adaptation must never undermine contrast, accessibility, Luna’s core navigation, or the safe Moonlight Black default. Automatic derivatives, colour conversion, and font conversion must remain source-aware and must never promise results the source file or licence cannot support. Milestone 3 remains active pending founder approval. Milestone 4 has not started.
+
+## LV.MS.003-H — Living Brand and Vision Surfaces
+
+Commit is now the controlled transition into Brand state: preview first, validate the source, check likely duplicates, then deliberately connect Identity and Assets. SVG remains the preferred logo master because future derivatives must be source-aware. Colour became a living composition instead of a metadata grid, while Brand appearance moved into a temporary press-and-hold preview that always restores Luna.
+
+Configure Brand became the dedicated governance surface. The seeded Luna family now makes the longer ecosystem legible: Vault for Brand memory, Cloud for distribution, Studio for creation, AI for intelligence, API for infrastructure, and Runtime for Brand-native computing.
+
+“The future should remain visible while Vault is being built. Cloud and API are not promises of current functionality; they are reminders of the system Luna is becoming.”
+
+Milestone 3 remains active pending founder approval. Milestone 4 has not started.

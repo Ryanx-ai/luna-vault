@@ -20,16 +20,16 @@ function NavLink({ item, onNavigate, collapsed = false }: { item: NavigationItem
       href={item.href}
       onClick={onNavigate}
       aria-current={active ? "page" : undefined}
-      aria-label={collapsed ? item.label : undefined}
-      title={collapsed ? item.label : undefined}
+      aria-label={collapsed ? `${item.label}${item.beta ? " · Beta" : ""}` : undefined}
+      title={collapsed ? `${item.label}${item.beta ? " · Beta" : ""}` : undefined}
       className={cn(
         "group flex h-8 items-center gap-2.5 rounded-md px-2 text-[13px] transition-colors",
         collapsed && "justify-center",
-        active ? "bg-elevated text-foreground shadow-hairline" : "text-muted hover:bg-elevated/70 hover:text-subtle",
+        active ? "bg-elevated text-foreground shadow-hairline" : item.quiet ? "text-muted/75 hover:bg-elevated/70 hover:text-subtle" : "text-muted hover:bg-elevated/70 hover:text-subtle",
       )}
     >
       <Icon className="size-4 shrink-0" strokeWidth={1.6} />
-      {!collapsed ? <span>{item.label}</span> : null}
+      {!collapsed ? <><span>{item.label}</span>{item.beta ? <span className="ml-auto border border-accent/15 px-1 py-0.5 text-[8px] uppercase tracking-[0.08em] text-accent/70">Beta</span> : null}</> : null}
     </Link>
   );
 }
@@ -58,9 +58,9 @@ export function Sidebar({ onNavigate, collapsed = false, onToggleCollapsed }: { 
 
   return (
     <aside className="flex h-full w-full flex-col bg-panel">
-      <div className={cn("flex h-14 items-center border-b px-3", collapsed ? "justify-center" : "justify-between")}>
-        {collapsed ? <Image src="/brand/luna-logomark.png" alt="Luna Vault" width={24} height={24} priority className="size-6 object-contain" /> : <LunaVaultLogo />}
-        {onToggleCollapsed ? <button onClick={onToggleCollapsed} aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"} title={collapsed ? "Expand sidebar" : "Collapse sidebar"} className={cn("flex size-7 items-center justify-center text-muted hover:text-foreground", collapsed && "absolute left-[68px] top-3.5 border bg-panel shadow-lg")} >{collapsed ? <PanelLeftOpen className="size-3.5" /> : <PanelLeftClose className="size-3.5" />}</button> : null}
+      <div className={cn("flex items-center border-b px-3", collapsed ? "h-24 flex-col justify-center gap-2" : "h-14 justify-between")}>
+        {collapsed ? <Image src="/brand/luna-logomark.png" alt="Luna Vault" width={32} height={32} priority className="size-8 object-contain" /> : <LunaVaultLogo />}
+        {onToggleCollapsed ? <button onClick={onToggleCollapsed} aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"} title={collapsed ? "Expand sidebar" : "Collapse sidebar"} className="flex size-7 shrink-0 items-center justify-center rounded-md text-muted hover:bg-elevated hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50">{collapsed ? <PanelLeftOpen className="size-4" /> : <PanelLeftClose className="size-3.5" />}</button> : null}
       </div>
 
       <div ref={switcherRef} className={cn("relative border-b py-3", collapsed ? "px-2" : "px-3")}>
@@ -82,12 +82,12 @@ export function Sidebar({ onNavigate, collapsed = false, onToggleCollapsed }: { 
         ) : null}
       </div>
 
-      <nav className="flex flex-1 flex-col gap-1 overflow-y-auto px-3 py-3" aria-label="Primary navigation">
+      <nav className={cn("flex flex-1 flex-col gap-1 overflow-y-auto py-3", collapsed ? "px-2" : "px-3")} aria-label="Primary navigation">
         {!collapsed ? <p className="mb-1 px-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-muted/70">Workspace</p> : null}
         {primaryNavigation.map((item) => <NavLink key={item.href} item={item} onNavigate={onNavigate} collapsed={collapsed} />)}
       </nav>
 
-      <nav className="space-y-1 border-t px-3 py-3" aria-label="Utility navigation">
+      <nav className={cn("space-y-1 border-t py-3", collapsed ? "px-2" : "px-3")} aria-label="Utility navigation">
         {utilityNavigation.map((item) => <NavLink key={item.href} item={item} onNavigate={onNavigate} collapsed={collapsed} />)}
         <div className="mt-3 flex items-center gap-2 border-t px-2 pt-3">
           <div className="flex size-6 items-center justify-center rounded-full bg-elevated text-[10px] font-semibold text-subtle">LV</div>

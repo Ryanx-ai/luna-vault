@@ -1,7 +1,7 @@
 import type { PersonSummary } from "@/lib/types/workspace";
 
 export type BrandType = "Parent Brand" | "Independent Brand" | "Product" | "Sub-brand" | "Nested Sub-brand" | "Event" | "Campaign" | "Internal Initiative";
-export type BrandLifecycleStatus = "Active" | "Draft" | "In Review" | "Archived";
+export type BrandLifecycleStatus = "Active" | "Draft" | "In Review" | "Archived" | "Planned" | "Concept" | "Beta";
 export type InheritanceState = "Inherited" | "Overridden" | "Unique" | "Not Configured";
 export type IdentityRuleName = "Logo" | "Colour" | "Typography";
 

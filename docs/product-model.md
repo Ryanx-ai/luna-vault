@@ -107,3 +107,9 @@ Milestone 3 is complete. Brand creation and Asset Library changes remain local t
 Brand hierarchy is editable session-locally through confirmed re-parenting. Moves remain inside one Vault, reject self/circular relationships, and preserve the three visible levels of Parent Brand, Sub-brand, and Nested Sub-brand. Configure Brand provides the keyboard-accessible equivalent to drag-and-drop.
 
 Identity prioritises three connected Logo Asset roles—Full Logo, Wordmark, and Logomark—alongside a structured Colour palette and Typography specimen. Logo references reuse Asset records; they are not duplicate files. Guide consumes these Brand and Asset records as a vertical living document. Moonlight Black is the default Brand-theme token set; Brand-adaptive appearance remains a contained preview concept.
+
+## Commit and governance
+
+Identity has an editing/preview state and a selected Brand state. Commit validates and applies the latter for the current browser session. Logo Commit accepts a new Asset only after deterministic duplicate review based on Brand, role, normalized filename, size, and MIME type. Configure Brand governs General details, hierarchy, ownership, access, appearance, Commit behaviour, future permissions, integrations, and high-impact controls.
+
+The seeded Luna family is Luna, Luna Vault, Luna Cloud, Luna Studio, Luna AI, Luna API, and Luna Runtime. Cloud and API application pages are internal Vision Surfaces behind one local feature boundary; they are not domain integrations or backend services.
