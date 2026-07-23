@@ -63,3 +63,7 @@ Future asset utilities may create approved outputs such as resized files, altern
 Luna’s long-term system connects Brand memory, distribution, creation, intelligence, infrastructure, and Brand-native computing. Vault is the source of structured Brand truth. Cloud will distribute deliberate Brand commits. API will expose approved Brand data to applications.
 
 Cloud and API currently appear only as internal, static, feature-gated Vision Surfaces. They make the direction visible without pretending that publishing, integrations, endpoints, keys, or infrastructure exist. Luna remains the stable and accessible system while each Brand becomes a living surface. Milestone 4 has not started.
+
+Cloud and API may also support fundraising demonstrations, but both are hidden before external Vault beta and remain inactive engineering tracks until Vault ships, is used, and is validated. Vault earns Cloud. Cloud earns API. API earns Runtime. Nothing skips the queue.
+
+The intended Brand appearance path is Brand → Identity → Colours and Typography → Workspace Theme → a contained Vault experience in the Brand language. Collections will become the curated client-facing layer; Packages remain production export bundles. These directions are documented, not implemented.

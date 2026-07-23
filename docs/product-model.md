@@ -110,6 +110,10 @@ Identity prioritises three connected Logo Asset roles—Full Logo, Wordmark, and
 
 ## Commit and governance
 
-Identity has an editing/preview state and a selected Brand state. Commit validates and applies the latter for the current browser session. Logo Commit accepts a new Asset only after deterministic duplicate review based on Brand, role, normalized filename, size, and MIME type. Configure Brand governs General details, hierarchy, ownership, access, appearance, Commit behaviour, future permissions, integrations, and high-impact controls.
+Identity has an editing state and a selected Brand state. Save applies local Brand edits for the current browser session. Logo Save accepts a new Asset only after duplicate review and retains raster-source quality warnings. Configure Brand governs General details, hierarchy, ownership, access, persistent session Appearance preference, Save behaviour, future permissions, integrations, and high-impact controls. Commit is reserved for Collection-level publishing.
 
 The seeded Luna family is Luna, Luna Vault, Luna Cloud, Luna Studio, Luna AI, Luna API, and Luna Runtime. Cloud and API application pages are internal Vision Surfaces behind one local feature boundary; they are not domain integrations or backend services.
+
+Brands are the internal source-of-truth workspace. Collections are the curated client-facing presentation layer, and Packages are production export bundles. Milestone 4 may introduce Wrap for Collection → Collection → Commit to Collection → Client View, including selective visibility. No part of that workflow is implemented in Milestone 3.
+
+Future Workspace Appearance follows Brand → Identity → Colours and Typography → Workspace Theme. It may influence contained Brand surfaces while preserving accessibility, readable contrast, Luna navigation language, and consistent system behaviour. Runtime theming remains deferred until after validated Vault beta.

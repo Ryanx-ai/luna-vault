@@ -93,4 +93,8 @@ Milestone 3 establishes the daily Brand workspace: Brands is the Vault home, Ide
 
 The founder-review refinement makes that workspace more tangible: Brand families can be corrected without leaving the session; Identity guides Logo, Colour, and Typography configuration; upload stays deliberately simple; and Guide reads as an authored Brand document. A future Brand workspace may adapt to its own identity, but Luna’s navigation, contrast, accessibility, and Moonlight Black fallback remain non-negotiable.
 
-Commit is the deliberate transition from exploration into the Brand’s selected state. Luna remains the stable system while each Brand becomes a living surface. Cloud represents Brand distribution; API represents Brand infrastructure. Both remain honest internal Vision Surfaces until their workflows earn implementation.
+Save applies local Brand edits. Commit is reserved for the future Collection-level publishing workflow. Luna remains the stable system while each Brand becomes a living surface. Cloud represents Brand distribution; API represents Brand infrastructure. Both remain honest internal and fundraising Vision Surfaces until Vault beta ships, is used, and is validated.
+
+Brands are where identities are created. Collections are where identities are experienced. Packages are how identities are delivered. The future bridge is Wrap for Collection → Commit to Collection → Client View.
+
+Vault earns Cloud. Cloud earns API. API earns Runtime. Nothing skips the queue.

@@ -70,4 +70,8 @@ The current review build adds editable session-local Brand hierarchy, drag-and-c
 
 ### Living Brand refinement
 
-Identity now uses explicit session-local Commit actions to move Logo, Colour, and Typography from preview into selected Brand state. Logo intake is SVG-first, checks likely duplicates before acceptance, and exposes honest quick actions. Colour uses a responsive living palette and visual picker. Configure Brand is a dedicated governance route. The internal, feature-gated Cloud and API Vision Surfaces keep Brand distribution and Brand infrastructure visible without adding production infrastructure.
+Identity now uses explicit session-local Save actions for Logo, Colour, and Typography. Logo intake is SVG-first, checks likely duplicates, retains raster quality warnings, and exposes metadata plus honest export choices. Colour uses a responsive living palette, deletion, and one-step undo. Configure Brand is a dedicated governance route with a persistent Appearance preference and a prepared permission model. The internal, feature-gated Cloud and API Vision Surfaces remain static demonstration surfaces and can be hidden before external Vault beta.
+
+Brands are where identities are created. Collections are where identities are experienced. Packages are how identities are delivered. Milestone 4 has not started.
+
+Vault earns Cloud. Cloud earns API. API earns Runtime. Nothing skips the queue.

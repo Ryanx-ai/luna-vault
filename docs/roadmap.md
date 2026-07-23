@@ -186,6 +186,10 @@ Milestone 2 received its final user-facing copy polish. Active product surfaces 
 
 **Local-only limitations:** Brand and Asset changes reset on refresh. No cloud storage, authentication, permissions, production downloads, deletion, generated variants, Guide editing, Collections, Packages, or Milestone 4 versioning was added.
 
+Milestone 3 final hardening adds session-local Asset deletion, connected-reference warnings, raster Logo quality warnings, metadata visibility, an honest export-menu foundation, one-step colour undo, Save terminology, a persistent Appearance preference, and typed future permission roles. Workspace theming, Collection wrapping, client visibility, persistence, authentication, and enforcement remain deferred. Milestone 4 has not started.
+
+Milestone 4 planning may cover Wrap for Collection → Collection → Commit to Collection → Client View. Collections become the curated presentation layer; Packages remain production export bundles. Cloud, API, and Runtime do not become engineering tracks before validated Vault beta.
+
 ### Primary workspace and Timeline addendum
 
 Brands is now the active Vault home and first Workspace destination. The dedicated Overview interface was retired without moving dashboard totals into Brands; `/overview` remains a compatibility redirect. Activity was renamed Timeline at `/timeline`, with `/activity` retained as a compatibility redirect. Timeline represents the chronological evolution of the Brand ecosystem. Milestone 3 is complete and awaiting founder review; Milestone 4 has not started.

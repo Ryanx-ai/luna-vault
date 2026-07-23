@@ -96,3 +96,5 @@ Editing and preview are exploratory. Commit is the deliberate, validated transit
 ## Keep the future visible, not fictional
 
 Vision Surfaces may express Luna’s direction, but they must be static, feature-gated, and explicit about unavailable functionality. Cloud means Brand distribution. API means Brand infrastructure.
+
+Cloud and API may communicate the long-term thesis during fundraising, but they do not become active engineering tracks until Vault beta is shipped, used, and validated. Vault earns Cloud. Cloud earns API. API earns Runtime. Nothing skips the queue.

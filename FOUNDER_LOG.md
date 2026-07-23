@@ -253,4 +253,12 @@ Configure Brand became the dedicated governance surface. The seeded Luna family 
 
 “The future should remain visible while Vault is being built. Cloud and API are not promises of current functionality; they are reminders of the system Luna is becoming.”
 
+## LV.MS.003-I — Founder closure hardening
+
+Milestone 3’s final pass made the living Brand workflows safer and more legible: clipboard actions fail honestly, raster Logo sources remain visibly cautioned, Logo records expose their metadata and real export boundary, colours can be removed and undone once, and Assets can be deleted from the active Brand with connected-reference warnings. Workspace Appearance remains a core visible direction as a persistent preference, without premature theming.
+
+Brands are where identities are created. Collections are where identities are experienced. Packages are how identities are delivered. Save belongs to local Brand editing; Commit is reserved for the future Collection layer. Cloud and API may tell the long-term story in internal and fundraising demos, but Vault beta must ship, be used, and be validated first.
+
+Vault earns Cloud. Cloud earns API. API earns Runtime. Nothing skips the queue. Milestone 4 has not started.
+
 Milestone 3 remains active pending founder approval. Milestone 4 has not started.

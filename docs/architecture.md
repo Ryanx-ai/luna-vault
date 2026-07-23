@@ -137,4 +137,8 @@ The exact modules and schema will be decided when their milestone begins; they a
 
 Guide sections now use an ordered typed model with section type, source, and tone, preparing page or slide composition without copying Identity or Asset records. `/brands/[brandSlug]/configure` is the dedicated session-local governance surface.
 
-`SHOW_VISION_SURFACES` gates `/cloud` and `/api` navigation for internal development. Both routes are static UI only: no handlers, network calls, OAuth, keys, jobs, or integrations. The shell remains Luna-owned; press-and-hold Brand appearance affects only the Brand header and restores on pointer, key, leave, or blur.
+`SHOW_VISION_SURFACES` gates `/cloud` and `/api` navigation and direct route rendering for internal and fundraising demonstrations. `NEXT_PUBLIC_SHOW_VISION_SURFACES=false` hides both navigation entries and returns the application not-found surface before external Vault beta. Both routes are static UI only: no handlers, network calls, OAuth, keys, jobs, or integrations.
+
+Workspace Appearance is a persistent in-session preference in Configure Brand. Choosing Brand Identity records intent but does not reskin the application. The prepared theme-token type remains intentionally dormant until Vault persistence and runtime theming are earned.
+
+Asset deletion is session-local and centralized in `AssetProvider`, so the Asset Library, Identity, and Guide consume the same remaining records without duplicating Asset objects. Permission roles and capabilities are typed product preparation only; no authentication or enforcement exists.

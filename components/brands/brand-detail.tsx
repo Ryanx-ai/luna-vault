@@ -24,7 +24,6 @@ export function BrandDetail({ brandSlug }: { brandSlug: string }) {
   const { assets } = useAssets();
   const router = useRouter();
   const [activeView, setActiveView] = useState<"identity" | "assets" | "guide">("identity");
-  const [previewing, setPreviewing] = useState(false);
   const brand = brands.find((candidate) => candidate.slug === brandSlug);
   const validForVault = brand?.vaultId === selectedVault.id;
   const parent = brand?.parentBrandId ? brands.find((candidate) => candidate.id === brand.parentBrandId) : undefined;
@@ -47,7 +46,7 @@ export function BrandDetail({ brandSlug }: { brandSlug: string }) {
   return (
     <div className="mx-auto w-full max-w-[1120px] px-4 py-7 sm:px-6 sm:py-9 lg:px-8">
       <Link href="/brands" className="mb-5 inline-flex items-center gap-1.5 text-[11px] text-muted hover:text-foreground"><ArrowLeft className="size-3" />Brand Family</Link>
-      <header className="relative flex flex-col gap-5 pb-6 sm:flex-row sm:items-end sm:justify-between" style={previewing ? { background: "rgba(183,244,242,0.035)", boxShadow: "inset 3px 0 #B7F4F2", paddingInline: "16px", paddingTop: "16px" } : undefined}>
+      <header className="relative flex flex-col gap-5 pb-6 sm:flex-row sm:items-end sm:justify-between">
         <div className="flex min-w-0 items-start gap-4">
           <BrandMark brand={brand} className="size-14" />
           <div className="min-w-0">
@@ -57,7 +56,7 @@ export function BrandDetail({ brandSlug }: { brandSlug: string }) {
             <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-[11px] text-muted"><span className="flex items-center gap-1.5"><UserRound className="size-3.5" />{brand.owner.name}</span><span className="flex items-center gap-1.5"><Clock3 className="size-3.5" />Updated {displayDate.format(new Date(brand.updatedAt))}</span></div>
           </div>
         </div>
-        <div className="flex flex-wrap items-center gap-2"><button onPointerDown={()=>setPreviewing(true)} onPointerUp={()=>setPreviewing(false)} onPointerLeave={()=>setPreviewing(false)} onBlur={()=>setPreviewing(false)} onKeyDown={(event)=>{if(event.key===" "||event.key==="Enter"){event.preventDefault();setPreviewing(true);}}} onKeyUp={(event)=>{if(event.key===" "||event.key==="Enter")setPreviewing(false);}} aria-pressed={previewing} title="Press and hold to preview Brand appearance" className="h-9 border px-3 text-[10px] text-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50">Press and hold · Preview Brand</button><Button asChild variant="outline"><Link href={`/brands/${brand.slug}/configure`}><Settings2 className="size-3.5" />Configure Brand</Link></Button></div>
+        <div className="flex flex-wrap items-center gap-2"><Button asChild variant="outline"><Link href={`/brands/${brand.slug}/configure`}><Settings2 className="size-3.5" />Configure Brand</Link></Button></div>
       </header>
 
       <nav className="flex gap-1 border-b" aria-label={`${brand.name} workspace`}>

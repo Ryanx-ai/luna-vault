@@ -59,7 +59,7 @@ export function Sidebar({ onNavigate, collapsed = false, onToggleCollapsed }: { 
   return (
     <aside className="flex h-full w-full flex-col bg-panel">
       <div className={cn("flex items-center border-b px-3", collapsed ? "h-24 flex-col justify-center gap-2" : "h-14 justify-between")}>
-        {collapsed ? <Image src="/brand/luna-logomark.png" alt="Luna Vault" width={32} height={32} priority className="size-8 object-contain" /> : <LunaVaultLogo />}
+        {collapsed ? <span className="flex size-10 items-center justify-center overflow-hidden" aria-label="Luna Vault"><Image src="/brand/luna-logomark.svg" alt="" width={34} height={34} priority className="size-[34px] object-contain" /></span> : <LunaVaultLogo />}
         {onToggleCollapsed ? <button onClick={onToggleCollapsed} aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"} title={collapsed ? "Expand sidebar" : "Collapse sidebar"} className="flex size-7 shrink-0 items-center justify-center rounded-md text-muted hover:bg-elevated hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50">{collapsed ? <PanelLeftOpen className="size-4" /> : <PanelLeftClose className="size-3.5" />}</button> : null}
       </div>
 

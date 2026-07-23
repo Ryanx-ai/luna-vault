@@ -8,6 +8,7 @@ type AssetContextValue = {
   addAssets: (inputs: CreateAssetInput[]) => Asset[];
   togglePinned: (id: string) => void;
   updateAssets: (ids: string[], changes: Partial<Pick<Asset, "category" | "status" | "tags" | "pinned">>) => void;
+  deleteAssets: (ids: string[]) => void;
 };
 
 const AssetContext = createContext<AssetContextValue | null>(null);
@@ -26,7 +27,8 @@ export function AssetProvider({ initialAssets, children }: { initialAssets: Asse
   };
   const togglePinned = (id: string) => setAssets((current) => current.map((asset) => asset.id === id ? { ...asset, pinned: !asset.pinned } : asset));
   const updateAssets = (ids: string[], changes: Partial<Pick<Asset, "category" | "status" | "tags" | "pinned">>) => setAssets((current) => current.map((asset) => ids.includes(asset.id) ? { ...asset, ...changes, updatedAt: new Date().toISOString() } : asset));
-  const value = useMemo(() => ({ assets, addAssets, togglePinned, updateAssets }), [assets]);
+  const deleteAssets = (ids: string[]) => setAssets((current) => current.filter((asset) => !ids.includes(asset.id)));
+  const value = useMemo(() => ({ assets, addAssets, togglePinned, updateAssets, deleteAssets }), [assets]);
   return <AssetContext.Provider value={value}>{children}</AssetContext.Provider>;
 }
 

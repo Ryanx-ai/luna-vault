@@ -8,7 +8,7 @@ type BrandContextValue = {
   createBrand: (input: CreateBrandInput) => Brand;
   canMoveBrand: (brandId: string, parentBrandId?: string) => { ok: boolean; message?: string };
   moveBrand: (brandId: string, parentBrandId?: string) => { ok: boolean; message?: string };
-  commitIdentity: (brandId: string, ruleName: IdentityRuleName) => void;
+  saveIdentity: (brandId: string, ruleName: IdentityRuleName) => void;
 };
 
 const BrandContext = createContext<BrandContextValue | null>(null);
@@ -78,9 +78,9 @@ export function BrandProvider({ initialBrands, children }: { initialBrands: Bran
     }));
     return { ok: true };
   };
-  const commitIdentity = (brandId: string, ruleName: IdentityRuleName) => setBrands((current) => current.map((brand) => brand.id === brandId ? { ...brand, updatedAt: new Date().toISOString(), identityRules: brand.identityRules.map((rule) => rule.name === ruleName ? { ...rule, state: "Unique", sourceBrandId: undefined, note: `Committed for ${brand.name}.` } : rule) } : brand));
+  const saveIdentity = (brandId: string, ruleName: IdentityRuleName) => setBrands((current) => current.map((brand) => brand.id === brandId ? { ...brand, updatedAt: new Date().toISOString(), identityRules: brand.identityRules.map((rule) => rule.name === ruleName ? { ...rule, state: "Unique", sourceBrandId: undefined, note: `Saved for ${brand.name}.` } : rule) } : brand));
 
-  const value = useMemo(() => ({ brands, createBrand, canMoveBrand, moveBrand, commitIdentity }), [brands]);
+  const value = useMemo(() => ({ brands, createBrand, canMoveBrand, moveBrand, saveIdentity }), [brands]);
   return <BrandContext.Provider value={value}>{children}</BrandContext.Provider>;
 }
 

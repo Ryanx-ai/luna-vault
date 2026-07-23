@@ -551,3 +551,11 @@ Close Milestone 2 by establishing each Brand as the authoritative home for Ident
 ## Current status — LV.MS.003-H (23 July 2026)
 
 The Living Brand refinement is implemented and validated under Milestone 3. Commit remains session-local; Configure Brand is the governance route; the living palette, SVG-first duplicate review, temporary Brand preview, seeded Luna ecosystem, and static feature-gated Cloud/API Vision Surfaces are active in the internal build. Milestone 3 remains active pending founder approval. Milestone 4 has not started.
+
+## LV.MS.003-I — Final Milestone 3 hardening
+
+The final founder pass hardened clipboard access, persistent raster-source guidance, Logo metadata and export affordances, colour deletion with one-step session undo, and session-local Asset deletion with connected Identity/Guide warnings. The temporary press-and-hold preview was replaced by a persistent Workspace Appearance selector that records preference without applying runtime theming. Save now names local Identity edits; Commit is reserved for future Collection publishing. A typed future role/capability model is visible without fake enforcement.
+
+Cloud and API remain static, feature-gated internal and fundraising Vision Surfaces and can be hidden with `NEXT_PUBLIC_SHOW_VISION_SURFACES=false` before external Vault beta. No backend, authentication, storage, conversion infrastructure, permission enforcement, Collection workflow, Cloud/API functionality, Runtime work, or Milestone 4 implementation was added.
+
+Vault earns Cloud. Cloud earns API. API earns Runtime. Nothing skips the queue.
