@@ -122,3 +122,11 @@ UI components should depend on application-level queries and commands rather tha
 Supabase is deferred to Milestone 7. Its eventual integration should remain behind the data-service boundary and own authentication, relational persistence, storage, and row-level security. Supabase client calls should not be distributed directly through reusable UI components.
 
 The exact modules and schema will be decided when their milestone begins; they are intentionally not scaffolded today.
+
+## LV.MS.003-G architecture refinement
+
+`BrandProvider` now owns session-local hierarchy validation and mutation. The validator enforces Vault isolation, prevents self/circular moves, protects the automatic Parent Brand, and measures the destination plus subtree against the three-level limit. `BrandHierarchy` initiates drag intent, while Brands and Configure Brand require explicit confirmation before mutation.
+
+`IdentityWorkspace` composes Logo, Colour, Typography, and a contained appearance preview. Core Logo roles point to Brand-scoped Asset IDs; local image selection enters the same `AssetProvider`. Supported image previews use object URLs tracked and revoked by the provider. Colour and Typography changes remain component-local.
+
+`BrandThemeTokens` establishes Moonlight Black as the safe default and prepares future Brand-scoped adaptation without changing Luna’s shell or system typography. The desktop sidebar collapse remains session-local and leaves the mobile drawer independent. The known persistent top-bar scrolling issue is unchanged.

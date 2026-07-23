@@ -24,7 +24,7 @@ const inheritanceStyles: Record<InheritanceState, string> = {
 };
 
 export function BrandMark({ brand, className }: { brand: Brand; className?: string }) {
-  return <div className={cn("relative size-10 shrink-0 border bg-elevated", className)}><Image src={brand.mark} alt="" fill sizes="48px" className="object-contain" /></div>;
+  return <div className={cn("relative size-10 shrink-0 border bg-elevated", className)}><Image src={brand.mark} alt="" fill sizes="48px" priority className="object-contain" /></div>;
 }
 
 export function BrandStatusBadge({ status }: { status: BrandLifecycleStatus }) {

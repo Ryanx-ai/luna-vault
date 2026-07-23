@@ -63,3 +63,7 @@ Open [http://localhost:3000](http://localhost:3000). The root route redirects to
 Next.js 15, React 19, TypeScript, Tailwind CSS, and the Next.js App Router.
 
 **Current milestone:** Milestone 3 — Brand-Scoped Asset Library (complete, pending founder approval). Milestone 4 has not started. See the [roadmap](docs/roadmap.md) for the planned sequence of reviewable product increments.
+
+### Milestone 3 founder refinement
+
+The current review build adds editable session-local Brand hierarchy, drag-and-confirm re-parenting with an accessible Configure Brand fallback, three core Logo roles, structured Colour and Typography surfaces, a collapsible desktop sidebar, the simplified `Upload → Organise → Done` flow, and a vertical living Brand Guide. Moonlight Black remains Luna’s default appearance while typed Brand-theme tokens prepare a contained, accessible “chameleon” workspace concept. Milestone 3 remains active until founder approval; Milestone 4 has not started.

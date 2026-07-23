@@ -69,6 +69,31 @@ Turn the application foundation into a believable operational workspace and esta
 - Image loading passed.
 - The browser console contained no errors.
 
+## 2026-07-23 — LV.MS.003-G founder review refinement
+
+### Implemented
+
+- separated Brand families with restrained hierarchy boundaries
+- added drag-and-confirm session-local re-parenting and an accessible Configure Brand fallback
+- enforced self, cycle, Vault, protected-parent, and three-level move validation
+- replaced inheritance switch styling with explicit cyan tick / restrained red cross states
+- added shared-Asset Logo roles for Full Logo, Wordmark, and Logomark
+- added seeded horizontal Colour palette, deterministic HEX-to-RGB display, manual print fields, and session-local colour controls
+- added seeded Typography roles, specimens, preview size control, and safe local font metadata
+- introduced Moonlight Black Brand-theme tokens and a contained Brand appearance preview
+- added a session-local collapsible desktop sidebar with accessible icon labels; mobile navigation remains independent
+- simplified Asset intake to `Upload → Organise → Done`, removing Status and Description from upload
+- added supported local image previews with provider-owned object URL cleanup and clear unsupported-file fallback
+- removed status emphasis from main Asset cards and rows while preserving the internal domain field
+- rebuilt Guide as vertical editorial sections referencing Brand Identity and Asset records
+
+### Boundaries and debt
+
+- All hierarchy, Identity, Asset, and appearance changes remain browser-session local.
+- No persistence, Supabase, authentication, permissions, cloud storage, production conversion, Pantone guarantee, automatic logo derivatives, font packaging, or global Brand theming was added.
+- The top bar shell offset remains correct, but persistent top-bar behaviour still requires focused investigation against the actual browser scroll container.
+- Milestone 3 remains active pending founder approval. Milestone 4 has not started.
+
 ## LV.CLOSE.003 — End-of-Day Repository Closure
 
 **Status:** Complete<br />

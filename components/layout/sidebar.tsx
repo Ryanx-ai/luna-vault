@@ -3,13 +3,14 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { Check, ChevronDown, Command, Database, Plus } from "lucide-react";
+import Image from "next/image";
+import { Check, ChevronDown, Command, Database, PanelLeftClose, PanelLeftOpen, Plus } from "lucide-react";
 import { LunaVaultLogo } from "@/components/brand/luna-vault-logo";
 import { useVault } from "@/components/providers/vault-provider";
 import { primaryNavigation, utilityNavigation, type NavigationItem } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
 
-function NavLink({ item, onNavigate }: { item: NavigationItem; onNavigate?: () => void }) {
+function NavLink({ item, onNavigate, collapsed = false }: { item: NavigationItem; onNavigate?: () => void; collapsed?: boolean }) {
   const pathname = usePathname();
   const active = pathname === item.href || (item.href === "/brands" && pathname.startsWith("/brands/"));
   const Icon = item.icon;
@@ -19,18 +20,21 @@ function NavLink({ item, onNavigate }: { item: NavigationItem; onNavigate?: () =
       href={item.href}
       onClick={onNavigate}
       aria-current={active ? "page" : undefined}
+      aria-label={collapsed ? item.label : undefined}
+      title={collapsed ? item.label : undefined}
       className={cn(
         "group flex h-8 items-center gap-2.5 rounded-md px-2 text-[13px] transition-colors",
+        collapsed && "justify-center",
         active ? "bg-elevated text-foreground shadow-hairline" : "text-muted hover:bg-elevated/70 hover:text-subtle",
       )}
     >
       <Icon className="size-4 shrink-0" strokeWidth={1.6} />
-      <span>{item.label}</span>
+      {!collapsed ? <span>{item.label}</span> : null}
     </Link>
   );
 }
 
-export function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
+export function Sidebar({ onNavigate, collapsed = false, onToggleCollapsed }: { onNavigate?: () => void; collapsed?: boolean; onToggleCollapsed?: () => void }) {
   const { shellData, selectedVault, selectVault } = useVault();
   const [switcherOpen, setSwitcherOpen] = useState(false);
   const [createNotice, setCreateNotice] = useState(false);
@@ -54,19 +58,20 @@ export function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
 
   return (
     <aside className="flex h-full w-full flex-col bg-panel">
-      <div className="flex h-14 items-center border-b px-3">
-        <LunaVaultLogo />
+      <div className={cn("flex h-14 items-center border-b px-3", collapsed ? "justify-center" : "justify-between")}>
+        {collapsed ? <Image src="/brand/luna-logomark.png" alt="Luna Vault" width={24} height={24} priority className="size-6 object-contain" /> : <LunaVaultLogo />}
+        {onToggleCollapsed ? <button onClick={onToggleCollapsed} aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"} title={collapsed ? "Expand sidebar" : "Collapse sidebar"} className={cn("flex size-7 items-center justify-center text-muted hover:text-foreground", collapsed && "absolute left-[68px] top-3.5 border bg-panel shadow-lg")} >{collapsed ? <PanelLeftOpen className="size-3.5" /> : <PanelLeftClose className="size-3.5" />}</button> : null}
       </div>
 
-      <div ref={switcherRef} className="relative border-b px-3 py-3">
+      <div ref={switcherRef} className={cn("relative border-b py-3", collapsed ? "px-2" : "px-3")}>
         <button onClick={() => { setSwitcherOpen((open) => !open); setCreateNotice(false); }} aria-label={`Switch Vault, ${selectedVault.name} selected`} aria-haspopup="menu" aria-expanded={switcherOpen} className="flex h-10 w-full items-center gap-2.5 rounded-md border bg-canvas px-2 text-left transition-colors hover:bg-elevated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50">
           <span className="flex size-6 shrink-0 items-center justify-center rounded-sm bg-elevated text-[10px] font-semibold text-subtle">{selectedVault.name.slice(0, 2).toUpperCase()}</span>
-          <span className="min-w-0 flex-1"><span className="block truncate text-xs font-medium text-foreground">{selectedVault.name}</span><span className="block text-[9px] uppercase tracking-[0.1em] text-muted">Active Vault</span></span>
-          <ChevronDown className={cn("size-3.5 text-muted transition-transform", switcherOpen && "rotate-180")} />
+          {!collapsed ? <span className="min-w-0 flex-1"><span className="block truncate text-xs font-medium text-foreground">{selectedVault.name}</span><span className="block text-[9px] uppercase tracking-[0.1em] text-muted">Active Vault</span></span> : null}
+          {!collapsed ? <ChevronDown className={cn("size-3.5 text-muted transition-transform", switcherOpen && "rotate-180")} /> : null}
         </button>
 
         {switcherOpen ? (
-          <div className="absolute left-3 right-3 top-[58px] z-50 border bg-panel p-1 shadow-2xl" role="menu" aria-label="Select Vault">
+          <div className={cn("absolute top-[58px] z-50 border bg-panel p-1 shadow-2xl", collapsed ? "left-2 w-56" : "left-3 right-3")} role="menu" aria-label="Select Vault">
             <p className="px-2 py-1.5 text-[9px] font-semibold uppercase tracking-[0.12em] text-muted">Vaults</p>
             {shellData.vaults.map((vault) => {
               const active = vault.id === selectedVault.id;
@@ -78,19 +83,19 @@ export function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
       </div>
 
       <nav className="flex flex-1 flex-col gap-1 overflow-y-auto px-3 py-3" aria-label="Primary navigation">
-        <p className="mb-1 px-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-muted/70">Workspace</p>
-        {primaryNavigation.map((item) => <NavLink key={item.href} item={item} onNavigate={onNavigate} />)}
+        {!collapsed ? <p className="mb-1 px-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-muted/70">Workspace</p> : null}
+        {primaryNavigation.map((item) => <NavLink key={item.href} item={item} onNavigate={onNavigate} collapsed={collapsed} />)}
       </nav>
 
       <nav className="space-y-1 border-t px-3 py-3" aria-label="Utility navigation">
-        {utilityNavigation.map((item) => <NavLink key={item.href} item={item} onNavigate={onNavigate} />)}
+        {utilityNavigation.map((item) => <NavLink key={item.href} item={item} onNavigate={onNavigate} collapsed={collapsed} />)}
         <div className="mt-3 flex items-center gap-2 border-t px-2 pt-3">
           <div className="flex size-6 items-center justify-center rounded-full bg-elevated text-[10px] font-semibold text-subtle">LV</div>
-          <div className="min-w-0 flex-1">
+          {!collapsed ? <div className="min-w-0 flex-1">
             <p className="truncate text-xs font-medium text-subtle">{selectedVault.name} Vault</p>
             <p className="text-[10px] text-muted">v0.0.1</p>
-          </div>
-          <Command className="size-3.5 text-muted" />
+          </div> : null}
+          {!collapsed ? <Command className="size-3.5 text-muted" /> : null}
         </div>
       </nav>
     </aside>

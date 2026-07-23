@@ -101,3 +101,9 @@ These modes describe user intent rather than separate products. A single person 
 Luna Vault has not committed to whether Brands can be duplicated, transferred, shared, or referenced across Vaults. Kuro is the first internal MVP test environment; its use will inform which of those behaviours solves a real operational need without weakening the Vault boundary.
 
 Milestone 3 is complete. Brand creation and Asset Library changes remain local to the browser session and reset on refresh. Milestone 4 has not started.
+
+## Founder-review model refinement
+
+Brand hierarchy is editable session-locally through confirmed re-parenting. Moves remain inside one Vault, reject self/circular relationships, and preserve the three visible levels of Parent Brand, Sub-brand, and Nested Sub-brand. Configure Brand provides the keyboard-accessible equivalent to drag-and-drop.
+
+Identity prioritises three connected Logo Asset roles—Full Logo, Wordmark, and Logomark—alongside a structured Colour palette and Typography specimen. Logo references reuse Asset records; they are not duplicate files. Guide consumes these Brand and Asset records as a vertical living document. Moonlight Black is the default Brand-theme token set; Brand-adaptive appearance remains a contained preview concept.

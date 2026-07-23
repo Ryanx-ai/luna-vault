@@ -80,3 +80,11 @@ A freelancer or small studio should be able to create a useful vault without tra
 ## Built for creators and operators
 
 Designers create and structure the brand. Clients, marketers, developers, employees, and vendors use and maintain it. The product should support both groups without giving them identical workflows.
+
+## Brand-adaptive, Luna-safe
+
+A Brand workspace may reflect configured Logo, Colour, and Typography tokens, creating a controlled “chameleon” experience. Adaptation must preserve readable contrast, accessible interactions, stable system navigation, and Moonlight Black as the safe default. Uploaded fonts never control Luna’s shell.
+
+## Honest automation
+
+Derived logos, colour values, print references, and font packages must remain source-aware. Luna should not claim automatic output, Pantone accuracy, conversion quality, or licensing rights it cannot verify.

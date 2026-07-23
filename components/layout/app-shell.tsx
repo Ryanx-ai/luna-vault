@@ -14,6 +14,7 @@ import { Topbar } from "./topbar";
 
 export function AppShell({ children, shellData, brands, assets }: { children: React.ReactNode; shellData: ShellData; brands: Brand[]; assets: Asset[] }) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
@@ -25,8 +26,8 @@ export function AppShell({ children, shellData, brands, assets }: { children: Re
       <BrandProvider initialBrands={brands}>
         <AssetProvider initialAssets={assets}>
         <div className="relative h-dvh overflow-hidden bg-canvas">
-          <div className="fixed inset-y-0 left-0 z-40 hidden w-60 border-r md:block">
-            <Sidebar />
+          <div className={`fixed inset-y-0 left-0 z-40 hidden border-r transition-[width] md:block ${sidebarCollapsed ? "w-16" : "w-60"}`}>
+            <Sidebar collapsed={sidebarCollapsed} onToggleCollapsed={() => setSidebarCollapsed((value) => !value)} />
           </div>
 
           {mobileOpen && (
@@ -41,7 +42,7 @@ export function AppShell({ children, shellData, brands, assets }: { children: Re
             </div>
           )}
 
-          <div className="flex h-dvh min-w-0 flex-col md:ml-60">
+          <div className={`flex h-dvh min-w-0 flex-col transition-[margin] ${sidebarCollapsed ? "md:ml-16" : "md:ml-60"}`}>
             <Topbar onMenuClick={() => setMobileOpen(true)} />
             <main className="min-h-0 flex-1 overflow-y-auto overflow-x-hidden">{children}</main>
           </div>

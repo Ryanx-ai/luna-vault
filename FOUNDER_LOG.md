@@ -236,3 +236,11 @@ Activity is renamed Timeline to express the evolving history of the Brand Family
 ## LV.CLOSE.003 — End-of-day reflection
 
 Brands became the Vault home, and Timeline replaced Activity as the history of the Brand ecosystem. The Brand remains the single source of truth: Identity owns Logo, Colour, and Typography; Assets belong to Brands; and Guide brings that Brand information together without duplicating it. With the Asset Library established, Luna continues evolving from organised handover into a living Brand operating system. Milestone 3 is complete and ready for founder review. Milestone 4 has not started.
+
+## LV.MS.003-G — Founder walkthrough refinement
+
+The real Kuro workflow exposed where structure still felt like a prototype. Brand families now support deliberate drag-and-confirm hierarchy correction and an accessible Configure Brand path. Identity prioritises Full Logo, Wordmark, and Logomark, then presents Colour and Typography as guided systems rather than empty technical containers.
+
+The founder decision for Asset intake is `Upload → Organise → Done`: file, category, and tags are enough. Approval status and description no longer interrupt upload. Local image previews remain honest and ephemeral.
+
+The walkthrough also established the “chameleon” idea: a Brand workspace may eventually reflect its own identity, but adaptation must never undermine contrast, accessibility, Luna’s core navigation, or the safe Moonlight Black default. Automatic derivatives, colour conversion, and font conversion must remain source-aware and must never promise results the source file or licence cannot support. Milestone 3 remains active pending founder approval. Milestone 4 has not started.

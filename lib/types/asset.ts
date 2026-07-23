@@ -48,4 +48,4 @@ export type Asset = {
   usageNotes?: string;
 };
 
-export type CreateAssetInput = Pick<Asset, "vaultId" | "brandId" | "name" | "originalFilename" | "fileType" | "mimeType" | "extension" | "category" | "tags" | "status"> & Partial<Pick<Asset, "sizeBytes" | "description">>;
+export type CreateAssetInput = Pick<Asset, "vaultId" | "brandId" | "name" | "originalFilename" | "fileType" | "mimeType" | "extension" | "category" | "tags" | "status"> & Partial<Pick<Asset, "sizeBytes" | "description" | "thumbnail">>;

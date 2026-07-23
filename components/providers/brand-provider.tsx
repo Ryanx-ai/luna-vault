@@ -6,6 +6,8 @@ import type { Brand, CreateBrandInput, IdentityRuleName } from "@/lib/types/bran
 type BrandContextValue = {
   brands: Brand[];
   createBrand: (input: CreateBrandInput) => Brand;
+  canMoveBrand: (brandId: string, parentBrandId?: string) => { ok: boolean; message?: string };
+  moveBrand: (brandId: string, parentBrandId?: string) => { ok: boolean; message?: string };
 };
 
 const BrandContext = createContext<BrandContextValue | null>(null);
@@ -59,8 +61,43 @@ export function BrandProvider({ initialBrands, children }: { initialBrands: Bran
     return brand;
   };
 
-  const value = useMemo(() => ({ brands, createBrand }), [brands]);
+  const canMoveBrand = (brandId: string, parentBrandId?: string) => validateMove(brands, brandId, parentBrandId);
+  const moveBrand = (brandId: string, parentBrandId?: string) => {
+    const result = validateMove(brands, brandId, parentBrandId);
+    if (!result.ok) return result;
+    setBrands((current) => current.map((item) => {
+      if (item.id === brandId) {
+        const parent = current.find((candidate) => candidate.id === parentBrandId);
+        const type = !parentBrandId ? "Independent Brand" : parent?.parentBrandId ? "Nested Sub-brand" : "Sub-brand";
+        return { ...item, parentBrandId, type };
+      }
+      if (item.childBrandIds.includes(brandId)) return { ...item, childBrandIds: item.childBrandIds.filter((id) => id !== brandId) };
+      if (parentBrandId && item.id === parentBrandId) return { ...item, childBrandIds: [...new Set([...item.childBrandIds, brandId])] };
+      return item;
+    }));
+    return { ok: true };
+  };
+
+  const value = useMemo(() => ({ brands, createBrand, canMoveBrand, moveBrand }), [brands]);
   return <BrandContext.Provider value={value}>{children}</BrandContext.Provider>;
+}
+
+function validateMove(brands: Brand[], brandId: string, parentBrandId?: string) {
+  const brand = brands.find((item) => item.id === brandId);
+  if (!brand) return { ok: false, message: "Brand not found." };
+  if (brand.type === "Parent Brand") return { ok: false, message: "The Vault Parent Brand cannot be moved." };
+  if (!parentBrandId) return { ok: true };
+  const parent = brands.find((item) => item.id === parentBrandId);
+  if (!parent || parent.vaultId !== brand.vaultId) return { ok: false, message: "Choose a Brand in the same Vault." };
+  if (parentBrandId === brandId) return { ok: false, message: "A Brand cannot be its own parent." };
+  const descendants = new Set<string>();
+  const collect = (id: string) => brands.filter((item) => item.parentBrandId === id).forEach((child) => { descendants.add(child.id); collect(child.id); });
+  collect(brandId);
+  if (descendants.has(parentBrandId)) return { ok: false, message: "A Brand cannot move beneath one of its descendants." };
+  const depth = (item: Brand) => { let value = 1; let parentId = item.parentBrandId; while (parentId) { value += 1; parentId = brands.find((candidate) => candidate.id === parentId)?.parentBrandId; } return value; };
+  const subtreeHeight = (id: string): number => 1 + Math.max(0, ...brands.filter((item) => item.parentBrandId === id).map((child) => subtreeHeight(child.id)));
+  if (depth(parent) + subtreeHeight(brandId) > 3) return { ok: false, message: "This move would exceed the three-level Brand hierarchy." };
+  return { ok: true };
 }
 
 export function useBrands() {
