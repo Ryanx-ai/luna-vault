@@ -146,3 +146,9 @@ Asset deletion is session-local and centralized in `AssetProvider`, so the Asset
 ## Persistent top bar
 
 The main-column viewport owns one vertical scroll container. The top bar is the first child of that container and uses `position: sticky; top: 0`, while route content follows in normal document flow. This keeps the 56px header visible without fixed offsets or compensating page padding. Desktop sidebar width changes remain expressed by the main-column margin (`240px` expanded, `64px` collapsed); mobile has no desktop offset. The header’s `z-30` layer sits above route content and below the sidebar (`z-40`), mobile drawer (`z-50`), dialogs (`z-70`), and Asset overlays (`z-80`).
+
+## Final isolated shell model
+
+LV.TD.001-B supersedes the sticky implementation above following the founder’s clarified definition of the top bar. The application shell occupies exactly `100dvh`. Its main column is an explicit two-row grid: a non-scrolling 56px top-bar row and a `minmax(0, 1fr)` route row. The route `<main>` is the sole vertical scroll owner (`overflow-y: auto`); the top bar is not sticky and does not participate in route scrolling. The desktop sidebar remains a viewport-fixed 240px column or 64px collapsed rail, while mobile removes that offset and uses the existing fixed drawer.
+
+Measured on the long Kuro Brand page, route scroll moved from `0` to `638.5px` at 1440×900, `0` to `540px` at 1280×800, and `0` to `520px` at 390×844. Across those measurements the top bar stayed at `y=0`, its breadcrumb stayed at `y=19.5`, the route viewport stayed at `y=56`, and window, document element, and body scroll positions all remained `0`.

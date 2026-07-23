@@ -265,4 +265,8 @@ Vault earns Cloud. Cloud earns API. API earns Runtime. Nothing skips the queue. 
 
 The remaining top-bar debt is resolved. Luna Vault now has one deliberate main-column scroll container with a sticky 56px top bar, reliable desktop sidebar alignment, and unchanged mobile drawer behaviour. The correction formalises the existing shell without redesigning it. Milestone 4 has not started.
 
+## LV.TD.001-B — Founder shell definition proven
+
+The founder’s final definition supersedes the earlier sticky interpretation: the complete top bar is now structurally isolated from route scrolling. Luna Vault uses a fixed viewport sidebar, a non-scrolling 56px top-bar row, and one independently scrolling route viewport. Desktop, collapsed rail, mobile, and overlay measurements prove the shell remains stationary while only Brand content moves. Milestone 4 has not started.
+
 Milestone 3 remains active pending founder approval. Milestone 4 has not started.
